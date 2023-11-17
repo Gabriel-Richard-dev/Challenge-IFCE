@@ -1,0 +1,17 @@
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Infra.Data.deps.json
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Infra.Data.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/bin/Debug/net6.0/ref/ToDo.Infra.Data.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Infra.Data.pdb
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Domain.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Domain.pdb
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.csproj.AssemblyReference.cache
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.AssemblyInfoInputs.cache
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.AssemblyInfo.cs
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.csproj.CoreCompileInputs.cache
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.csproj.CopyComplete
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/obj/Debug/net6.0/ref/ToDo.Infra.Data.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.pdb
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Infra.Data.runtimeconfig.json
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.genruntimeconfig.cache

@@ -5,6 +5,7 @@ namespace ToDo.Domain.Entities;
 
 public class Assignment : Base
 {
+    protected Assignment() { }
     
     public Assignment(long id ,string title, string description, long userId,
         long atListid, bool concluded,
@@ -14,7 +15,7 @@ public class Assignment : Base
         Title = title;
         Description = description;
         UserId = userId;
-        AtListid = atListid;
+        AtListId = atListid;
         Concluded = concluded;
         DateConcluded = dateConcluded;
         Deadline = deadline;
@@ -26,7 +27,7 @@ public class Assignment : Base
         public string Title { get; set; }
         public string Description { get; set; }
         public long UserId { get; set; }
-        public long AtListid { get; set; }
+        public long AtListId { get; set; }
         public bool Concluded { get; set; }
         public DateTime DateConcluded { get; set; }
         public DateTime Deadline { get; set; }

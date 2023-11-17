@@ -23,9 +23,11 @@ public class UserMap : IEntityTypeConfiguration<User>
         builder.Property(u => u.Email)
             .IsRequired()
             .HasColumnType("VARCHAR(180)");
+        
         builder.Property(u => u.Password)
             .IsRequired()
             .HasColumnType("VARCHAR(40)");
+        
         builder.Property(u => u.AdminPrivileges)
             .HasDefaultValue(0)
             .HasColumnType("TINYINT");

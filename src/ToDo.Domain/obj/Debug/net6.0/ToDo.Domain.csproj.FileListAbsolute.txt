@@ -1,0 +1,12 @@
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/bin/Debug/net6.0/ToDo.Domain.deps.json
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/bin/Debug/net6.0/ToDo.Domain.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/bin/Debug/net6.0/ref/ToDo.Domain.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/bin/Debug/net6.0/ToDo.Domain.pdb
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/obj/Debug/net6.0/ToDo.Domain.csproj.AssemblyReference.cache
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/obj/Debug/net6.0/ToDo.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/obj/Debug/net6.0/ToDo.Domain.AssemblyInfoInputs.cache
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/obj/Debug/net6.0/ToDo.Domain.AssemblyInfo.cs
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/obj/Debug/net6.0/ToDo.Domain.csproj.CoreCompileInputs.cache
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/obj/Debug/net6.0/ToDo.Domain.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/obj/Debug/net6.0/ref/ToDo.Domain.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/obj/Debug/net6.0/ToDo.Domain.pdb

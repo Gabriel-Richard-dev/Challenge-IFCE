@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MBGZ5JQaJZkg7dRK98Ps6msstaWxXvGNJJCMAbaCub5tFVx8VkUIkoNJlo68Qk5ST+UgdomXwwaMkz+4SLoa9Q==",
+  "dgSpecHash": "9rW/eCLaGQb63nrQGAoOZ9Ixs6zY53El1QAC311Fr2rrMFALGcNlsqFLCg3hktCaQ2HdS5N/Rr/t6TQZ+7knUQ==",
   "success": true,
   "projectFilePath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/ToDo.Domain.csproj",
   "expectedPackageFiles": [

@@ -4,6 +4,8 @@ namespace ToDo.Domain.Entities;
 
 public class AssignmentList : Base
 {
+    protected AssignmentList() { }
+    
     public AssignmentList(long id, string name, long userId)
     {
         Id = id;

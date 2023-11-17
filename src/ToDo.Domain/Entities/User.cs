@@ -6,6 +6,7 @@ namespace ToDo.Domain.Entities;
 
 public class User : Base
 {
+    protected User(){ }
     public User(long id, string name, string email, string password, bool adminPrivileges)
     {
         Id = id;
