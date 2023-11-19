@@ -18,7 +18,7 @@ public class ToDoContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
-        var connection = "server=localhost; port=3306;database=TODODB; uid=root;password=";
+        var connection = "server=localhost; port=3306;database=TODODB; uid=root;password=0612";
         builder.UseMySql(connection, ServerVersion.AutoDetect(connection));
     }
     

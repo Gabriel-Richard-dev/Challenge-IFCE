@@ -17,10 +17,11 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
     private readonly ToDoContext _context;
     private readonly DbSet<T> _dbset;
     
-    public async void Create(T entity)
+    public async Task<T> Create(T entity)
     {
         _dbset.Add(entity);
         await _context.SaveChangesAsync();
+        return entity;
     }
 
     public Task<T?> GetById(int? id)
