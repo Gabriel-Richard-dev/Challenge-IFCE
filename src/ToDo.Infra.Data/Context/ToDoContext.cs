@@ -16,12 +16,12 @@ public class ToDoContext : DbContext
     public DbSet<AssignmentList> AssignmentLists { get; set; }
 
 
-    protected override void OnConfiguring(DbContextOptionsBuilder builder)
+/*    protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
         var connection = "server=localhost; port=3306;database=TODODB; uid=root;password=0612";
         builder.UseMySql(connection, ServerVersion.AutoDetect(connection));
     }
-    
+    */
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

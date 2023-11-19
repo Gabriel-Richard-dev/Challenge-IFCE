@@ -9,7 +9,8 @@
       "ToDo.API/1.0.0": {
         "dependencies": {
           "Swashbuckle.AspNetCore": "6.5.0",
-          "ToDo.Application": "1.0.0"
+          "ToDo.Application": "1.0.0",
+          "ToDo.Domain": "1.0.0"
         },
         "runtime": {
           "ToDo.API.dll": {}

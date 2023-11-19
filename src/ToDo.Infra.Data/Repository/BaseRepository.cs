@@ -17,7 +17,7 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
     private readonly ToDoContext _context;
     private readonly DbSet<T> _dbset;
     
-    public async Task<T> Create(T entity)
+    public virtual async Task<T> Create(T entity)
     {
         _dbset.Add(entity);
         await _context.SaveChangesAsync();

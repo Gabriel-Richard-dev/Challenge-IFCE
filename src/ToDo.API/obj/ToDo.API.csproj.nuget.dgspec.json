@@ -34,6 +34,9 @@
             "projectReferences": {
               "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Application\\ToDo.Application.csproj": {
                 "projectPath": "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Application\\ToDo.Application.csproj"
+              },
+              "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj": {
+                "projectPath": "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj"
               }
             }
           }

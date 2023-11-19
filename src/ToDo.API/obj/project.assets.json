@@ -1338,7 +1338,8 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Swashbuckle.AspNetCore >= 6.5.0",
-      "ToDo.Application >= 1.0.0"
+      "ToDo.Application >= 1.0.0",
+      "ToDo.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1375,6 +1376,9 @@
           "projectReferences": {
             "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Application\\ToDo.Application.csproj": {
               "projectPath": "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Application\\ToDo.Application.csproj"
+            },
+            "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj": {
+              "projectPath": "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj"
             }
           }
         }

@@ -10,12 +10,12 @@ namespace ToDo.API.Controllers;
 public class AdminController : ControllerBase
 {
 
-    public AdminController(AdminService adminService)
+    public AdminController(IAdminService adminService)
     {
         _adminService = adminService;
     }
 
-    private readonly AdminService _adminService;
+    private readonly IAdminService _adminService;
 
     [HttpPost]
     [Route("/CriarUsuario")]
