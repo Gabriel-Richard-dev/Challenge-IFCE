@@ -15,7 +15,9 @@
   </ItemGroup>
   <ItemGroup>
 	  <ProjectReference Include="..\ToDo.Application\ToDo.Application.csproj" />
+	  <ProjectReference Include="..\ToDo.Infra.Data\ToDo.Infra.Data.csproj" />
 	  <ProjectReference Include="..\ToDo.Domain\ToDo.Domain.csproj" />
+	  <ProjectReference Include="..\ToDo.Core\ToDo.Core.csproj" />
   </ItemGroup>
 
 </Project>

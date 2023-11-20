@@ -85,10 +85,10 @@
           "lib/netstandard2.0/_._": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/7.0.2": {
+      "Microsoft.EntityFrameworkCore.Relational/7.0.12": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "7.0.2",
+          "Microsoft.EntityFrameworkCore": "7.0.12",
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0"
         },
         "compile": {
@@ -412,14 +412,24 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "ToDo.Domain": "1.0.0",
-          "ToDo.Infra.Data": "1.0.0"
+          "AutoMapper": "12.0.1",
+          "ToDo.Domain": "1.0.0"
         },
         "compile": {
           "bin/placeholder/ToDo.Application.dll": {}
         },
         "runtime": {
           "bin/placeholder/ToDo.Application.dll": {}
+        }
+      },
+      "ToDo.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ToDo.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ToDo.Core.dll": {}
         }
       },
       "ToDo.Domain/1.0.0": {
@@ -441,6 +451,7 @@
         "dependencies": {
           "AutoMapper": "12.0.1",
           "Microsoft.EntityFrameworkCore": "7.0.12",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.12",
           "Pomelo.EntityFrameworkCore.MySql": "7.0.0",
           "ToDo.Domain": "1.0.0"
         },
@@ -604,17 +615,17 @@
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Relational/7.0.2": {
-      "sha512": "TbTGOdaGtjps3GP7rLWXEXzmP+EXhV8AwPE/ov0QYhs5i5vKZX5ZpVLMnco2MeMtiPgLyxE7DhQT8s1wlu190g==",
+    "Microsoft.EntityFrameworkCore.Relational/7.0.12": {
+      "sha512": "apLzFyjM3s/voBiaMCJPwIOk5SxA1N6GmSbhqthfbUDn8mX+kxZl4RXNdaoBLzPKfUg4EoqCtt0YON/g9YXruQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.relational/7.0.2",
+      "path": "microsoft.entityframeworkcore.relational/7.0.12",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.xml",
-        "microsoft.entityframeworkcore.relational.7.0.2.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.7.0.12.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
@@ -1324,6 +1335,11 @@
       "path": "../ToDo.Application/ToDo.Application.csproj",
       "msbuildProject": "../ToDo.Application/ToDo.Application.csproj"
     },
+    "ToDo.Core/1.0.0": {
+      "type": "project",
+      "path": "../ToDo.Core/ToDo.Core.csproj",
+      "msbuildProject": "../ToDo.Core/ToDo.Core.csproj"
+    },
     "ToDo.Domain/1.0.0": {
       "type": "project",
       "path": "../ToDo.Domain/ToDo.Domain.csproj",
@@ -1339,7 +1355,9 @@
     "net6.0": [
       "Swashbuckle.AspNetCore >= 6.5.0",
       "ToDo.Application >= 1.0.0",
-      "ToDo.Domain >= 1.0.0"
+      "ToDo.Core >= 1.0.0",
+      "ToDo.Domain >= 1.0.0",
+      "ToDo.Infra.Data >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1377,8 +1395,14 @@
             "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Application\\ToDo.Application.csproj": {
               "projectPath": "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Application\\ToDo.Application.csproj"
             },
+            "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj": {
+              "projectPath": "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj"
+            },
             "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj": {
               "projectPath": "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj"
+            },
+            "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Infra.Data\\ToDo.Infra.Data.csproj": {
+              "projectPath": "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Infra.Data\\ToDo.Infra.Data.csproj"
             }
           }
         }

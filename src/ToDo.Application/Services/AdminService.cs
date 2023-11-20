@@ -2,7 +2,6 @@ using System;
 using ToDo.Application.Interfaces;
 using ToDo.Domain.Entities;
 using ToDo.Application.DTO;
-using ToDo.Infra.Data.Repository;
 using ToDo.Domain.Contracts.Repository;
 using ToDo.Application.Interfaces;
 using AutoMapper;

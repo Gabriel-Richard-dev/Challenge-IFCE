@@ -10,7 +10,9 @@
         "dependencies": {
           "Swashbuckle.AspNetCore": "6.5.0",
           "ToDo.Application": "1.0.0",
-          "ToDo.Domain": "1.0.0"
+          "ToDo.Core": "1.0.0",
+          "ToDo.Domain": "1.0.0",
+          "ToDo.Infra.Data": "1.0.0"
         },
         "runtime": {
           "ToDo.API.dll": {}
@@ -60,15 +62,15 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/7.0.12": {},
-      "Microsoft.EntityFrameworkCore.Relational/7.0.2": {
+      "Microsoft.EntityFrameworkCore.Relational/7.0.12": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.12",
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0"
         },
         "runtime": {
           "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.dll": {
-            "assemblyVersion": "7.0.2.0",
-            "fileVersion": "7.0.222.58006"
+            "assemblyVersion": "7.0.12.0",
+            "fileVersion": "7.0.1223.47811"
           }
         }
       },
@@ -192,7 +194,7 @@
       },
       "Pomelo.EntityFrameworkCore.MySql/7.0.0": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "7.0.2",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.12",
           "MySqlConnector": "2.2.5"
         },
         "runtime": {
@@ -243,11 +245,16 @@
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
       "ToDo.Application/1.0.0": {
         "dependencies": {
-          "ToDo.Domain": "1.0.0",
-          "ToDo.Infra.Data": "1.0.0"
+          "AutoMapper": "12.0.1",
+          "ToDo.Domain": "1.0.0"
         },
         "runtime": {
           "ToDo.Application.dll": {}
+        }
+      },
+      "ToDo.Core/1.0.0": {
+        "runtime": {
+          "ToDo.Core.dll": {}
         }
       },
       "ToDo.Domain/1.0.0": {
@@ -262,6 +269,7 @@
         "dependencies": {
           "AutoMapper": "12.0.1",
           "Microsoft.EntityFrameworkCore": "7.0.12",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.12",
           "Pomelo.EntityFrameworkCore.MySql": "7.0.0",
           "ToDo.Domain": "1.0.0"
         },
@@ -319,12 +327,12 @@
       "path": "microsoft.entityframeworkcore.analyzers/7.0.12",
       "hashPath": "microsoft.entityframeworkcore.analyzers.7.0.12.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Relational/7.0.2": {
+    "Microsoft.EntityFrameworkCore.Relational/7.0.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-TbTGOdaGtjps3GP7rLWXEXzmP+EXhV8AwPE/ov0QYhs5i5vKZX5ZpVLMnco2MeMtiPgLyxE7DhQT8s1wlu190g==",
-      "path": "microsoft.entityframeworkcore.relational/7.0.2",
-      "hashPath": "microsoft.entityframeworkcore.relational.7.0.2.nupkg.sha512"
+      "sha512": "sha512-apLzFyjM3s/voBiaMCJPwIOk5SxA1N6GmSbhqthfbUDn8mX+kxZl4RXNdaoBLzPKfUg4EoqCtt0YON/g9YXruQ==",
+      "path": "microsoft.entityframeworkcore.relational/7.0.12",
+      "hashPath": "microsoft.entityframeworkcore.relational.7.0.12.nupkg.sha512"
     },
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
       "type": "package",
@@ -453,6 +461,11 @@
       "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
     },
     "ToDo.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ToDo.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

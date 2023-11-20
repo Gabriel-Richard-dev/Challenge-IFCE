@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qIt9eNzgJApPKyvHde1zaPDpFoo6Z0/Ajy0HdJXdNGNRUellEF8RYRboQSBqp2aTrGixQ4UUDJ2kK3aNXF7Q/Q==",
+  "dgSpecHash": "w4Vft6sVSXzibcEFYCFADguE2mmFmTdlfOgdATmWi4saH+nLkLda3vYRutUiw7b0lTQKUR76HNOSsQh4+MIYcQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.API\\ToDo.API.csproj",
   "expectedPackageFiles": [
@@ -10,7 +10,7 @@
     "C:\\Users\\Gabriel Richard\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.12\\microsoft.entityframeworkcore.7.0.12.nupkg.sha512",
     "C:\\Users\\Gabriel Richard\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.12\\microsoft.entityframeworkcore.abstractions.7.0.12.nupkg.sha512",
     "C:\\Users\\Gabriel Richard\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.12\\microsoft.entityframeworkcore.analyzers.7.0.12.nupkg.sha512",
-    "C:\\Users\\Gabriel Richard\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.2\\microsoft.entityframeworkcore.relational.7.0.2.nupkg.sha512",
+    "C:\\Users\\Gabriel Richard\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.12\\microsoft.entityframeworkcore.relational.7.0.12.nupkg.sha512",
     "C:\\Users\\Gabriel Richard\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Gabriel Richard\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Gabriel Richard\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
