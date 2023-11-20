@@ -22,12 +22,12 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
         throw new NotImplementedException();
     }
 
-    public Task<T?> GetById(int? id)
+
+    public virtual async Task<List<T>> GetAll()
     {
         throw new NotImplementedException();
     }
-
-    public Task<List<T>> GetAll()
+    public virtual async Task<T?> GetById(long id)
     {
         throw new NotImplementedException();
     }

@@ -42,7 +42,14 @@ public class AdminService : IAdminService
 		AssignmentList assignmentListcreated = await _atListRepository.Create(assignmentmapper);
 		return assignmentListcreated;
 	}
-	
-	
-	
+
+	public async Task<List<User>?> GetAllUsers()
+	{
+		return await _userRepository.GetAll();
+	}
+
+	public Task<User?> GetUserById(long id)
+	{
+		return _userRepository.GetById(id);
+	}
 }

@@ -8,4 +8,6 @@ public interface IAdminService
     Task<User> CreateUser(UserDTO user);
     Task<Assignment> DelegateTask(AssignmentDTO assignment);
     Task<AssignmentList> DelegateList(AssignmentListDTO list);
+    Task<List<User>> GetAllUsers();
+    Task<User?> GetUserById(long id);
 }

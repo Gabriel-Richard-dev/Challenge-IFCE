@@ -39,6 +39,20 @@ public class AdminController : ControllerBase
         await _adminService.DelegateTask(assignment);
         return Ok(assignment);
     }
+
+    [HttpGet]
+    [Route("/GetUsers")]
+    public async Task<IActionResult> GetUsers()
+    {
+        return Ok(await _adminService.GetAllUsers());
+    }
+    
+    [HttpGet]
+    [Route("/GetUserById/{id}")]
+    public async Task<IActionResult> GetUserById(int id)
+    {
+        return Ok(await _adminService.GetUserById(id));
+    }
     
     
     

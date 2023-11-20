@@ -1,4 +1,5 @@
 using System;
+using Microsoft.EntityFrameworkCore;
 using ToDo.Domain.Entities;
 using ToDo.Domain.Contracts.Repository;
 using ToDo.Infra.Data.Context;
@@ -18,4 +19,22 @@ public class UserRepository : BaseRepository<User>, IUserRepository
         await _context.SaveChangesAsync();
         return user;
     }
+
+    public override async Task<List<User>?> GetAll()
+    {
+        return await _context.Users.ToListAsync();
+    }
+    public override async Task<User?> GetById(long id)
+    {
+        var userexists = await _context.Users.FindAsync(id);
+        if (userexists is not null)
+        {
+            var user = _context.Users.Where(u => u.Id == id).ToListAsync().Result;
+            return user.FirstOrDefault();
+        }
+
+        throw new Exception();
+    }
+    
+    
 }
