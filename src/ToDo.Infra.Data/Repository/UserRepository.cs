@@ -7,9 +7,15 @@ namespace ToDo.Infra.Data.Repository;
 
 public class UserRepository : BaseRepository<User>, IUserRepository
 {
-    private readonly ToDoContext _context;
+
     public UserRepository(ToDoContext context) : base(context)
+    { }
+
+    public override async Task<User> Create(User user)
     {
-        _context= context;
-    } 
+        user.Validation();
+        _context.Users.Add(user);
+        await _context.SaveChangesAsync();
+        return user;
+    }
 }

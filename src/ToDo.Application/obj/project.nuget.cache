@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "KH3rh4LXj6EhgMfbJuw1qyClyW3TBES0LfhlhOSv9reVNZh4JDNxyIShnvEgIDc5NyCpYLGsRXBZDsIoojLGdA==",
+  "dgSpecHash": "FjsChBKp7SHezMZrEFI+w8OT4e9y1naEuutjQGc8/yRaZUaydk3m8OodHKiInXrm+gt/E4c3nO2Pzk1mC/Ghnw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Application\\ToDo.Application.csproj",
+  "projectFilePath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/ToDo.Application.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Gabriel Richard\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
-    "C:\\Users\\Gabriel Richard\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",
-    "C:\\Users\\Gabriel Richard\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+    "/home/gabrielrichard/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
+    "/home/gabrielrichard/.nuget/packages/fluentvalidation/11.8.0/fluentvalidation.11.8.0.nupkg.sha512",
+    "/home/gabrielrichard/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

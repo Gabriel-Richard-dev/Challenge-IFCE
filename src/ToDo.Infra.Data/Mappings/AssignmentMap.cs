@@ -11,6 +11,7 @@ public class AssignmentMap : IEntityTypeConfiguration<Assignment>
         builder.HasKey(a => a.Id);
         
         builder.Property(a => a.Id)
+            .UseMySqlIdentityColumn()
             .HasColumnType("BIGINT");
 
 

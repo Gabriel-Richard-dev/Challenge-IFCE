@@ -1,15 +1,30 @@
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Application\bin\Debug\net6.0\ToDo.Application.deps.json
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Application\bin\Debug\net6.0\ToDo.Application.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Application\bin\Debug\net6.0\ToDo.Application.pdb
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Application\bin\Debug\net6.0\ToDo.Domain.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Application\bin\Debug\net6.0\ToDo.Domain.pdb
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Application\obj\Debug\net6.0\ToDo.Application.csproj.AssemblyReference.cache
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Application\obj\Debug\net6.0\ToDo.Application.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Application\obj\Debug\net6.0\ToDo.Application.AssemblyInfoInputs.cache
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Application\obj\Debug\net6.0\ToDo.Application.AssemblyInfo.cs
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Application\obj\Debug\net6.0\ToDo.Application.csproj.CoreCompileInputs.cache
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Application\obj\Debug\net6.0\ToDo.Application.csproj.CopyComplete
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Application\obj\Debug\net6.0\ToDo.Application.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Application\obj\Debug\net6.0\refint\ToDo.Application.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Application\obj\Debug\net6.0\ToDo.Application.pdb
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Application\obj\Debug\net6.0\ref\ToDo.Application.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Application/bin/Debug/net6.0/ToDo.Application.deps.json
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Application/bin/Debug/net6.0/ToDo.Application.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Application/bin/Debug/net6.0/ToDo.Application.pdb
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Application/bin/Debug/net6.0/ToDo.Domain.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Application/bin/Debug/net6.0/ToDo.Domain.pdb
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.csproj.AssemblyReference.cache
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.AssemblyInfoInputs.cache
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.AssemblyInfo.cs
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.csproj.CoreCompileInputs.cache
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.csproj.CopyComplete
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Application/obj/Debug/net6.0/refint/ToDo.Application.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.pdb
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Application/obj/Debug/net6.0/ref/ToDo.Application.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/bin/Debug/net6.0/ToDo.Application.deps.json
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/bin/Debug/net6.0/ToDo.Application.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/bin/Debug/net6.0/ToDo.Application.pdb
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/bin/Debug/net6.0/ToDo.Domain.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/bin/Debug/net6.0/ToDo.Domain.pdb
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.csproj.AssemblyReference.cache
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.AssemblyInfoInputs.cache
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.AssemblyInfo.cs
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.csproj.CoreCompileInputs.cache
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.csproj.CopyComplete
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/obj/Debug/net6.0/refint/ToDo.Application.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.pdb
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/obj/Debug/net6.0/ref/ToDo.Application.dll

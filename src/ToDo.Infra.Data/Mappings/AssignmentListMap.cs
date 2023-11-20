@@ -11,6 +11,10 @@ public class AssignmentListMap : IEntityTypeConfiguration<AssignmentList>
         builder.ToTable("AssignmentList");
         builder.HasKey(a => a.Id);
 
+        builder.Property(a => a.Id)
+            .UseMySqlIdentityColumn()
+            .HasColumnType("BIGINT");
+
         builder.Property(a => a.Name)
             .IsRequired()
             .HasColumnType("VARCHAR(20)");

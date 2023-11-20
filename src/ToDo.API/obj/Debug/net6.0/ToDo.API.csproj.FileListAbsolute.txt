@@ -30,59 +30,83 @@
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/ToDo.API.pdb
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/ToDo.API.genruntimeconfig.cache
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/ref/ToDo.API.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\ToDo.API.csproj.AssemblyReference.cache
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\ToDo.API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\ToDo.API.AssemblyInfoInputs.cache
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\ToDo.API.AssemblyInfo.cs
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\ToDo.API.csproj.CoreCompileInputs.cache
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\ToDo.API.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\ToDo.API.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\appsettings.Development.json
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\appsettings.json
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\ToDo.API.exe
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\ToDo.API.deps.json
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\ToDo.API.runtimeconfig.json
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\ToDo.API.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\ToDo.API.pdb
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\AutoMapper.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\FluentValidation.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\MySqlConnector.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\ToDo.Application.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\ToDo.Core.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\ToDo.Domain.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\ToDo.Infra.Data.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\ToDo.Application.pdb
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\ToDo.Infra.Data.pdb
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\ToDo.Domain.pdb
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\bin\Debug\net6.0\ToDo.Core.pdb
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\staticwebassets\msbuild.ToDo.API.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\staticwebassets\msbuild.build.ToDo.API.props
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ToDo.API.props
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ToDo.API.props
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\staticwebassets.pack.json
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\staticwebassets.build.json
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\staticwebassets.development.json
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\scopedcss\bundle\ToDo.API.styles.css
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\ToDo.API.csproj.CopyComplete
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\ToDo.API.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\refint\ToDo.API.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\ToDo.API.pdb
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\ToDo.API.genruntimeconfig.cache
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.API\obj\Debug\net6.0\ref\ToDo.API.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ToDo.API.csproj.AssemblyReference.cache
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ToDo.API.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ToDo.API.AssemblyInfoInputs.cache
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ToDo.API.AssemblyInfo.cs
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ToDo.API.csproj.CoreCompileInputs.cache
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ToDo.API.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ToDo.API.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/appsettings.Development.json
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/appsettings.json
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/ToDo.API.exe
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/ToDo.API.deps.json
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/ToDo.API.runtimeconfig.json
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/ToDo.API.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/ToDo.API.pdb
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/AutoMapper.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/FluentValidation.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Relational.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/Microsoft.Extensions.Caching.Abstractions.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/Microsoft.Extensions.Caching.Memory.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/Microsoft.Extensions.Configuration.Abstractions.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/Microsoft.Extensions.Logging.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/Microsoft.Extensions.Logging.Abstractions.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/Microsoft.Extensions.Options.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/Microsoft.Extensions.Primitives.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/Microsoft.OpenApi.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/MySqlConnector.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/Pomelo.EntityFrameworkCore.MySql.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/ToDo.Application.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/ToDo.Core.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/ToDo.Domain.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/ToDo.Infra.Data.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/ToDo.Application.pdb
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/ToDo.Infra.Data.pdb
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/ToDo.Domain.pdb
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/bin/Debug/net6.0/ToDo.Core.pdb
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/staticwebassets/msbuild.ToDo.API.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/staticwebassets/msbuild.build.ToDo.API.props
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.ToDo.API.props
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.ToDo.API.props
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/staticwebassets.pack.json
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/staticwebassets.build.json
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/staticwebassets.development.json
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/scopedcss/bundle/ToDo.API.styles.css
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ToDo.API.csproj.CopyComplete
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ToDo.API.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/refint/ToDo.API.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ToDo.API.pdb
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ToDo.API.genruntimeconfig.cache
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ref/ToDo.API.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/AutoMapper.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/FluentValidation.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Relational.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/Microsoft.Extensions.Caching.Abstractions.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/Microsoft.Extensions.Caching.Memory.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/Microsoft.Extensions.Configuration.Abstractions.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/Microsoft.Extensions.Logging.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/Microsoft.Extensions.Logging.Abstractions.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/Microsoft.Extensions.Options.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/Microsoft.Extensions.Primitives.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/MySqlConnector.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/Pomelo.EntityFrameworkCore.MySql.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/ToDo.Application.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/ToDo.Core.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/ToDo.Domain.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/ToDo.Infra.Data.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/ToDo.Application.pdb
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/ToDo.Infra.Data.pdb
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/ToDo.Domain.pdb
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/ToDo.Core.pdb

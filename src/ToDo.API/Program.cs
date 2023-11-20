@@ -21,6 +21,8 @@ void AutoMapperDependencyInjection()
     var automapperconfigure = new MapperConfiguration(options =>
     { 
         options.CreateMap<User, UserDTO >().ReverseMap(); 
+        options.CreateMap<Assignment, AssignmentDTO >().ReverseMap(); 
+        options.CreateMap<AssignmentList, AssignmentListDTO >().ReverseMap(); 
     });
 
     builder.Services.AddSingleton(automapperconfigure.CreateMapper());
@@ -36,6 +38,8 @@ builder.Services.AddSingleton(d => builder.Configuration);
 
 builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAssignmentRepository, AssignmentRepository>();
+builder.Services.AddScoped<IAssignmentListRepository, AssignmentListRepository>();
 
 
 

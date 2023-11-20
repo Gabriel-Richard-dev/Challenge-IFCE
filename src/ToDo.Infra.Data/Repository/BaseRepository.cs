@@ -14,15 +14,12 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
         _dbset = context.Set<T>();
     }
     
-    private readonly ToDoContext _context;
+    protected readonly ToDoContext _context;
     private readonly DbSet<T> _dbset;
     
     public virtual async Task<T> Create(T entity)
     {
-        _dbset.Add(entity);
-        _context.Add(_dbset);
-        _context.SaveChanges();
-        return entity;
+        throw new NotImplementedException();
     }
 
     public Task<T?> GetById(int? id)

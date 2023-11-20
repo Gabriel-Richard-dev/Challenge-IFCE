@@ -29,6 +29,11 @@ public class User : Base
     public override bool Validation()
     {
         var validator = new  UserValidator().Validate(this);
+        if (!validator.IsValid)
+        {
+            throw new Exception();
+        }
+
         return validator.IsValid;
     }
     

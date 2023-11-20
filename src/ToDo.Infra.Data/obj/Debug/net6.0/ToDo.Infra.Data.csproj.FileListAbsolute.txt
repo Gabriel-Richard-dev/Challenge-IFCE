@@ -1,6 +1,5 @@
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Infra.Data.deps.json
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Infra.Data.dll
-/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/bin/Debug/net6.0/ref/ToDo.Infra.Data.dll
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Infra.Data.pdb
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Domain.dll
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Domain.pdb
@@ -15,20 +14,21 @@
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.pdb
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Infra.Data.runtimeconfig.json
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.genruntimeconfig.cache
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Infra.Data\bin\Debug\net6.0\ToDo.Infra.Data.deps.json
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Infra.Data\bin\Debug\net6.0\ToDo.Infra.Data.runtimeconfig.json
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Infra.Data\bin\Debug\net6.0\ToDo.Infra.Data.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Infra.Data\bin\Debug\net6.0\ToDo.Infra.Data.pdb
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Infra.Data\bin\Debug\net6.0\ToDo.Domain.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Infra.Data\bin\Debug\net6.0\ToDo.Domain.pdb
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Infra.Data\obj\Debug\net6.0\ToDo.Infra.Data.csproj.AssemblyReference.cache
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Infra.Data\obj\Debug\net6.0\ToDo.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Infra.Data\obj\Debug\net6.0\ToDo.Infra.Data.AssemblyInfoInputs.cache
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Infra.Data\obj\Debug\net6.0\ToDo.Infra.Data.AssemblyInfo.cs
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Infra.Data\obj\Debug\net6.0\ToDo.Infra.Data.csproj.CoreCompileInputs.cache
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Infra.Data\obj\Debug\net6.0\ToDo.Infra.Data.csproj.CopyComplete
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Infra.Data\obj\Debug\net6.0\ToDo.Infra.Data.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Infra.Data\obj\Debug\net6.0\refint\ToDo.Infra.Data.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Infra.Data\obj\Debug\net6.0\ToDo.Infra.Data.pdb
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Infra.Data\obj\Debug\net6.0\ToDo.Infra.Data.genruntimeconfig.cache
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Infra.Data\obj\Debug\net6.0\ref\ToDo.Infra.Data.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Infra.Data.deps.json
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Infra.Data.runtimeconfig.json
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Infra.Data.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Infra.Data.pdb
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Domain.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Domain.pdb
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.csproj.AssemblyReference.cache
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.AssemblyInfoInputs.cache
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.AssemblyInfo.cs
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.csproj.CoreCompileInputs.cache
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.csproj.CopyComplete
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/refint/ToDo.Infra.Data.dll
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.pdb
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.genruntimeconfig.cache
+C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ref/ToDo.Infra.Data.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/obj/Debug/net6.0/refint/ToDo.Infra.Data.dll

@@ -7,5 +7,5 @@ namespace ToDo.Domain.Contracts.Repository;
 
 public interface IUserRepository: IBaseRepository<User>
 {
-
+    
 }
