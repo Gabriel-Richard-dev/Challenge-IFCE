@@ -1,26 +1,29 @@
 using System;
 using ToDo.Application.Interfaces;
 using ToDo.Application.DTO;
+using ToDo.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 using ToDo.Domain.Entities;
+
 
 namespace ToDo.API.Controllers;
 
 [ApiController]
-[Route("/Admin")]
 public class AdminController : ControllerBase
 {
 
-    public AdminController(IAdminService adminService)
+    public AdminController(IAdminService adminService, IAssignmentService assignmentService)
     {
         _adminService = adminService;
+        _assignmentService = assignmentService;
     }
 
     private readonly IAdminService _adminService;
+    private readonly IAssignmentService _assignmentService;
 
     [HttpPost]
     [Route("/CriarUsuario")]
-    public async Task<IActionResult> CreateUser([FromBody] UserDTO user)
+    public async Task<IActionResult> CreateUser([FromForm] UserDTO user)
     {
         await _adminService.CreateUser(user);
         return Ok(user);
@@ -34,9 +37,9 @@ public class AdminController : ControllerBase
     }
     [HttpPost]
     [Route("/DelegateTask")]
-    public async Task<IActionResult> DelegateTask([FromBody] AssignmentDTO assignment)
+    public async Task<IActionResult> DelegateTask([FromForm] AssignmentDTO assignment)
     {
-        await _adminService.DelegateTask(assignment);
+        var assignmentCreated = await _assignmentService.CreateTask(assignment);
         return Ok(assignment);
     }
 

@@ -37,6 +37,8 @@ builder.Services.AddDbContext<ToDoContext>(options => options.UseMySql(connectio
 builder.Services.AddSingleton(d => builder.Configuration);
 
 builder.Services.AddScoped<IAdminService, AdminService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IAssignmentService, AssignmentService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAssignmentRepository, AssignmentRepository>();
 builder.Services.AddScoped<IAssignmentListRepository, AssignmentListRepository>();

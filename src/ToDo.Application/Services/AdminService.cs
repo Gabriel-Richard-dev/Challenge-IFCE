@@ -30,18 +30,26 @@ public class AdminService : IAdminService
 		var usercreated = await _userRepository.Create(usermapped);
 		return usercreated;
 	}
-	public async Task<Assignment> DelegateTask(AssignmentDTO assignment)
-	{
-		Assignment assignmentmapper = _mapper.Map<Assignment>(assignment); 
-		var assignmentcreated = await _assignmentRepository.Create(assignmentmapper);
-		return assignmentcreated;
-	}
+
+
 	public async Task<AssignmentList> DelegateList(AssignmentListDTO assignmentlist)
 	{
 		AssignmentList assignmentmapper = _mapper.Map<AssignmentList>(assignmentlist); 
 		AssignmentList assignmentListcreated = await _atListRepository.Create(assignmentmapper);
 		return assignmentListcreated;
 	}
+
+	// public async Task<Assignment> DelegateTask(AssignmentDTO assignment)
+
+	// {
+
+	// 	Assignment assignmentmapper = _mapper.Map<Assignment>(assignment); 
+
+	// 	var assignmentcreated = await _assignmentRepository.Create(assignmentmapper);
+
+	// 	return assignmentcreated;
+
+	// }
 
 	public async Task<List<User>?> GetAllUsers()
 	{
@@ -51,5 +59,6 @@ public class AdminService : IAdminService
 	public Task<User?> GetUserById(long id)
 	{
 		return _userRepository.GetById(id);
-	}
+	}	
+	
 }

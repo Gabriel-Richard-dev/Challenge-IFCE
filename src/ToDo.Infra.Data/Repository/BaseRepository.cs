@@ -30,6 +30,10 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
     public virtual async Task<T?> GetById(long id)
     {
         throw new NotImplementedException();
+    }    
+    public virtual async Task<T> GetByEmail(string email)
+    {
+        throw new NotImplementedException();
     }
 
     public void Update(T entity)

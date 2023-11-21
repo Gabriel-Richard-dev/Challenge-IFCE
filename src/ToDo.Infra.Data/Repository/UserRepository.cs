@@ -36,5 +36,17 @@ public class UserRepository : BaseRepository<User>, IUserRepository
         throw new Exception();
     }
     
+    public override async Task<User> GetByEmail(string email)
+    {
+        var userexists = await _context.Users.FindAsync(email);
+        if (userexists is not null)
+        {
+            var user = _context.Users.Where(u => u.Email == email).ToListAsync().Result;
+            return user.FirstOrDefault();
+        }
+
+        throw new Exception();
+    }
+    
     
 }

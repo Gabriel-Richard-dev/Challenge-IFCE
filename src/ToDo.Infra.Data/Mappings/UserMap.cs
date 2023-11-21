@@ -23,6 +23,9 @@ public class UserMap : IEntityTypeConfiguration<User>
         builder.Property(u => u.Email)
             .IsRequired()
             .HasColumnType("VARCHAR(180)");
+
+
+        builder.HasIndex(u => u.Email).IsUnique();
         
         builder.Property(u => u.Password)
             .IsRequired()
