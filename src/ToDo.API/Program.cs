@@ -22,6 +22,8 @@ void AutoMapperDependencyInjection()
     { 
         options.CreateMap<User, UserDTO >().ReverseMap(); 
         options.CreateMap<Assignment, AssignmentDTO >().ReverseMap(); 
+        options.CreateMap<AssignmentDTO, AddAssignmentDTO >().ReverseMap(); 
+        options.CreateMap<AssignmentListDTO, AddAssignmentListDTO >().ReverseMap(); 
         options.CreateMap<AssignmentList, AssignmentListDTO >().ReverseMap(); 
     });
 
@@ -32,13 +34,15 @@ AutoMapperDependencyInjection();
 
 var connectionstring = builder.Configuration.GetConnectionString("DEFAULT");
 
-builder.Services.AddDbContext<ToDoContext>(options => options.UseMySql(connectionstring, ServerVersion.AutoDetect(connectionstring)));
+builder.Services.AddDbContext<ToDoContext>(options => options.UseMySql(connectionstring, 
+    ServerVersion.AutoDetect(connectionstring)));
 
 builder.Services.AddSingleton(d => builder.Configuration);
 
 builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAssignmentService, AssignmentService>();
+builder.Services.AddScoped<IAssignmentListService, AssignmentListService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAssignmentRepository, AssignmentRepository>();
 builder.Services.AddScoped<IAssignmentListRepository, AssignmentListRepository>();

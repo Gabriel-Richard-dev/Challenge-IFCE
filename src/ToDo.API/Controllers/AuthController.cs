@@ -5,9 +5,10 @@ using ToDo.Domain.Entities;
 
 namespace ToDo.API.Controllers;
 [ApiController]
-public class Authentication : ControllerBase
+[Route("/Authenticaton")]
+public class AuthController : ControllerBase
 {
-    public Authentication(IUserService userService)
+    public AuthController(IUserService userService)
     {
         _userService = userService;
     }
@@ -22,12 +23,28 @@ public class Authentication : ControllerBase
         var userExists = listUsers.Where(u => u.Email == email && u.Password == password).ToList();
         if (userExists.FirstOrDefault() is not null)
         {
+            AuthenticatedUser.Id = userExists.FirstOrDefault().Id;
             return Ok("Logado com sucesso!");
         }
 
         throw new Exception();
 
+        
+    }
 
+    [HttpPost]
+    [Route("/Cadastre-se")]
+    public async Task<IActionResult> Cadastro(string name, string email, string password)
+    {
+        UserDTO user = new UserDTO()
+        {
+            Name = name,
+            Email = email,
+            Password = password,
+            AdminPrivileges = false
+        };
+        var usercreated =  await _userService.CreateUser(user);
+        return Ok(usercreated);
     }
     
 }

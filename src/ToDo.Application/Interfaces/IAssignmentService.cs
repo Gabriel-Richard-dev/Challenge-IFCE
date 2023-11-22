@@ -5,5 +5,8 @@ namespace ToDo.Application.Interfaces;
 
 public interface IAssignmentService
 {
-    public Task<Assignment> CreateTask(AssignmentDTO assignment);
+    Task<Assignment> CreateTask(AssignmentDTO assignment);
+    Task<List<Assignment>> GetTasks(long userid, long listid);
+    Task<Assignment> GetTaskById(long userid, long listid, long taskid);
+    
 }

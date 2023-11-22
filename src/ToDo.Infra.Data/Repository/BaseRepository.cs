@@ -45,6 +45,8 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
     {
         throw new NotImplementedException();
     }
+    
+
 
   
 }

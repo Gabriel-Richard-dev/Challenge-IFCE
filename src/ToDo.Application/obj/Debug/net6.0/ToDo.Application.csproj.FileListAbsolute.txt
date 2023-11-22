@@ -25,6 +25,6 @@ C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Application/obj/Debug/net6
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.csproj.CoreCompileInputs.cache
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.csproj.CopyComplete
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.dll
-/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/obj/Debug/net6.0/refint/ToDo.Application.dll
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/obj/Debug/net6.0/ToDo.Application.pdb
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/obj/Debug/net6.0/ref/ToDo.Application.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/obj/Debug/net6.0/refint/ToDo.Application.dll

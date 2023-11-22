@@ -16,17 +16,11 @@
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/ToDo.API.csproj.CoreCompileInputs.cache
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/ToDo.API.MvcApplicationPartsAssemblyInfo.cs
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/ToDo.API.MvcApplicationPartsAssemblyInfo.cache
-/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/staticwebassets/msbuild.ToDo.API.Microsoft.AspNetCore.StaticWebAssets.props
-/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/staticwebassets/msbuild.build.ToDo.API.props
-/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.ToDo.API.props
-/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.ToDo.API.props
-/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/staticwebassets.pack.json
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/staticwebassets.build.json
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/staticwebassets.development.json
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/scopedcss/bundle/ToDo.API.styles.css
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/ToDo.API.csproj.CopyComplete
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/ToDo.API.dll
-/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/refint/ToDo.API.dll
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/ToDo.API.pdb
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/ToDo.API.genruntimeconfig.cache
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/ref/ToDo.API.dll
@@ -110,3 +104,9 @@ C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ref/T
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/ToDo.Infra.Data.pdb
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/ToDo.Domain.pdb
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/ToDo.Core.pdb
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/staticwebassets/msbuild.ToDo.API.Microsoft.AspNetCore.StaticWebAssets.props
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/staticwebassets/msbuild.build.ToDo.API.props
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.ToDo.API.props
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.ToDo.API.props
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/staticwebassets.pack.json
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/Debug/net6.0/refint/ToDo.API.dll

@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using ToDo.Domain.Contracts.Repository;
 using ToDo.Domain.Entities;
 using ToDo.Infra.Data.Context;
@@ -16,5 +17,12 @@ public class AssignmentRepository : BaseRepository<Assignment>, IAssignmentRepos
         await _context.SaveChangesAsync();
         return assignment;
     }
-    
+
+    public async Task<List<Assignment>> GetTasks(long userid, long listid)
+    {
+        var list = await _context.Assignments.AsNoTrackingWithIdentityResolution()
+            .Where(a => a.UserId == userid 
+                        && a.AtListId == listid).ToListAsync();
+        return list;
+    }
 }

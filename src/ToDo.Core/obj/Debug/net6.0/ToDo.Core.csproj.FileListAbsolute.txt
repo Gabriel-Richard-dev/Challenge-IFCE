@@ -18,6 +18,6 @@ C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Core/obj/Debug/net6.0/ref/
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Core/obj/Debug/net6.0/ToDo.Core.AssemblyInfo.cs
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Core/obj/Debug/net6.0/ToDo.Core.csproj.CoreCompileInputs.cache
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Core/obj/Debug/net6.0/ToDo.Core.dll
-/home/gabrielrichard/ToDo-Challenge/src/ToDo.Core/obj/Debug/net6.0/refint/ToDo.Core.dll
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Core/obj/Debug/net6.0/ToDo.Core.pdb
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Core/obj/Debug/net6.0/ref/ToDo.Core.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Core/obj/Debug/net6.0/refint/ToDo.Core.dll

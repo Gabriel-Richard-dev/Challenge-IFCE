@@ -22,16 +22,7 @@ public class AdminService : IAdminService
 		_atListRepository = assignmentListRepository;
 		_mapper = mapper;
 	}
-
-		
-	public async Task<User> CreateUser(UserDTO user)
-	{
-		User usermapped = _mapper.Map<User>(user); 
-		var usercreated = await _userRepository.Create(usermapped);
-		return usercreated;
-	}
-
-
+    
 	public async Task<AssignmentList> DelegateList(AssignmentListDTO assignmentlist)
 	{
 		AssignmentList assignmentmapper = _mapper.Map<AssignmentList>(assignmentlist); 
