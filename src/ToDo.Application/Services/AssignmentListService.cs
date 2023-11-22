@@ -32,4 +32,10 @@ public class AssignmentListService : IAssignmentListService
         return assignmentcreated;
     }
 
+    public async Task<AssignmentList> GetListById(SearchAssignmentListDTO search)
+    {
+        var list = await _assignmentListRepository.GetAllLists(search.UserId);
+        var assignment = list.Where(l => l.Id == search.Id).ToList();
+        return assignment.FirstOrDefault();
+    }
 }

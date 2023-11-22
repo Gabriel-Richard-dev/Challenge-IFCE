@@ -28,5 +28,14 @@ public class AssignmentListRepository : BaseRepository<AssignmentList>, IAssignm
         return list;
     }
 
+    public async Task DeleteList(long userid, long id)
+    {
+        var list = await _context.AssignmentLists
+            .Where(l => l.UserId == userid && l.Id == id)
+            .AsNoTrackingWithIdentityResolution().ToListAsync();
+        _context.Remove(list);
+        await _context.SaveChangesAsync();
+    }
+
 
 }

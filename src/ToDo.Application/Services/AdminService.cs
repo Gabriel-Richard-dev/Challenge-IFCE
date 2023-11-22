@@ -56,4 +56,14 @@ public class AdminService : IAdminService
 	{ 
 		await _userRepository.Delete(id);
 	}
+
+	public async Task RemoveTask(searchAssignmentDTO assignmentDto)
+	{
+		await _assignmentRepository.DeleteTask(assignmentDto.UserId, assignmentDto.ListId, assignmentDto.Id);
+	}
+
+	public async Task RemoveTaskList(SearchAssignmentListDTO assignmentDto)
+	{
+		await _atListRepository.DeleteList(assignmentDto.UserId, assignmentDto.Id);
+	}
 }

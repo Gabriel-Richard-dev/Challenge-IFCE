@@ -41,7 +41,7 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
         throw new NotImplementedException();
     }
 
-    public virtual Task Delete(long id)
+    public virtual async Task Delete(long id)
     {
         throw new NotImplementedException();
     }

@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using ToDo.Application.DTO;
 using ToDo.Application.Interfaces;
@@ -8,12 +9,14 @@ namespace ToDo.API.Controllers;
 [Route("/Authenticaton")]
 public class AuthController : ControllerBase
 {
-    public AuthController(IUserService userService)
+    public AuthController(IUserService userService, IMapper mapper)
     {
         _userService = userService;
+        _mapper = mapper;
     }
 
     private readonly IUserService _userService;
+    private readonly IMapper _mapper;
     
     [HttpPost]
     [Route("/Login")]
@@ -34,16 +37,10 @@ public class AuthController : ControllerBase
 
     [HttpPost]
     [Route("/Cadastre-se")]
-    public async Task<IActionResult> Cadastro(string name, string email, string password)
+    public async Task<IActionResult> Cadastro([FromForm]SingInUser user)
     {
-        UserDTO user = new UserDTO()
-        {
-            Name = name,
-            Email = email,
-            Password = password,
-            AdminPrivileges = false
-        };
-        var usercreated =  await _userService.CreateUser(user);
+        var usermapped = _mapper.Map<UserDTO>(user);
+        var usercreated =  await _userService.CreateUser(usermapped);
         return Ok(usercreated);
     }
     

@@ -1,4 +1,5 @@
 using System;
+using AutoMapper;
 using ToDo.Application.Interfaces;
 using ToDo.Application.DTO;
 using ToDo.Application.Services;
@@ -12,11 +13,12 @@ namespace ToDo.API.Controllers;
 public class AdminController : ControllerBase
 {
 
-    public AdminController(IAdminService adminService, IAssignmentService assignmentService, IAssignmentListService assignmentListService, IUserService userService)
+    public AdminController(IAdminService adminService, IAssignmentService assignmentService, IAssignmentListService assignmentListService, IUserService userService, IMapper mapper)
     {
         _adminService = adminService;
         _assignmentListService = assignmentListService;
         _userService = userService;
+        _mapper = mapper;
         _assignmentService = assignmentService;
     }
 
@@ -24,6 +26,7 @@ public class AdminController : ControllerBase
     private readonly IAssignmentService _assignmentService;
     private readonly IAssignmentListService _assignmentListService;
     private readonly IUserService _userService;
+    private readonly IMapper _mapper;
 
     [HttpPost]
     [Route("/CriarUsuario")]
@@ -82,9 +85,15 @@ public class AdminController : ControllerBase
         return Ok(await _assignmentService.GetTasks(userid, listid));
     }
     
+    [HttpGet]
+    [Route("/GetTaskByIds")]
+    public async Task<IActionResult> GetTaskByIds(searchAssignmentDTO search)
+    {
+        return Ok(await _assignmentService.GetTaskById(search.UserId, search.ListId, search.Id));
+    }
+    
     [HttpDelete]
     [Route("/DeleteUser/{id}")]
-
     public async Task<IActionResult> DeleteUser(long id)
     {
         var userdeleted = await _adminService.GetUserById(id);
@@ -93,14 +102,22 @@ public class AdminController : ControllerBase
     }
     
     [HttpDelete]
-    [Route("/DeleteTask/{id}")]
-
-    public async Task<IActionResult> DeleteTask(long userid, long listid)
+    [Route("/DeleteTask")]
+    
+    public async Task<IActionResult> DeleteTask([FromForm]searchAssignmentDTO search)
     {
-        var task = await _assignmentService.GetTaskById();
-        
-        await _adminService.RemoveUser(id);
-        return Ok(userdeleted);
+        var taskremoved = await _assignmentService.GetTaskById(search.UserId, search.ListId, search.Id);
+        await _adminService.RemoveTask(search);
+        return Ok(taskremoved);
+    }
+    [HttpDelete]
+    [Route("/DeleteTaskList")]
+    
+    public async Task<IActionResult> DeleteTaskList([FromForm]SearchAssignmentListDTO search)
+    {
+        var taskremoved = await _assignmentListService.GetListById(search);
+        await _adminService.RemoveTaskList(search);
+        return Ok(taskremoved);
     }
     
     

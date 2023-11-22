@@ -43,6 +43,6 @@ public class AssignmentService : IAssignmentService
 
     public Task<Assignment> GetTaskById(long userid, long listid, long taskid)
     {
-        throw new NotImplementedException();
+        return _assignmentRepository.GetTaskById(userid,listid,taskid);
     }
 }

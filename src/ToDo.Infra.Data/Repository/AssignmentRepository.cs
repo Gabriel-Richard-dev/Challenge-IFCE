@@ -18,11 +18,25 @@ public class AssignmentRepository : BaseRepository<Assignment>, IAssignmentRepos
         return assignment;
     }
 
+    public async Task DeleteTask(long userid, long listid, long taskid)
+    {
+        var task = await GetTaskById(userid, listid, taskid);
+        _context.Remove(task);
+        await _context.SaveChangesAsync();
+    }
+
     public async Task<List<Assignment>> GetTasks(long userid, long listid)
     {
         var list = await _context.Assignments.AsNoTrackingWithIdentityResolution()
             .Where(a => a.UserId == userid 
                         && a.AtListId == listid).ToListAsync();
         return list;
+    }
+    
+    public async Task<Assignment> GetTaskById(long userid, long listid, long taskid)
+    {
+        var list = await _context.Assignments.AsNoTrackingWithIdentityResolution().Where(a =>
+            a.UserId == userid && a.AtListId == listid && a.Id == taskid).ToListAsync();
+        return list.FirstOrDefault();
     }
 }
