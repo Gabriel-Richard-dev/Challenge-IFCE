@@ -47,6 +47,20 @@ public class UserRepository : BaseRepository<User>, IUserRepository
 
         throw new Exception();
     }
+
+
+    public override async Task Delete(long id)
+    {
+        var userExists = await GetById(id);
+        if (userExists is not null)
+        {
+            _context.Users.Remove(userExists);
+            await _context.SaveChangesAsync();
+            return;
+        }
+
+        throw new Exception();
+    }
     
     
 }

@@ -9,7 +9,7 @@ public interface IBaseRepository<T> where T : Base
     Task<T> GetByEmail(string email);
     Task<List<T>?> GetAll();
     void Update(T entity);
-    void Delete(T entity);
+    Task Delete(long id);
     
 
 }

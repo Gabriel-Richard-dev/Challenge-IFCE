@@ -56,9 +56,17 @@ public class AdminController : ControllerBase
     {
         return Ok(await _adminService.GetUserById(id));
     }
-    
-    
-    
 
+    [HttpDelete]
+    [Route("/DeleteUser/{id}")]
 
+    public async Task<IActionResult> DeleteUser(long id)
+    {
+        var userdeleted = await _adminService.GetUserById(id);
+        await _adminService.RemoveUser(id);
+        return Ok(userdeleted);
+    }
+    
+    
+    
 }

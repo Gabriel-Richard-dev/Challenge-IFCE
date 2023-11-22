@@ -41,7 +41,7 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
         throw new NotImplementedException();
     }
 
-    public void Delete(T entity)
+    public virtual Task Delete(long id)
     {
         throw new NotImplementedException();
     }

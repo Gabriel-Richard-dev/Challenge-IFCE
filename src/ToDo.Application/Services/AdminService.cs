@@ -59,6 +59,10 @@ public class AdminService : IAdminService
 	public Task<User?> GetUserById(long id)
 	{
 		return _userRepository.GetById(id);
-	}	
-	
+	}
+
+	public async Task RemoveUser(long id)
+	{ 
+		await _userRepository.Delete(id);
+	}
 }
