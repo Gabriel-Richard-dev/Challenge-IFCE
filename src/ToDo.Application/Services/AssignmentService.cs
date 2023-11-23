@@ -36,13 +36,13 @@ public class AssignmentService : IAssignmentService
     }
     
     
-    public Task<List<Assignment>> GetTasks(long userid, long listid)
+    public async Task<List<Assignment>> GetTasks(long userid, long listid)
     {
-        return _assignmentRepository.GetTasks(userid, listid);
+        return await _assignmentRepository.GetTasks(userid, listid);
     }
 
-    public Task<Assignment> GetTaskById(SearchAssignmentDTO dto)
+    public async Task<Assignment?> GetTaskById(SearchAssignmentDTO dto)
     {
-        return _assignmentRepository.GetTaskById(dto.UserId,dto.ListId,dto.Id);
+        return await _assignmentRepository.GetTaskById(dto.UserId,dto.ListId,dto.Id);
     }
 }

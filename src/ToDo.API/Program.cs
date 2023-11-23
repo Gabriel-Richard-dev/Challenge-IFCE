@@ -1,4 +1,3 @@
-using ToDo.Infra.Data.Util;
 using AutoMapper;
 using ToDo.Domain.Entities;
 using ToDo.Domain.Contracts.Repository;
@@ -27,6 +26,7 @@ void AutoMapperDependencyInjection()
         options.CreateMap<AssignmentDTO, AddAssignmentDTO >().ReverseMap(); 
         options.CreateMap<AssignmentListDTO, AddAssignmentListDTO >().ReverseMap(); 
         options.CreateMap<AssignmentList, AssignmentListDTO >().ReverseMap(); 
+        options.CreateMap<SearchAssignmentDTO, UserSearchAssignmentDTO >().ReverseMap(); 
     });
 
     builder.Services.AddSingleton(automapperconfigure.CreateMapper());

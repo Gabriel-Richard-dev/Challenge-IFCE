@@ -30,13 +30,17 @@ public class AssignmentRepository : BaseRepository<Assignment>, IAssignmentRepos
         var list = await _context.Assignments.AsNoTrackingWithIdentityResolution()
             .Where(a => a.UserId == userid 
                         && a.AtListId == listid).ToListAsync();
-        return list;
+        return list.ToList();
     }
     
-    public async Task<Assignment> GetTaskById(long userid, long listid, long taskid)
+    public async Task<Assignment?> GetTaskById(long userid, long listid, long taskid)
     {
-        var list = await _context.Assignments.AsNoTrackingWithIdentityResolution().Where(a =>
-            a.UserId == userid && a.AtListId == listid && a.Id == taskid).ToListAsync();
-        return list.FirstOrDefault();
+        List<Assignment>? list = await _context.Assignments
+            .Where(a => a.UserId == userid 
+                        && a.AtListId == listid 
+                        && a.Id == taskid)
+            .ToListAsync();
+            return list.FirstOrDefault();
+        
     }
 }

@@ -57,6 +57,35 @@ public class UserController : ControllerBase
 
         throw new Exception();
     }
+
+    [HttpGet]
+    [Route("/GetUserTasksByIds/{listid}")]
+    public async Task<IActionResult> GetTasksByIds(long listid)
+    {
+        var userId = AuthenticatedUser.Id;
+        return Ok(await _assignmentService.GetTasks(userId, listid));
+    }
     
     
+
+    [HttpPost]
+    [Route("/GetUserTask")]
+    public async Task<IActionResult> GetTask([FromForm] UserSearchAssignmentDTO dto)
+    {
+        var search = _mapper.Map<SearchAssignmentDTO>(dto);
+        search.UserId = dto.UserId;
+        return Ok(_assignmentService.GetTaskById(search));
+    }
+    
+    
+
+    [HttpDelete]
+    [Route("/DeleteUserTask")]
+    public async Task<IActionResult> DeleteTask([FromForm]UserSearchAssignmentDTO dto)
+    {
+        var search = _mapper.Map<SearchAssignmentDTO>(dto);
+        var taskremoved = await _assignmentService.GetTaskById(search);
+        await _adminService.RemoveTask(search);
+        return Ok(taskremoved);
+    }
 }
