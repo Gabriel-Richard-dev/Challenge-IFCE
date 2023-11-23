@@ -41,8 +41,8 @@ public class AssignmentService : IAssignmentService
         return _assignmentRepository.GetTasks(userid, listid);
     }
 
-    public Task<Assignment> GetTaskById(long userid, long listid, long taskid)
+    public Task<Assignment> GetTaskById(SearchAssignmentDTO dto)
     {
-        return _assignmentRepository.GetTaskById(userid,listid,taskid);
+        return _assignmentRepository.GetTaskById(dto.UserId,dto.ListId,dto.Id);
     }
 }

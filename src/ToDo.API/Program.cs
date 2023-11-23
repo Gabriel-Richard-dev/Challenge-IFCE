@@ -21,7 +21,8 @@ void AutoMapperDependencyInjection()
     var automapperconfigure = new MapperConfiguration(options =>
     { 
         options.CreateMap<User, UserDTO >().ReverseMap(); 
-        options.CreateMap<SingInUser, UserDTO >().ReverseMap(); 
+        options.CreateMap<SingInUserDTO, UserDTO >().ReverseMap(); 
+        options.CreateMap<SearchUserDTO, User >().ReverseMap(); 
         options.CreateMap<Assignment, AssignmentDTO >().ReverseMap(); 
         options.CreateMap<AssignmentDTO, AddAssignmentDTO >().ReverseMap(); 
         options.CreateMap<AssignmentListDTO, AddAssignmentListDTO >().ReverseMap(); 

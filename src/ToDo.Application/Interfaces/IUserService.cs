@@ -7,7 +7,7 @@ public interface IUserService
 {
     Task<User> CreateUser(UserDTO user);
     Task<AssignmentList> CreateList(long id, AssignmentListDTO assignmentList);
-    Task<List<User>?> GetAllUsers();
+    Task<List<SearchUserDTO>?> GetAllUsers();
     Task<User> GetByEmail(string email);
-    
+    Task<bool> LoginValid(LoginUserDTO dto);
 }

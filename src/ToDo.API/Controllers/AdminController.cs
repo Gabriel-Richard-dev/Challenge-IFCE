@@ -55,7 +55,7 @@ public class AdminController : ControllerBase
     [Route("/GetUsers")]
     public async Task<IActionResult> GetUsers()
     {
-        return Ok(await _adminService.GetAllUsers());
+        return Ok(await _userService.GetAllUsers());
     }
     
     [HttpGet]
@@ -77,21 +77,28 @@ public class AdminController : ControllerBase
 
         throw new Exception();
     }
-    
+
     [HttpGet]
     [Route("/GetTasksByIds")]
     public async Task<IActionResult> GetTasksByIds(long userid, long listid)
     {
         return Ok(await _assignmentService.GetTasks(userid, listid));
     }
-    
+
     [HttpGet]
     [Route("/GetTaskByIds")]
-    public async Task<IActionResult> GetTaskByIds(searchAssignmentDTO search)
+    public async Task<IActionResult> GetTaskByIds(SearchAssignmentDTO search)
     {
-        return Ok(await _assignmentService.GetTaskById(search.UserId, search.ListId, search.Id));
+        return Ok(await _assignmentService.GetTaskById(search));
     }
-    
+
+    [HttpGet]
+    [Route("/GetByEmail/{email}")]
+    public async Task<IActionResult> GetByEmail(string email)
+    {
+        return  Ok(await _userService.GetByEmail(email));
+    }
+
     [HttpDelete]
     [Route("/DeleteUser/{id}")]
     public async Task<IActionResult> DeleteUser(long id)
@@ -100,26 +107,22 @@ public class AdminController : ControllerBase
         await _adminService.RemoveUser(id);
         return Ok(userdeleted);
     }
-    
+
     [HttpDelete]
     [Route("/DeleteTask")]
-    
-    public async Task<IActionResult> DeleteTask([FromForm]searchAssignmentDTO search)
+    public async Task<IActionResult> DeleteTask([FromForm]SearchAssignmentDTO search)
     {
-        var taskremoved = await _assignmentService.GetTaskById(search.UserId, search.ListId, search.Id);
+        var taskremoved = await _assignmentService.GetTaskById(search);
         await _adminService.RemoveTask(search);
         return Ok(taskremoved);
     }
+
     [HttpDelete]
     [Route("/DeleteTaskList")]
-    
     public async Task<IActionResult> DeleteTaskList([FromForm]SearchAssignmentListDTO search)
     {
         var taskremoved = await _assignmentListService.GetListById(search);
         await _adminService.RemoveTaskList(search);
         return Ok(taskremoved);
     }
-    
-    
-    
 }

@@ -1,6 +1,6 @@
 namespace ToDo.Application.DTO;
 
-public class searchAssignmentDTO
+public class SearchAssignmentDTO
 {
     public long Id { get; set; }
     public long ListId { get; set; }

@@ -11,6 +11,6 @@ public interface IAdminService
     Task<User?> GetUserById(long id);
 
     Task RemoveUser(long id);
-    Task RemoveTask(searchAssignmentDTO assignmentDto);
+    Task RemoveTask(SearchAssignmentDTO assignmentDto);
     Task RemoveTaskList(SearchAssignmentListDTO assignmentDto);
 }

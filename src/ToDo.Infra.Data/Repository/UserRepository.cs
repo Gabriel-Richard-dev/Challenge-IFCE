@@ -38,8 +38,9 @@ public class UserRepository : BaseRepository<User>, IUserRepository
     
     public override async Task<User> GetByEmail(string email)
     {
-        var userexists = await _context.Users.FindAsync(email);
-        if (userexists is not null)
+        var list = await _context.Users.ToListAsync();
+        var userexists = list.Where(u => u.Email == email).ToList();
+        if (userexists.FirstOrDefault() is not null)
         {
             var user = _context.Users.Where(u => u.Email == email).ToListAsync().Result;
             return user.FirstOrDefault();
@@ -60,6 +61,19 @@ public class UserRepository : BaseRepository<User>, IUserRepository
 
         throw new Exception();
     }
-    
+
+    public async Task<bool> LoginValid(string email, string password)
+    {
+        var userExists =  await _context.Users.Where(u => u.Email == email && u.Password == password).ToListAsync();
+
+        if (userExists.FirstOrDefault() is not null)
+        {
+            return true;
+        }
+
+        throw new Exception();
+
+
+    }
     
 }

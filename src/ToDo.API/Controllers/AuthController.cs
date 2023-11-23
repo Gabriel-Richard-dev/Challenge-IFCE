@@ -9,37 +9,40 @@ namespace ToDo.API.Controllers;
 [Route("/Authenticaton")]
 public class AuthController : ControllerBase
 {
-    public AuthController(IUserService userService, IMapper mapper)
+    public AuthController(IUserService userService, IMapper mapper, IAdminService adminService)
     {
         _userService = userService;
         _mapper = mapper;
+        _adminService = adminService;
     }
 
     private readonly IUserService _userService;
+    private readonly IAdminService _adminService;
     private readonly IMapper _mapper;
     
     [HttpPost]
     [Route("/Login")]
-    public async Task<IActionResult> Login(string email, string password)
+    public async Task<IActionResult> Login([FromForm]LoginUserDTO dto)
     {
         var listUsers = await _userService.GetAllUsers();
-        var userExists = listUsers.Where(u => u.Email == email && u.Password == password).ToList();
-        if (userExists.FirstOrDefault() is not null)
+        
+        if (await _userService.LoginValid(dto))
         {
-            AuthenticatedUser.Id = userExists.FirstOrDefault().Id;
+            var user = await _userService.GetByEmail(dto.Email);
+            AuthenticatedUser.Id = user.Id;
             return Ok("Logado com sucesso!");
         }
-
+    
         throw new Exception();
 
         
     }
-
+    
     [HttpPost]
     [Route("/Cadastre-se")]
-    public async Task<IActionResult> Cadastro([FromForm]SingInUser user)
+    public async Task<IActionResult> Cadastro([FromForm]SingInUserDTO userDto)
     {
-        var usermapped = _mapper.Map<UserDTO>(user);
+        var usermapped = _mapper.Map<UserDTO>(userDto);
         var usercreated =  await _userService.CreateUser(usermapped);
         return Ok(usercreated);
     }

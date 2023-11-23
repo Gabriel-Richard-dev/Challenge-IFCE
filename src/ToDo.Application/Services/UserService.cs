@@ -31,10 +31,11 @@ public class UserService : IUserService
         throw new NotImplementedException();
     }
     
-    public async Task<List<User>?> GetAllUsers()
+    public async Task<List<SearchUserDTO>?> GetAllUsers()
     {
         var userList = await _userRepository.GetAll();
-        return userList;
+        var userListMapped = _mapper.Map<List<SearchUserDTO>>(userList);
+        return userListMapped;
     }
 
     public async Task<User> GetByEmail(string email)
@@ -42,5 +43,9 @@ public class UserService : IUserService
         return await _userRepository.GetByEmail(email);
     }
 
+    public async Task<bool> LoginValid(LoginUserDTO dto)
+    {
+        return await _userRepository.LoginValid(dto.Email, dto.Password);
+    }
    
 }
