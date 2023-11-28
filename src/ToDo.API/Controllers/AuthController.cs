@@ -22,7 +22,7 @@ public class AuthController : ControllerBase
     
     [HttpPost]
     [Route("/Login")]
-    public async Task<IActionResult> Login([FromForm]LoginUserDTO dto)
+    public async Task<IActionResult> Login([FromBody]LoginUserDTO dto)
     {
         var listUsers = await _userService.GetAllUsers();
         
@@ -32,7 +32,7 @@ public class AuthController : ControllerBase
             AuthenticatedUser.Id = user.Id;
             return Ok("Logado com sucesso!");
         }
-    
+
         throw new Exception();
 
         
@@ -47,4 +47,18 @@ public class AuthController : ControllerBase
         return Ok(usercreated);
     }
     
+    [HttpPut]
+    [Route("/RecoveryPassword")]
+    public async Task<IActionResult> UpdatePassword([FromForm]string email, [FromForm] string newpassword)
+    {
+        var parseuser = _adminService.GetCredentials(email).Result;
+        var senha = parseuser.Password;
+        var search = new LoginUserDTO()
+        {
+            Email = email,
+            Password = senha
+        };
+        return Ok(await _userService.UpdatePassword(search, search.Password, newpassword));
+    }
+
 }

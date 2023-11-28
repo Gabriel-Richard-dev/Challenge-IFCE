@@ -8,9 +8,11 @@ public interface IAdminService
     
     Task<AssignmentList> DelegateList(AssignmentListDTO list);
     Task<List<User>> GetAllUsers();
-    Task<User?> GetUserById(long id);
+    Task<SearchUserDTO?> GetUserById(long id);
 
     Task RemoveUser(long id);
     Task RemoveTask(SearchAssignmentDTO assignmentDto);
     Task RemoveTaskList(SearchAssignmentListDTO assignmentDto);
+
+    Task<User> GetCredentials(string email);
 }

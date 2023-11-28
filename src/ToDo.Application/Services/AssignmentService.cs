@@ -43,6 +43,12 @@ public class AssignmentService : IAssignmentService
 
     public async Task<Assignment?> GetTaskById(SearchAssignmentDTO dto)
     {
-        return await _assignmentRepository.GetTaskById(dto.UserId,dto.ListId,dto.Id);
+        var assignment =  await _assignmentRepository.GetTaskById(dto.UserId,dto.ListId,dto.Id);
+        if (assignment is not null)
+        {
+            return assignment;
+        }
+
+        throw new Exception();
     }
 }

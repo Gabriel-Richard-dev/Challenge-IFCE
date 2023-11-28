@@ -35,12 +35,14 @@ public class AssignmentRepository : BaseRepository<Assignment>, IAssignmentRepos
     
     public async Task<Assignment?> GetTaskById(long userid, long listid, long taskid)
     {
-        List<Assignment>? list = await _context.Assignments
+        List<Assignment>? list = _context.Assignments
             .Where(a => a.UserId == userid 
                         && a.AtListId == listid 
                         && a.Id == taskid)
-            .ToListAsync();
-            return list.FirstOrDefault();
+            .ToList();
+
+              
+        return list.FirstOrDefault();
         
     }
 }

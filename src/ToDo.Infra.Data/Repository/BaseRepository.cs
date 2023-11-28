@@ -19,26 +19,32 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
     
     public virtual async Task<T> Create(T entity)
     {
-        throw new NotImplementedException();
+        _dbset.Add(entity);
+        await _context.SaveChangesAsync();
+        return entity;
     }
-
-
+    
     public virtual async Task<List<T>> GetAll()
     {
-        throw new NotImplementedException();
+        return await _dbset.ToListAsync();
     }
     public virtual async Task<T?> GetById(long id)
     {
-        throw new NotImplementedException();
-    }    
-    public virtual async Task<T> GetByEmail(string email)
-    {
-        throw new NotImplementedException();
-    }
+        var list = await _dbset.Where(o => o.Id == id)
+            .AsNoTrackingWithIdentityResolution()
+            .ToListAsync();
 
-    public void Update(T entity)
+        return list.FirstOrDefault();
+    }    
+    
+    public async virtual Task<T> Update(T entity)
     {
-        throw new NotImplementedException();
+        var PreviousEntity = await GetById(entity.Id);
+        var entityEntry = _dbset.Entry(PreviousEntity).State;
+        entityEntry = EntityState.Detached;
+        _dbset.Update(entity);
+        await _context.SaveChangesAsync();
+        return entity;
     }
 
     public virtual async Task Delete(long id)

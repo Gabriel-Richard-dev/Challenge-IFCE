@@ -29,8 +29,8 @@ public class Assignment : Base
         public long UserId { get; set; }
         public long AtListId { get; set; }
         public bool Concluded { get; set; }
-        public DateTime DateConcluded { get; set; }
-        public DateTime Deadline { get; set; }
+        public DateTime? DateConcluded { get; set; }
+        public DateTime? Deadline { get; set; }
 
 
     #endregion

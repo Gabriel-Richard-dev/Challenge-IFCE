@@ -1,4 +1,5 @@
 using AutoMapper;
+using ToDo.Application.Criptografy;
 using ToDo.Application.DTO;
 using ToDo.Application.Interfaces;
 using ToDo.Domain.Contracts.Repository;
@@ -18,7 +19,8 @@ public class UserService : IUserService
 
     public async Task<User> CreateUser(UserDTO user)
     {
-        User usermapped = _mapper.Map<User>(user); 
+        User usermapped = _mapper.Map<User>(user);
+        usermapped.Password = usermapped.Password.GenerateHash();
         var usercreated = await _userRepository.Create(usermapped);
         return usercreated;
     }
@@ -38,14 +40,33 @@ public class UserService : IUserService
         return userListMapped;
     }
 
-    public async Task<User> GetByEmail(string email)
+    public async Task<SearchUserDTO> GetByEmail(string email)
     {
-        return await _userRepository.GetByEmail(email);
+        var user = await _userRepository.GetByEmail(email);
+        var usermapped = _mapper.Map<SearchUserDTO>(user);
+        return usermapped;
     }
 
     public async Task<bool> LoginValid(LoginUserDTO dto)
     {
+        dto.Password = dto.Password.GenerateHash();
         return await _userRepository.LoginValid(dto.Email, dto.Password);
     }
+
+    public async Task<User> Update(UserDTO user, long id)
+    {
+        var userMapped = _mapper.Map<User>(user);
+        userMapped.Id = id;
+        return await _userRepository.Update(userMapped);
+    }
+    public async Task<User> UpdatePassword(LoginUserDTO user, string confirmpass, string newpass)
+    {
+        User userExist = await _userRepository.GetByEmail(user.Email);
+        confirmpass  = userExist.Password;
+        userExist.AtualizaPassword(confirmpass, confirmpass, newpass);
+        userExist.Password = userExist.Password.GenerateHash();
+        return await _userRepository.Update(userExist);
+    }
+    
    
 }

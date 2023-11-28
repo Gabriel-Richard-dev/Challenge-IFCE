@@ -47,9 +47,11 @@ public class AdminService : IAdminService
 		return await _userRepository.GetAll();
 	}
 
-	public Task<User?> GetUserById(long id)
+	public async Task<SearchUserDTO?> GetUserById(long id)
 	{
-		return _userRepository.GetById(id);
+		var user = await _userRepository.GetById(id);
+		var usermapped = _mapper.Map<SearchUserDTO>(user);
+		return usermapped;
 	}
 
 	public async Task RemoveUser(long id)
@@ -65,5 +67,10 @@ public class AdminService : IAdminService
 	public async Task RemoveTaskList(SearchAssignmentListDTO assignmentDto)
 	{
 		await _atListRepository.DeleteList(assignmentDto.UserId, assignmentDto.Id);
+	}
+
+	public async Task<User> GetCredentials(string email)
+	{
+		return await _userRepository.GetByEmail(email);
 	}
 }

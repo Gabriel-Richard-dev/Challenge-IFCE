@@ -36,7 +36,8 @@ public class AssignmentMap : IEntityTypeConfiguration<Assignment>
 
         builder.Property(a => a.DateConcluded)
             .HasColumnType("DATE")
-            .HasDefaultValue("NULL");
+            .IsRequired(false)
+            .HasDefaultValue(null);
 
         builder.Property(a => a.Deadline)
             .HasColumnType("DATE");

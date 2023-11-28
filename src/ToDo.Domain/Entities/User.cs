@@ -26,6 +26,18 @@ public class User : Base
 
     #endregion
 
+    public void AtualizaPassword(string pass, string confirmpass, string newpassword)
+    {
+        if (pass.Equals(confirmpass))
+        {
+            Password = newpassword;
+            Validation();
+            return;
+        }
+
+        throw new Exception();
+    }
+
     public override bool Validation()
     {
         var validator = new  UserValidator().Validate(this);
@@ -36,5 +48,4 @@ public class User : Base
 
         return validator.IsValid;
     }
-    
 }

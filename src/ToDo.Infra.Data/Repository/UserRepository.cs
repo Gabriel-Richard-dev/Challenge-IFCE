@@ -8,35 +8,11 @@ namespace ToDo.Infra.Data.Repository;
 
 public class UserRepository : BaseRepository<User>, IUserRepository
 {
-
     public UserRepository(ToDoContext context) : base(context)
-    { }
-
-    public override async Task<User> Create(User user)
     {
-        user.Validation();
-        _context.Users.Add(user);
-        await _context.SaveChangesAsync();
-        return user;
-    }
-
-    public override async Task<List<User>?> GetAll()
-    {
-        return await _context.Users.ToListAsync();
-    }
-    public override async Task<User?> GetById(long id)
-    {
-        var userexists = await _context.Users.FindAsync(id);
-        if (userexists is not null)
-        {
-            var user = _context.Users.Where(u => u.Id == id).ToListAsync().Result;
-            return user.FirstOrDefault();
-        }
-
-        throw new Exception();
     }
     
-    public override async Task<User> GetByEmail(string email)
+    public async Task<User> GetByEmail(string email)
     {
         var list = await _context.Users.ToListAsync();
         var userexists = list.Where(u => u.Email == email).ToList();
@@ -48,23 +24,11 @@ public class UserRepository : BaseRepository<User>, IUserRepository
 
         throw new Exception();
     }
-    
-    public override async Task Delete(long id)
-    {
-        var userExists = await GetById(id);
-        if (userExists is not null)
-        {
-            _context.Users.Remove(userExists);
-            await _context.SaveChangesAsync();
-            return;
-        }
-
-        throw new Exception();
-    }
 
     public async Task<bool> LoginValid(string email, string password)
     {
-        var userExists =  await _context.Users.Where(u => u.Email == email && u.Password == password).ToListAsync();
+        
+        var userExists = await _context.Users.Where(u => u.Email == email && u.Password == password).ToListAsync();
 
         if (userExists.FirstOrDefault() is not null)
         {
@@ -72,8 +36,7 @@ public class UserRepository : BaseRepository<User>, IUserRepository
         }
 
         throw new Exception();
-
-
     }
-    
+
+
 }

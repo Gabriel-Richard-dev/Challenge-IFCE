@@ -65,8 +65,6 @@ public class UserController : ControllerBase
         var userId = AuthenticatedUser.Id;
         return Ok(await _assignmentService.GetTasks(userId, listid));
     }
-    
-    
 
     [HttpPost]
     [Route("/GetUserTask")]
@@ -74,11 +72,11 @@ public class UserController : ControllerBase
     {
         var search = _mapper.Map<SearchAssignmentDTO>(dto);
         search.UserId = dto.UserId;
-        return Ok(_assignmentService.GetTaskById(search));
+        var assignment = await _assignmentService.GetTaskById(search);
+        
+        return Ok(assignment);
     }
     
-    
-
     [HttpDelete]
     [Route("/DeleteUserTask")]
     public async Task<IActionResult> DeleteTask([FromForm]UserSearchAssignmentDTO dto)
@@ -88,4 +86,12 @@ public class UserController : ControllerBase
         await _adminService.RemoveTask(search);
         return Ok(taskremoved);
     }
+
+    [HttpPut]
+    [Route("/UpdatePassword")]
+    public async Task<IActionResult> UpdatePassword([FromForm]LoginUserDTO search, [FromForm]string confirmpassword, [FromForm]string newpassword)
+    {
+        return Ok(await _userService.UpdatePassword(search, confirmpassword, newpassword));
+    }
+    
 }

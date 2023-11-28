@@ -9,7 +9,9 @@ namespace ToDo.Infra.Data.Context;
 public class ToDoContext : DbContext
 {
     public ToDoContext() { }
-    public ToDoContext(DbContextOptions<ToDoContext> options) : base(options) { }
+
+    public ToDoContext(DbContextOptions<ToDoContext> options) : base(options)
+    { }
 
     public DbSet<User> Users { get; set; }
     public DbSet<Assignment> Assignments { get; set; }
@@ -18,6 +20,7 @@ public class ToDoContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
+        
         var connection = "server=localhost; port=3306;database=TODODB; uid=root;password=Gr0612";
         builder.UseMySql(connection, ServerVersion.AutoDetect(connection));
     }

@@ -85,7 +85,7 @@ public class AdminController : ControllerBase
         return Ok(await _assignmentService.GetTasks(userid, listid));
     }
 
-    [HttpGet]
+    [HttpPost]
     [Route("/GetTaskByIds")]
     public async Task<IActionResult> GetTaskByIds(SearchAssignmentDTO search)
     {
@@ -125,8 +125,13 @@ public class AdminController : ControllerBase
         await _adminService.RemoveTaskList(search);
         return Ok(taskremoved);
     }
-    
-    
+
+    [HttpPut]
+    [Route("UpdateUser")]
+    public async Task<IActionResult> UpdateUser([FromForm]UserDTO usr, long id)
+    {
+        return Ok(await _userService.Update(usr, id));
+    }
     
     
 }
