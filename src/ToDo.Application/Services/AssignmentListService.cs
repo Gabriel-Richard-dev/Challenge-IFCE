@@ -19,7 +19,8 @@ public class AssignmentListService : IAssignmentListService
     private readonly IMapper _mapper;
     public async Task<List<AssignmentList>> GetAllLists(long userid)
     {
-        var list = await _assignmentListRepository.GetAllLists(userid);
+        var list = await _assignmentListRepository.GetAll();
+        var tasklist = list.Where(l => l.UserId == userid).ToList();
 
         return list;
     }
@@ -34,7 +35,7 @@ public class AssignmentListService : IAssignmentListService
 
     public async Task<AssignmentList> GetListById(SearchAssignmentListDTO search)
     {
-        var list = await _assignmentListRepository.GetAllLists(search.UserId);
+        var list = await _assignmentListRepository.GetAll();
         var assignment = list.Where(l => l.Id == search.Id).ToList();
         return assignment.FirstOrDefault();
     }

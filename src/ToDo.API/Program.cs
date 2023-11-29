@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Hosting.Builder;
 using ToDo.Domain.Entities;
 using ToDo.Domain.Contracts.Repository;
 using ToDo.Application.DTO;
@@ -14,7 +15,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
 void AutoMapperDependencyInjection()
 {
     var automapperconfigure = new MapperConfiguration(options =>
@@ -56,6 +65,7 @@ builder.Services.AddScoped<IAssignmentListRepository, AssignmentListRepository>(
 builder.Services.AddSwaggerGen();
 
 
+
 var app = builder.Build();
 
 
@@ -67,7 +77,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors("AllowAll");
 app.UseAuthorization();
 
 app.MapControllers();

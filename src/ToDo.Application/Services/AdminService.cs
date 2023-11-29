@@ -61,12 +61,12 @@ public class AdminService : IAdminService
 
 	public async Task RemoveTask(SearchAssignmentDTO assignmentDto)
 	{
-		await _assignmentRepository.DeleteTask(assignmentDto.UserId, assignmentDto.ListId, assignmentDto.Id);
+		await _assignmentRepository.Delete(assignmentDto.Id);
 	}
 
 	public async Task RemoveTaskList(SearchAssignmentListDTO assignmentDto)
 	{
-		await _atListRepository.DeleteList(assignmentDto.UserId, assignmentDto.Id);
+		await _atListRepository.Delete(assignmentDto.Id);
 	}
 
 	public async Task<User> GetCredentials(string email)

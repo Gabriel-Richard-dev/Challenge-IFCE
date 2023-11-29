@@ -19,10 +19,15 @@ public class UserService : IUserService
 
     public async Task<User> CreateUser(UserDTO user)
     {
-        User usermapped = _mapper.Map<User>(user);
-        usermapped.Password = usermapped.Password.GenerateHash();
-        var usercreated = await _userRepository.Create(usermapped);
-        return usercreated;
+        if(user.Name is not null && user.Email is not null && user.Password is not null)
+        {
+            User usermapped = _mapper.Map<User>(user);
+            usermapped.Password = usermapped.Password.GenerateHash();
+            var usercreated = await _userRepository.Create(usermapped);
+            return usercreated;
+        }
+
+        throw new Exception();
     }
 
     private readonly IUserRepository _userRepository;

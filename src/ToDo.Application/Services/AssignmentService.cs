@@ -18,14 +18,7 @@ public class AssignmentService : IAssignmentService
     private readonly IAssignmentRepository _assignmentRepository;
     private readonly IMapper _mapper;
     
-    public async Task<Assignment> DelegateTask(AssignmentDTO assignment)
-    {
-        
-        Assignment assignmentMapped = _mapper.Map<Assignment>(assignment); 
-        Assignment assignmentCreated = await _assignmentRepository.Create(assignmentMapped);
-        
-        return assignmentCreated;
-    }
+
 
     public async Task<Assignment> CreateTask(AssignmentDTO assignmentDto)
     {
@@ -38,12 +31,15 @@ public class AssignmentService : IAssignmentService
     
     public async Task<List<Assignment>> GetTasks(long userid, long listid)
     {
-        return await _assignmentRepository.GetTasks(userid, listid);
+        var list = await _assignmentRepository.GetAll();
+        list = list.Where(a => a.UserId == userid && a.AtListId == listid).ToList();
+        return list;
     }
 
     public async Task<Assignment?> GetTaskById(SearchAssignmentDTO dto)
     {
-        var assignment =  await _assignmentRepository.GetTaskById(dto.UserId,dto.ListId,dto.Id);
+        var listassignment =  await GetTasks(dto.UserId, dto.ListId);
+        var assignment = listassignment.Where(a => a.Id == dto.Id).ToList().FirstOrDefault();
         if (assignment is not null)
         {
             return assignment;

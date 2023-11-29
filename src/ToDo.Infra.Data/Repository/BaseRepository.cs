@@ -49,7 +49,11 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
 
     public virtual async Task Delete(long id)
     {
-        throw new NotImplementedException();
+        var entity = await GetById(id);
+       
+        _dbset.Remove(entity);
+        await _context.SaveChangesAsync();
+
     }
     
 

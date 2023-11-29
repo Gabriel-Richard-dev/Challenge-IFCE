@@ -18,8 +18,7 @@ public class AuthController : ControllerBase
 
     private readonly IUserService _userService;
     private readonly IAdminService _adminService;
-    private readonly IMapper _mapper;
-    
+    private readonly IMapper _mapper; 
     [HttpPost]
     [Route("/Login")]
     public async Task<IActionResult> Login([FromBody]LoginUserDTO dto)
@@ -39,8 +38,8 @@ public class AuthController : ControllerBase
     }
     
     [HttpPost]
-    [Route("/Cadastre-se")]
-    public async Task<IActionResult> Cadastro([FromForm]SingInUserDTO userDto)
+    [Route("/Cadastro")]
+    public async Task<IActionResult> Cadastro([FromBody]SingInUserDTO userDto)
     {
         var usermapped = _mapper.Map<UserDTO>(userDto);
         var usercreated =  await _userService.CreateUser(usermapped);

@@ -9,8 +9,7 @@ namespace ToDo.Infra.Data.Repository;
 public class UserRepository : BaseRepository<User>, IUserRepository
 {
     public UserRepository(ToDoContext context) : base(context)
-    {
-    }
+    { }
     
     public async Task<User> GetByEmail(string email)
     {
