@@ -9,13 +9,15 @@ namespace ToDo.Application.Services;
 
 public class AssignmentService : IAssignmentService
 {
-    public AssignmentService(IAssignmentRepository assignmentRepository, IMapper mapper)
+    public AssignmentService(IAssignmentRepository assignmentRepository, IMapper mapper, IAssignmentListService listService)
     {
         _assignmentRepository = assignmentRepository;
+        _assignmentListService = listService;
         _mapper = mapper;
     }
 
     private readonly IAssignmentRepository _assignmentRepository;
+    private readonly IAssignmentListService _assignmentListService;
     private readonly IMapper _mapper;
     
 
@@ -23,9 +25,32 @@ public class AssignmentService : IAssignmentService
     public async Task<Assignment> CreateTask(AssignmentDTO assignmentDto)
     {
         var assignment = _mapper.Map<Assignment>(assignmentDto);
+        
+        if (assignment.DateConcluded.Equals("0001-01-01 00:00:00.000000"))
+        {
+            assignment.DateConcluded = null;
+        }
+        if (assignment.Concluded == true && assignment.DateConcluded == null)
+        {
+            throw new Exception();
+        }
+        if (assignment.Deadline.Equals("0001-01-01 00:00:00.000000"))
+        {
+            assignment.Deadline = null;
+        }
 
-        var assignmentcreated = await _assignmentRepository.Create(assignment);
-        return assignmentcreated;
+        var listsuser = await _assignmentListService.GetAllLists(assignmentDto.UserId);
+
+        foreach (var item in listsuser)
+        {
+            if (item.ListId == assignmentDto.AtListId)
+            {
+                var assignmentcreated = await _assignmentRepository.Create(assignment);
+                return assignmentcreated;
+            }
+        }
+
+        throw new Exception("aaaaa");
     }
     
     

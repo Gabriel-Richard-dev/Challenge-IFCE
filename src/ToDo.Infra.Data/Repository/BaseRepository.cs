@@ -31,7 +31,6 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
     public virtual async Task<T?> GetById(long id)
     {
         var list = await _dbset.Where(o => o.Id == id)
-            .AsNoTrackingWithIdentityResolution()
             .ToListAsync();
 
         return list.FirstOrDefault();
@@ -50,10 +49,11 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
     public virtual async Task Delete(long id)
     {
         var entity = await GetById(id);
-       
-        _dbset.Remove(entity);
-        await _context.SaveChangesAsync();
-
+        if (entity is not null)
+        {
+            _dbset.Remove(entity);
+            await _context.SaveChangesAsync();    
+        }
     }
     
 

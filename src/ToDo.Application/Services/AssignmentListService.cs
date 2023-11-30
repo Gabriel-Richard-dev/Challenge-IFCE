@@ -22,21 +22,21 @@ public class AssignmentListService : IAssignmentListService
         var list = await _assignmentListRepository.GetAll();
         var tasklist = list.Where(l => l.UserId == userid).ToList();
 
-        return list;
+        return tasklist;
     }
 
     public async Task<AssignmentList> CreateList(AssignmentListDTO assignmentDto)
     {
         var assignment = _mapper.Map<AssignmentList>(assignmentDto);
-        
         var assignmentcreated = await _assignmentListRepository.Create(assignment);
         return assignmentcreated;
     }
 
     public async Task<AssignmentList> GetListById(SearchAssignmentListDTO search)
     {
+        var lAssignment = await _assignmentListRepository.GetListByListId(search.UserId, search.UserId);
         var list = await _assignmentListRepository.GetAll();
-        var assignment = list.Where(l => l.Id == search.Id).ToList();
+        var assignment = list.Where(l => l.Id == lAssignment.Id).ToList();
         return assignment.FirstOrDefault();
     }
 }

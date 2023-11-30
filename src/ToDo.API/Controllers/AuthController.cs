@@ -48,16 +48,17 @@ public class AuthController : ControllerBase
     
     [HttpPut]
     [Route("/RecoveryPassword")]
-    public async Task<IActionResult> UpdatePassword([FromForm]string email, [FromForm] string newpassword)
+    public async Task<IActionResult> UpdatePassword([FromBody] LoginUserDTO userDto)
     {
-        var parseuser = _adminService.GetCredentials(email).Result;
+        var parseuser = _adminService.GetCredentials(userDto.Email).Result;
         var senha = parseuser.Password;
         var search = new LoginUserDTO()
         {
-            Email = email,
+            Email = userDto.Email,
             Password = senha
         };
-        return Ok(await _userService.UpdatePassword(search, search.Password, newpassword));
+        await _userService.UpdatePassword(search, search.Password, userDto.Password);
+        return Ok("Senha alterada com sucesso");
     }
 
 }
