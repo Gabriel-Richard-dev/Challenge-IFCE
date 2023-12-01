@@ -31,7 +31,7 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
     public virtual async Task<T?> GetById(long id)
     {
         var list = await _dbset.Where(o => o.Id == id)
-            .ToListAsync();
+            .AsNoTracking().ToListAsync();
 
         return list.FirstOrDefault();
     }    

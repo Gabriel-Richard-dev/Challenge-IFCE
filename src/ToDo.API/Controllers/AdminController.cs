@@ -126,8 +126,8 @@ public class AdminController : ControllerBase
     }
 
     [HttpPut]
-    [Route("UpdateUser")]
-    public async Task<IActionResult> UpdateUser([FromForm]UserDTO usr, long id)
+    [Route("UpdateUser/{id}")]
+    public async Task<IActionResult> UpdateUser([FromBody]UserDTO usr, long id)
     {
         return Ok(await _userService.Update(usr, id));
     }

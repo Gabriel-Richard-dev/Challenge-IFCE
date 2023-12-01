@@ -61,6 +61,7 @@ public class UserService : IUserService
     {
         var userMapped = _mapper.Map<User>(user);
         userMapped.Id = id;
+        userMapped.Password = userMapped.Password.GenerateHash();
         return await _userRepository.Update(userMapped);
     }
     public async Task<User> UpdatePassword(LoginUserDTO user, string confirmpass, string newpass)
