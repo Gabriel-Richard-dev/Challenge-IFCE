@@ -25,7 +25,7 @@ public class UserValidator : AbstractValidator<User>
             .WithMessage("O email deve ter no minimo 11 caracteres")
             .MaximumLength(180)
             .WithMessage("O nome deve ter no maximo 180 caracteres")
-            .Matches(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            .Matches(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"); //.EmailAddress
         RuleFor(u => u.Password)
             .NotEmpty().WithMessage("Senha não pode estar vazia")
             .NotNull().WithMessage("Senha não pode estar nula")

@@ -81,9 +81,12 @@ public class UserController : ControllerBase
     [Route("/DeleteUserTask")]
     public async Task<IActionResult> DeleteTask([FromForm]UserSearchAssignmentDTO dto)
     {
-        var search = _mapper.Map<SearchAssignmentDTO>(dto);
+        var search = _mapper.Map<SearchAssignmentDTO>(dto); 
         var taskremoved = await _assignmentService.GetTaskById(search);
-        await _adminService.RemoveTask(search);
+        search.Id = taskremoved.Id;
+        // await _assignmentService.RemoveTask(search.Id);
+        
+        
         return Ok(taskremoved);
     }
 

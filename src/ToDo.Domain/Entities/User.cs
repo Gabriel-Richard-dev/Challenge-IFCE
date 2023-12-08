@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using FluentValidation;
 using ToDo.Domain.Contracts;
 using ToDo.Domain.Validators;
@@ -23,6 +24,9 @@ public class User : Base
     public string Email { get; set; }
     public string Password { get; set; }
     public bool AdminPrivileges { get; set; }
+    public virtual Collection<AssignmentList> AssignmentLists { get; set; } = null!;
+    public virtual Collection<Assignment> Assignments { get; set; } = null!;
+    
 
     #endregion
 

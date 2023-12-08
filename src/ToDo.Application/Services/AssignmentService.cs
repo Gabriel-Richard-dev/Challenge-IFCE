@@ -40,17 +40,16 @@ public class AssignmentService : IAssignmentService
         }
 
         var listsuser = await _assignmentListService.GetAllLists(assignmentDto.UserId);
-
         foreach (var item in listsuser)
         {
             if (item.ListId == assignmentDto.AtListId)
             {
-                var assignmentcreated = await _assignmentRepository.Create(assignment);
-                return assignmentcreated;
+                var assignmentCreated = await _assignmentRepository.Create(assignment);
+                return assignmentCreated;
             }
         }
 
-        throw new Exception("aaaaa");
+        throw new Exception();
     }
     
     
@@ -63,8 +62,8 @@ public class AssignmentService : IAssignmentService
 
     public async Task<Assignment?> GetTaskById(SearchAssignmentDTO dto)
     {
-        var listassignment =  await GetTasks(dto.UserId, dto.ListId);
-        var assignment = listassignment.Where(a => a.Id == dto.Id).ToList().FirstOrDefault();
+        var listAssignment =  await GetTasks(dto.UserId, dto.ListId);
+        var assignment = listAssignment.Where(a => a.AtListId == dto.ListId && a.UserId == dto.UserId).ToList().FirstOrDefault();
         if (assignment is not null)
         {
             return assignment;
@@ -72,4 +71,16 @@ public class AssignmentService : IAssignmentService
 
         throw new Exception();
     }
+
+    public async Task RemoveTask(long id)
+    {
+      
+            await _assignmentRepository.Delete(id);
+     
+        
+    }
+
+   
+    
+    
 }

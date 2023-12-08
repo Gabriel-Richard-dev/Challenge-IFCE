@@ -3,7 +3,6 @@ using ToDo.Domain.Contracts.Repository;
 using ToDo.Domain.Entities;
 using ToDo.Infra.Data.Context;
 
-
 namespace ToDo.Infra.Data.Repository;
 
 public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
@@ -51,12 +50,12 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
         var entity = await GetById(id);
         if (entity is not null)
         {
+            _dbset.Entry(entity).State = EntityState.Deleted;
             _dbset.Remove(entity);
-            await _context.SaveChangesAsync();    
+            await _context.SaveChangesAsync();
+            return;
         }
+
+        throw new Exception();
     }
-    
-
-
-  
 }

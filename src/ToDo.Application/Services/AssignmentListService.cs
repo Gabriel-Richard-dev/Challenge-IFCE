@@ -20,16 +20,16 @@ public class AssignmentListService : IAssignmentListService
     public async Task<List<AssignmentList>> GetAllLists(long userid)
     {
         var list = await _assignmentListRepository.GetAll();
-        var tasklist = list.Where(l => l.UserId == userid).ToList();
+        var taskList = list.Where(l => l.UserId == userid).ToList();
 
-        return tasklist;
+        return taskList;
     }
 
     public async Task<AssignmentList> CreateList(AssignmentListDTO assignmentDto)
     {
         var assignment = _mapper.Map<AssignmentList>(assignmentDto);
-        var assignmentcreated = await _assignmentListRepository.Create(assignment);
-        return assignmentcreated;
+        var assignmentCreated = await _assignmentListRepository.Create(assignment);
+        return assignmentCreated;
     }
 
     public async Task<AssignmentList> GetListById(SearchAssignmentListDTO search)

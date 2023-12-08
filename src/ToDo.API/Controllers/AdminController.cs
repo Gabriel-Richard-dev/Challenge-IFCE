@@ -109,12 +109,13 @@ public class AdminController : ControllerBase
     }
 
     [HttpDelete]
-    [Route("/DeleteTask")]
-    public async Task<IActionResult> DeleteTask([FromForm]SearchAssignmentDTO search)
+    [Route("/DeleteTask/{id}")]
+    public async Task<IActionResult> DeleteTask(long id)
     {
-        var taskremoved = await _assignmentService.GetTaskById(search);
-        await _adminService.RemoveTask(search);
-        return Ok(taskremoved);
+      
+        
+        await _assignmentService.RemoveTask(id);
+        return Ok();
     }
 
     [HttpDelete]

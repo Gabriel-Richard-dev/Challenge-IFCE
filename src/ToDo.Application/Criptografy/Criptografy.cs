@@ -7,6 +7,7 @@ public static class Criptografy
 {
     public static string GenerateHash(this string password)
     {
+        
         var hash = SHA1.Create();
         var encoding = new ASCIIEncoding();
         var array = encoding.GetBytes(password);
@@ -20,5 +21,10 @@ public static class Criptografy
         }
 
         return strHexa.ToString();
+    }
+
+    public static string DesgenerateHash(this string pass)
+    {
+        return pass;
     }
 }

@@ -28,6 +28,7 @@ public class ToDoContext : DbContext
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfiguration(new UserMap());
+        builder.ApplyConfiguration(new AssignmentMap());
         builder.ApplyConfiguration(new AssignmentListMap());
     }
     

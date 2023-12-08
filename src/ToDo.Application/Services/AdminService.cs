@@ -25,12 +25,12 @@ public class AdminService : IAdminService
     
 	public async Task<AssignmentList> DelegateList(AssignmentListDTO assignmentlist)
 	{
-		AssignmentList assignmentmapper = _mapper.Map<AssignmentList>(assignmentlist);
+		AssignmentList assignmentMapped = _mapper.Map<AssignmentList>(assignmentlist);
 		
 		long listid = await _atListRepository.GetListNewID(assignmentlist.UserId);
-		assignmentmapper.ListId = listid;
+		assignmentMapped.ListId = listid;
 		
-		AssignmentList assignmentListcreated = await _atListRepository.Create(assignmentmapper);
+		AssignmentList assignmentListcreated = await _atListRepository.Create(assignmentMapped);
 		return assignmentListcreated;
 	}
 
@@ -54,8 +54,8 @@ public class AdminService : IAdminService
 	public async Task<SearchUserDTO?> GetUserById(long id)
 	{
 		var user = await _userRepository.GetById(id);
-		var usermapped = _mapper.Map<SearchUserDTO>(user);
-		return usermapped;
+		var userMapped = _mapper.Map<SearchUserDTO>(user);
+		return userMapped;
 	}
 
 	public async Task RemoveUser(long id)
@@ -63,10 +63,6 @@ public class AdminService : IAdminService
 		await _userRepository.Delete(id);
 	}
 
-	public async Task RemoveTask(SearchAssignmentDTO assignmentDto)
-	{
-		await _assignmentRepository.Delete(assignmentDto.Id);
-	}
 
 	public async Task RemoveTaskList(SearchAssignmentListDTO assignmentDto)
 	{

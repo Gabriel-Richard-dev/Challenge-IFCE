@@ -26,8 +26,13 @@ public class AssignmentListMap : IEntityTypeConfiguration<AssignmentList>
         builder.Property(a => a.UserId)
             .IsRequired()
             .HasColumnType("BIGINT");
+        
         builder.Property(a => a.ListId)
             .IsRequired()
             .HasColumnType("BIGINT");
+
+        builder
+            .HasMany(u => u.Assignments).WithOne(u => u.AssignmentList)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

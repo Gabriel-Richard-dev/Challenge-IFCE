@@ -19,14 +19,11 @@ public class UserService : IUserService
 
     public async Task<User> CreateUser(UserDTO user)
     {
-        
-
-        User usermapped = _mapper.Map<User>(user);
-        usermapped.Validation();
-        usermapped.Password = usermapped.Password.GenerateHash();
-        var usercreated = await _userRepository.Create(usermapped);
-        return usercreated;
-            
+        User userMapped = _mapper.Map<User>(user);
+        userMapped.Validation();
+        userMapped.Password = userMapped.Password.GenerateHash();
+        var userCreated = await _userRepository.Create(userMapped);
+        return userCreated;
     }
 
     private readonly IUserRepository _userRepository;
@@ -47,8 +44,8 @@ public class UserService : IUserService
     public async Task<SearchUserDTO> GetByEmail(string email)
     {
         var user = await _userRepository.GetByEmail(email);
-        var usermapped = _mapper.Map<SearchUserDTO>(user);
-        return usermapped;
+        var userMapped = _mapper.Map<SearchUserDTO>(user);
+        return userMapped;
     }
 
     public async Task<bool> LoginValid(LoginUserDTO dto)

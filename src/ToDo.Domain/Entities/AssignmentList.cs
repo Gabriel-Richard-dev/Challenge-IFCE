@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using ToDo.Domain.Validators;
 
 namespace ToDo.Domain.Entities;
@@ -19,6 +20,9 @@ public class AssignmentList : Base
         public string Name { get; set; }
         public long UserId { get; set; }
         public long ListId { get; set; }
+
+        public virtual User User { get; set; } = null!;
+        public virtual Collection<Assignment> Assignments { get; set; } = null!;
      
     #endregion
 
