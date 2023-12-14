@@ -28,6 +28,7 @@ public class AssignmentListService : IAssignmentListService
     public async Task<AssignmentList> CreateList(AssignmentListDTO assignmentDto)
     {
         var assignment = _mapper.Map<AssignmentList>(assignmentDto);
+        assignment.Validation();
         var assignmentCreated = await _assignmentListRepository.Create(assignment);
         return assignmentCreated;
     }

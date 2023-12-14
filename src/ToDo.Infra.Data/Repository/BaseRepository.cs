@@ -23,7 +23,7 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
         return entity;
     }
     
-    public virtual async Task<List<T>> GetAll()
+    public virtual async Task<List<T>?> GetAll()
     {
         return await _dbset.ToListAsync();
     }

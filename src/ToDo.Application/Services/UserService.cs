@@ -28,11 +28,7 @@ public class UserService : IUserService
 
     private readonly IUserRepository _userRepository;
     
-
-    public Task<AssignmentList> CreateList(long id, AssignmentListDTO assignmentList)
-    {
-        throw new NotImplementedException();
-    }
+    
     
     public async Task<List<SearchUserDTO>?> GetAllUsers()
     {
@@ -58,6 +54,7 @@ public class UserService : IUserService
     {
         var userMapped = _mapper.Map<User>(user);
         userMapped.Id = id;
+        userMapped.Validation();
         userMapped.Password = userMapped.Password.GenerateHash();
         return await _userRepository.Update(userMapped);
     }
@@ -69,6 +66,4 @@ public class UserService : IUserService
         userExist.Password = userExist.Password.GenerateHash();
         return await _userRepository.Update(userExist);
     }
-    
-   
 }

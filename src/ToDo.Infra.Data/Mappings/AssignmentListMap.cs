@@ -31,8 +31,6 @@ public class AssignmentListMap : IEntityTypeConfiguration<AssignmentList>
             .IsRequired()
             .HasColumnType("BIGINT");
 
-        builder
-            .HasMany(u => u.Assignments).WithOne(u => u.AssignmentList)
-            .OnDelete(DeleteBehavior.Cascade);
+     
     }
 }

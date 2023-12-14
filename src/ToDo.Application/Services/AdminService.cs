@@ -26,7 +26,7 @@ public class AdminService : IAdminService
 	public async Task<AssignmentList> DelegateList(AssignmentListDTO assignmentlist)
 	{
 		AssignmentList assignmentMapped = _mapper.Map<AssignmentList>(assignmentlist);
-		
+		assignmentMapped.Validation();
 		long listid = await _atListRepository.GetListNewID(assignmentlist.UserId);
 		assignmentMapped.ListId = listid;
 		

@@ -26,7 +26,7 @@ public class AssignmentMap : IEntityTypeConfiguration<Assignment>
             .IsRequired()
             .HasColumnType("BIGINT");
 
-        builder.Property(a => a.AtListId)
+        builder.Property(a => a.AssignmentListId)
             .IsRequired()
             .HasColumnType("BIGINT");
 

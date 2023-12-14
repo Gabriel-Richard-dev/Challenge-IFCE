@@ -15,7 +15,7 @@ public class Assignment : Base
         Title = title;
         Description = description;
         UserId = userId;
-        AtListId = atListid;
+        AssignmentListId = atListid;
         Concluded = concluded;
         DateConcluded = dateConcluded;
         Deadline = deadline;
@@ -27,7 +27,7 @@ public class Assignment : Base
         public string Title { get; set; }
         public string Description { get; set; }
         public long UserId { get; set; }
-        public long AtListId { get; set; }
+        public long AssignmentListId { get; set; }
         public bool Concluded { get; set; }
         public DateTime? DateConcluded { get; set; }
         public DateTime? Deadline { get; set; }

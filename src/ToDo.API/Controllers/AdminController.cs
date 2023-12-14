@@ -77,19 +77,19 @@ public class AdminController : ControllerBase
 
         throw new Exception();
     }
-
-    [HttpGet]
-    [Route("/GetTasksByIds")]
-    public async Task<IActionResult> GetTasksByIds(long userid, long listid)
-    {
-        return Ok(await _assignmentService.GetTasks(userid, listid));
-    }
+    
 
     [HttpPost]
     [Route("/GetTaskByIds")]
     public async Task<IActionResult> GetTaskByIds(SearchAssignmentDTO search)
     {
         return Ok(await _assignmentService.GetTaskById(search));
+    }
+    [HttpGet]
+    [Route("/GetTasks/{userId}/{listId}")]
+    public async Task<IActionResult> GetTasks(long userId, long listId)
+    {
+        return Ok(await _assignmentService.GetTasks(userId, listId));
     }
 
     [HttpGet]

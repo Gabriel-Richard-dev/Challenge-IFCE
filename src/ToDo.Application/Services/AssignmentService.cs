@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Xml;
 using AutoMapper;
 using ToDo.Application.DTO;
 using ToDo.Application.Interfaces;
@@ -25,7 +26,7 @@ public class AssignmentService : IAssignmentService
     public async Task<Assignment> CreateTask(AssignmentDTO assignmentDto)
     {
         var assignment = _mapper.Map<Assignment>(assignmentDto);
-        
+
         if (assignment.DateConcluded.Equals("0001-01-01 00:00:00.000000"))
         {
             assignment.DateConcluded = null;
@@ -38,6 +39,7 @@ public class AssignmentService : IAssignmentService
         {
             assignment.Deadline = null;
         }
+        assignment.Validation();
 
         var listsuser = await _assignmentListService.GetAllLists(assignmentDto.UserId);
         foreach (var item in listsuser)
@@ -53,23 +55,26 @@ public class AssignmentService : IAssignmentService
     }
     
     
-    public async Task<List<Assignment>> GetTasks(long userid, long listid)
+    public async Task<List<Assignment>> GetTasks(long userid, long listId)
     {
-        var list = await _assignmentRepository.GetAll();
-        list = list.Where(a => a.UserId == userid && a.AtListId == listid).ToList();
-        return list;
+        var list = await _assignmentRepository.GetAllTasks(userid);
+        var listHandler = list.Where(a => a.AssignmentListId == listId).ToList();
+        
+        return listHandler;
     }
 
     public async Task<Assignment?> GetTaskById(SearchAssignmentDTO dto)
     {
-        var listAssignment =  await GetTasks(dto.UserId, dto.ListId);
-        var assignment = listAssignment.Where(a => a.AtListId == dto.ListId && a.UserId == dto.UserId).ToList().FirstOrDefault();
-        if (assignment is not null)
-        {
-            return assignment;
-        }
+        var listAssignment =  await GetTasks(dto.UserId, dto.Id);
+        
+        // var assignment = listAssignment.Where(a => a.Id == dto.Id).ToList().FirstOrDefault();
+        // if (assignment is not null)
+        // {
+        //     return assignment;
+        // }
 
-        throw new Exception();
+        return listAssignment.FirstOrDefault();
+
     }
 
     public async Task RemoveTask(long id)
