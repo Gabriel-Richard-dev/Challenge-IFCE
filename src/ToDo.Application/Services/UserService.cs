@@ -63,6 +63,7 @@ public class UserService : IUserService
         User userExist = await _userRepository.GetByEmail(user.Email);
         confirmpass  = userExist.Password;
         userExist.AtualizaPassword(confirmpass, confirmpass, newpass);
+        userExist.Validation();
         userExist.Password = userExist.Password.GenerateHash();
         return await _userRepository.Update(userExist);
     }

@@ -10,7 +10,8 @@ namespace ToDo.Application.Services;
 
 public class AssignmentService : IAssignmentService
 {
-    public AssignmentService(IAssignmentRepository assignmentRepository, IMapper mapper, IAssignmentListService listService)
+    public AssignmentService(IAssignmentRepository assignmentRepository, IMapper mapper,
+        IAssignmentListService listService)
     {
         _assignmentRepository = assignmentRepository;
         _assignmentListService = listService;
@@ -20,7 +21,6 @@ public class AssignmentService : IAssignmentService
     private readonly IAssignmentRepository _assignmentRepository;
     private readonly IAssignmentListService _assignmentListService;
     private readonly IMapper _mapper;
-    
 
 
     public async Task<Assignment> CreateTask(AssignmentDTO assignmentDto)
@@ -31,14 +31,17 @@ public class AssignmentService : IAssignmentService
         {
             assignment.DateConcluded = null;
         }
+
         if (assignment.Concluded == true && assignment.DateConcluded == null)
         {
             throw new Exception();
         }
+
         if (assignment.Deadline.Equals("0001-01-01 00:00:00.000000"))
         {
             assignment.Deadline = null;
         }
+
         assignment.Validation();
 
         var listsuser = await _assignmentListService.GetAllLists(assignmentDto.UserId);
@@ -53,39 +56,27 @@ public class AssignmentService : IAssignmentService
 
         throw new Exception();
     }
-    
-    
+
+
     public async Task<List<Assignment>> GetTasks(long userid, long listId)
     {
-        var list = await _assignmentRepository.GetAllTasks(userid);
-        var listHandler = list.Where(a => a.AssignmentListId == listId).ToList();
+        var list = await _assignmentRepository.GetAll();
         
-        return listHandler;
+        return list
+            .Where(a => a.AssignmentListId == listId 
+                        && a.UserId == userid).ToList();
     }
 
-    public async Task<Assignment?> GetTaskById(SearchAssignmentDTO dto)
+    public async Task<Assignment> GetTaskById(SearchAssignmentDTO dto)
     {
-        var listAssignment =  await GetTasks(dto.UserId, dto.Id);
-        
-        // var assignment = listAssignment.Where(a => a.Id == dto.Id).ToList().FirstOrDefault();
-        // if (assignment is not null)
-        // {
-        //     return assignment;
-        // }
+        var listAssignment = GetTasks(dto.UserId, dto.ListId).Result;
 
-        return listAssignment.FirstOrDefault();
-
+        var assignment = listAssignment.Where(a => a.Id == dto.Id).ToList().FirstOrDefault();
+        return assignment;
     }
 
     public async Task RemoveTask(long id)
     {
-      
-            await _assignmentRepository.Delete(id);
-     
-        
+        await _assignmentRepository.Delete(id);
     }
-
-   
-    
-    
 }

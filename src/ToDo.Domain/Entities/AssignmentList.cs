@@ -21,8 +21,6 @@ public class AssignmentList : Base
         public long UserId { get; set; }
         public long ListId { get; set; }
 
-        public virtual User User { get; set; } = null!;
-        public virtual Collection<Assignment> Assignments { get; set; } = null!;
      
     #endregion
 

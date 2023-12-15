@@ -24,10 +24,7 @@ public class User : Base
     public string Email { get; set; }
     public string Password { get; set; }
     public bool AdminPrivileges { get; set; }
-    public virtual Collection<AssignmentList> AssignmentLists { get; set; } = null!;
-    public virtual Collection<Assignment> Assignments { get; set; } = null!;
-    
-
+  
     #endregion
 
     public void AtualizaPassword(string pass, string confirmpass, string newpassword)

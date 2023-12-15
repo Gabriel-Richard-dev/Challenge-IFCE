@@ -15,6 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", builder =>
@@ -24,18 +25,19 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader();
     });
 });
+
 void AutoMapperDependencyInjection()
 {
     var automapperconfigure = new MapperConfiguration(options =>
-    { 
-        options.CreateMap<User, UserDTO >().ReverseMap(); 
-        options.CreateMap<SingInUserDTO, UserDTO >().ReverseMap(); 
-        options.CreateMap<SearchUserDTO, User >().ReverseMap(); 
-        options.CreateMap<Assignment, AssignmentDTO >().ReverseMap(); 
-        options.CreateMap<AssignmentDTO, AddAssignmentDTO >().ReverseMap(); 
-        options.CreateMap<AssignmentListDTO, AddAssignmentListDTO >().ReverseMap(); 
-        options.CreateMap<AssignmentList, AssignmentListDTO >().ReverseMap(); 
-        options.CreateMap<SearchAssignmentDTO, UserSearchAssignmentDTO >().ReverseMap(); 
+    {
+        options.CreateMap<User, UserDTO>().ReverseMap();
+        options.CreateMap<SingInUserDTO, UserDTO>().ReverseMap();
+        options.CreateMap<SearchUserDTO, User>().ReverseMap();
+        options.CreateMap<Assignment, AssignmentDTO>().ReverseMap();
+        options.CreateMap<AssignmentDTO, AddAssignmentDTO>().ReverseMap();
+        options.CreateMap<AssignmentListDTO, AddAssignmentListDTO>().ReverseMap();
+        options.CreateMap<AssignmentList, AssignmentListDTO>().ReverseMap();
+        options.CreateMap<SearchAssignmentDTO, UserSearchAssignmentDTO>().ReverseMap();
         options.CreateMap<SearchAssignmentDTO, Assignment>().ReverseMap();
     });
 
@@ -46,7 +48,7 @@ AutoMapperDependencyInjection();
 
 var connectionstring = builder.Configuration.GetConnectionString("DEFAULT");
 
-builder.Services.AddDbContext<ToDoContext>(options => options.UseMySql(connectionstring, 
+builder.Services.AddDbContext<ToDoContext>(options => options.UseMySql(connectionstring,
     ServerVersion.AutoDetect(connectionstring)));
 
 builder.Services.AddSingleton(d => builder.Configuration);
@@ -60,11 +62,8 @@ builder.Services.AddScoped<IAssignmentRepository, AssignmentRepository>();
 builder.Services.AddScoped<IAssignmentListRepository, AssignmentListRepository>();
 
 
-
-
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddSwaggerGen();
-
 
 
 var app = builder.Build();

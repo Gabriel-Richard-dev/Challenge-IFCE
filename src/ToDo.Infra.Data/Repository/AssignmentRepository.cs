@@ -13,7 +13,7 @@ public class AssignmentRepository : BaseRepository<Assignment>, IAssignmentRepos
     public async Task<List<Assignment>> GetAllTasks(long userId)
     {
         var list = await _context.Assignments.AsNoTracking().ToListAsync();
-        var listUser =  list.Where(a => a.AssignmentListId == userId).ToList();
+        var listUser =  list.Where(a => a.UserId == userId).ToList();
         return listUser;
     }
 }

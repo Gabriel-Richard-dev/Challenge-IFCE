@@ -33,9 +33,6 @@ public class Assignment : Base
         public DateTime? Deadline { get; set; }
 
 
-        public User User { get; set; } = null!;
-        public AssignmentList AssignmentList { get; set; } = null!;
-
 
     #endregion
     

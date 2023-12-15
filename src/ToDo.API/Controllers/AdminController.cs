@@ -12,8 +12,8 @@ namespace ToDo.API.Controllers;
 [ApiController]
 public class AdminController : ControllerBase
 {
-
-    public AdminController(IAdminService adminService, IAssignmentService assignmentService, IAssignmentListService assignmentListService, IUserService userService, IMapper mapper)
+    public AdminController(IAdminService adminService, IAssignmentService assignmentService,
+        IAssignmentListService assignmentListService, IUserService userService, IMapper mapper)
     {
         _adminService = adminService;
         _assignmentListService = assignmentListService;
@@ -35,6 +35,7 @@ public class AdminController : ControllerBase
         await _userService.CreateUser(user);
         return Ok(user);
     }
+
     [HttpPost]
     [Route("/CreateListToUser")]
     public async Task<IActionResult> CreateList([FromBody] AssignmentListDTO list)
@@ -42,7 +43,7 @@ public class AdminController : ControllerBase
         await _adminService.DelegateList(list);
         return Ok(list);
     }
-    
+
     [HttpPost]
     [Route("/DelegateTask")]
     public async Task<IActionResult> DelegateTask([FromForm] AssignmentDTO assignment)
@@ -57,7 +58,7 @@ public class AdminController : ControllerBase
     {
         return Ok(await _userService.GetAllUsers());
     }
-    
+
     [HttpGet]
     [Route("/GetUserById/{id}")]
     public async Task<IActionResult> GetUserById(int id)
@@ -77,14 +78,22 @@ public class AdminController : ControllerBase
 
         throw new Exception();
     }
-    
 
-    [HttpPost]
-    [Route("/GetTaskByIds")]
-    public async Task<IActionResult> GetTaskByIds(SearchAssignmentDTO search)
+
+    [HttpGet]
+    [Route("/GetTaskByIds/{id}/{listId}/{userId}")]
+    public async Task<IActionResult> GetTaskByIds(long id, long listId, long userId)
     {
+        var search = new SearchAssignmentDTO()
+        {
+            Id = id,
+            ListId = listId,
+            UserId = userId
+        };
+        
         return Ok(await _assignmentService.GetTaskById(search));
     }
+
     [HttpGet]
     [Route("/GetTasks/{userId}/{listId}")]
     public async Task<IActionResult> GetTasks(long userId, long listId)
@@ -96,7 +105,7 @@ public class AdminController : ControllerBase
     [Route("/GetByEmail/{email}")]
     public async Task<IActionResult> GetByEmail(string email)
     {
-        return  Ok(await _userService.GetByEmail(email));
+        return Ok(await _userService.GetByEmail(email));
     }
 
     [HttpDelete]
@@ -112,15 +121,13 @@ public class AdminController : ControllerBase
     [Route("/DeleteTask/{id}")]
     public async Task<IActionResult> DeleteTask(long id)
     {
-      
-        
         await _assignmentService.RemoveTask(id);
         return Ok();
     }
 
     [HttpDelete]
     [Route("/DeleteTaskList")]
-    public async Task<IActionResult> DeleteTaskList([FromForm]SearchAssignmentListDTO search)
+    public async Task<IActionResult> DeleteTaskList([FromForm] SearchAssignmentListDTO search)
     {
         await _adminService.RemoveTaskList(search);
         return Ok();
@@ -128,10 +135,8 @@ public class AdminController : ControllerBase
 
     [HttpPut]
     [Route("UpdateUser/{id}")]
-    public async Task<IActionResult> UpdateUser([FromBody]UserDTO usr, long id)
+    public async Task<IActionResult> UpdateUser([FromBody] UserDTO usr, long id)
     {
         return Ok(await _userService.Update(usr, id));
     }
-    
-    
 }

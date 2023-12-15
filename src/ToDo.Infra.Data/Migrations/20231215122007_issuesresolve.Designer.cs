@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ToDo.Infra.Data.Context;
 
@@ -11,9 +12,11 @@ using ToDo.Infra.Data.Context;
 namespace ToDo.Infra.Data.Migrations
 {
     [DbContext(typeof(ToDoContext))]
-    partial class ToDoContextModelSnapshot : ModelSnapshot
+    [Migration("20231215122007_issuesresolve")]
+    partial class issuesresolve
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,6 +57,10 @@ namespace ToDo.Infra.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AssignmentListId");
+
+                    b.HasIndex("UserId");
+
                     b.ToTable("Assignments");
                 });
 
@@ -75,6 +82,8 @@ namespace ToDo.Infra.Data.Migrations
                         .HasColumnType("BIGINT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("AssignmentList", (string)null);
                 });
@@ -109,6 +118,48 @@ namespace ToDo.Infra.Data.Migrations
                         .IsUnique();
 
                     b.ToTable("User", (string)null);
+                });
+
+            modelBuilder.Entity("ToDo.Domain.Entities.Assignment", b =>
+                {
+                    b.HasOne("ToDo.Domain.Entities.AssignmentList", "AssignmentList")
+                        .WithMany("Assignments")
+                        .HasForeignKey("AssignmentListId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ToDo.Domain.Entities.User", "User")
+                        .WithMany("Assignments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AssignmentList");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ToDo.Domain.Entities.AssignmentList", b =>
+                {
+                    b.HasOne("ToDo.Domain.Entities.User", "User")
+                        .WithMany("AssignmentLists")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ToDo.Domain.Entities.AssignmentList", b =>
+                {
+                    b.Navigation("Assignments");
+                });
+
+            modelBuilder.Entity("ToDo.Domain.Entities.User", b =>
+                {
+                    b.Navigation("AssignmentLists");
+
+                    b.Navigation("Assignments");
                 });
 #pragma warning restore 612, 618
         }
