@@ -75,8 +75,13 @@ public class AssignmentService : IAssignmentService
         return assignment;
     }
 
-    public async Task RemoveTask(long id)
+    public async Task<Assignment> RemoveTask(SearchAssignmentDTO dto)
     {
-        await _assignmentRepository.Delete(id);
+
+       var removed = await GetTaskById(dto);
+       await _assignmentRepository.RemoveTask(dto.Id, dto.UserId);
+       return removed;
+
+
     }
 }

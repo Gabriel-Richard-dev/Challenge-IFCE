@@ -12,8 +12,27 @@ public class AssignmentRepository : BaseRepository<Assignment>, IAssignmentRepos
 
     public async Task<List<Assignment>> GetAllTasks(long userId)
     {
-        var list = await _context.Assignments.AsNoTracking().ToListAsync();
+        var list = await _context.Assignments.AsNoTrackingWithIdentityResolution().ToListAsync();
         var listUser =  list.Where(a => a.UserId == userId).ToList();
         return listUser;
     }
+
+    public async Task RemoveTask(long Id, long UserId)
+    {
+        var list = await GetAllTasks(UserId);
+
+        foreach (var task in list)
+        {
+            if(task.Id == Id)
+            {
+                
+                _context.Assignments.Remove(task);
+                await _context.SaveChangesAsync();
+                return;
+            }
+        }
+
+        return;
+    }
+
 }

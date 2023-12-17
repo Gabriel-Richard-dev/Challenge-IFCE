@@ -25,12 +25,12 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
     
     public virtual async Task<List<T>?> GetAll()
     {
-        return await _dbset.ToListAsync();
+        return await _dbset.AsNoTrackingWithIdentityResolution().ToListAsync();
     }
     public virtual async Task<T?> GetById(long id)
     {
         var list = await _dbset.Where(o => o.Id == id)
-            .AsNoTracking().ToListAsync();
+            .AsNoTrackingWithIdentityResolution().ToListAsync();
 
         return list.FirstOrDefault();
     }    

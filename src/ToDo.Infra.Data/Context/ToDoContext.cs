@@ -23,6 +23,7 @@ public class ToDoContext : DbContext
         
         var connection = "server=localhost; port=3306;database=TODODB; uid=root;password=Gr0612";
         builder.UseMySql(connection, ServerVersion.AutoDetect(connection));
+        builder.EnableSensitiveDataLogging(true);
     }
     
     protected override void OnModelCreating(ModelBuilder builder)

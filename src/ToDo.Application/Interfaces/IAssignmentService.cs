@@ -8,5 +8,5 @@ public interface IAssignmentService
     Task<Assignment> CreateTask(AssignmentDTO assignment);
     Task<List<Assignment>> GetTasks(long userid, long listid);
     Task<Assignment> GetTaskById(SearchAssignmentDTO dto);
-    Task RemoveTask(long id);
+    Task<Assignment> RemoveTask(SearchAssignmentDTO dto);
 }

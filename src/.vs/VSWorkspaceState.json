@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\ToDo.API",
+    "\\ToDo.API\\Controllers",
+    "\\ToDo.Application",
+    "\\ToDo.Application\\Services"
+  ],
+  "SelectedNode": "\\ToDo.API\\Controllers\\AdminController.cs",
+  "PreviewInSolutionExplorer": false
+}

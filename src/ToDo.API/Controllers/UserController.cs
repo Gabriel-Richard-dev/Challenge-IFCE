@@ -27,13 +27,13 @@ public class UserController : ControllerBase
     [Route("/CreateTask")]
     public async Task<IActionResult> CreateTask([FromForm] AddAssignmentDTO assignmentDto)
     {
-        
+
         var assignmentMapper = _mapper.Map<AssignmentDTO>(assignmentDto);
         assignmentMapper.UserId = AuthenticatedUser.Id;
         return Ok(await _assignmentService.CreateTask(assignmentMapper));
 
-    }    
-    
+    }
+
     [HttpPost]
     [Route("/CreateTaskList")]
     public async Task<IActionResult> CreateTaskList([FromForm] AddAssignmentListDTO assignmentDto)
@@ -42,8 +42,8 @@ public class UserController : ControllerBase
         assignmentMapper.UserId = AuthenticatedUser.Id;
         return Ok(await _assignmentListService.CreateList(assignmentMapper));
     }
-    
-    
+
+
     [HttpGet]
     [Route("/GetLists")]
     public async Task<IActionResult> GetTaskList()
@@ -73,22 +73,18 @@ public class UserController : ControllerBase
         var search = _mapper.Map<SearchAssignmentDTO>(dto);
         search.UserId = dto.UserId;
         var assignment = await _assignmentService.GetTaskById(search);
-        
+
         return Ok(assignment);
     }
-    
+
     [HttpDelete]
-    [Route("/DeleteUserTask")]
-    public async Task<IActionResult> DeleteTask([FromForm]UserSearchAssignmentDTO dto)
+    [Route("/DeleteUserTask/{id}")]
+    public async Task<IActionResult> DeleteTask(long id, long listId)
     {
-        var search = _mapper.Map<SearchAssignmentDTO>(dto); 
-        var taskremoved = await _assignmentService.GetTaskById(search);
-        search.Id = taskremoved.Id;
-        // await _assignmentService.RemoveTask(search.Id);
-         
-        
-        return Ok(taskremoved);
-    }
+        var search = new SearchAssignmentDTO() { Id = id, ListId = listId, UserId = AuthenticatedUser.Id };
+       
+        return Ok(await _assignmentService.RemoveTask(search));
+    }   
 
     [HttpPut]
     [Route("/UpdatePassword")]

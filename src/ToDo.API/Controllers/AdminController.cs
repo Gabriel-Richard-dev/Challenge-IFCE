@@ -29,7 +29,7 @@ public class AdminController : ControllerBase
     private readonly IMapper _mapper;
 
     [HttpPost]
-    [Route("/CriarUsuario")]
+    [Route("/CreateUser")]
     public async Task<IActionResult> CreateUser([FromForm] UserDTO user)
     {
         await _userService.CreateUser(user);
@@ -118,11 +118,11 @@ public class AdminController : ControllerBase
     }
 
     [HttpDelete]
-    [Route("/DeleteTask/{id}")]
-    public async Task<IActionResult> DeleteTask(long id)
+    [Route("/DeleteTask/")]
+    public async Task<IActionResult> DeleteTask(SearchAssignmentDTO dto)
     {
-        await _assignmentService.RemoveTask(id);
-        return Ok();
+      
+        return Ok(await _assignmentService.RemoveTask(dto));
     }
 
     [HttpDelete]
