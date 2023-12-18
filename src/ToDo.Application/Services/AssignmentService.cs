@@ -123,7 +123,19 @@ public class AssignmentService : IAssignmentService
         
     }
 
+    public async Task<List<AssignmentDTO>> SearchTaskByTitle(string parseTitle)
+    {
+        var tasks = await _assignmentRepository.GetAll();
 
+        var listTasks = tasks
+            .Where(a => a.UserId == AuthenticatedUser.Id 
+                        && a.Title.ToLower().Contains(parseTitle.ToLower()))
+            .ToList();
+
+        return _mapper.Map<List<AssignmentDTO>>(listTasks);
+
+
+    }
   
     
     

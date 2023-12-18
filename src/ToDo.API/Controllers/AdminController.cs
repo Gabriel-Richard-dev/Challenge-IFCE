@@ -156,6 +156,12 @@ public class AdminController : ControllerBase
     }
     
     
-    
+    [HttpGet]
+    [Route("SearchUserByEmail/{parseEmail}")]
+    public async Task<IActionResult> SearchByEmail(string parseEmail)
+    {
+        return Ok(await _userService.SearchByEmail(parseEmail));
+    }
+
     
 }

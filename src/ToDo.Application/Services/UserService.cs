@@ -69,10 +69,26 @@ public class UserService : IUserService
     }
     
         
-    public async Task<List<User>> SearchByName(string parsename)
+    public async Task<List<SearchUserDTO>> SearchByName(string parsename)
     {
         var users = await _userRepository.GetAll();
 
-        return users.Where(u => u.Name.ToLower().Contains(parsename.ToLower())).ToList();
+        var listUser = users.Where(u => u.Name.ToLower().Contains(parsename.ToLower())).ToList();
+
+        return _mapper.Map<List<SearchUserDTO>>(listUser);
+
     }
+    public async Task<List<SearchUserDTO>> SearchByEmail(string parseEmail)
+    {
+        var users = await _userRepository.GetAll();
+
+        var listUsers = users.Where(u => u.Email.ToLower().Contains(parseEmail.ToLower())).ToList();
+        var listUsersDTO = _mapper.Map<List<SearchUserDTO>>(listUsers);
+
+        return listUsersDTO;
+
+
+    }
+
+   
 }
