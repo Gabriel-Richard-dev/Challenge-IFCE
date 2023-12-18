@@ -37,5 +37,7 @@ public class AssignmentListRepository : BaseRepository<AssignmentList>, IAssignm
 
         throw new Exception();
     }
-    
+
+  
+
 }

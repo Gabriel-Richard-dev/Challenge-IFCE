@@ -4,8 +4,12 @@
     "\\ToDo.API",
     "\\ToDo.API\\Controllers",
     "\\ToDo.Application",
-    "\\ToDo.Application\\Services"
+    "\\ToDo.Application\\Interfaces",
+    "\\ToDo.Application\\Services",
+    "\\ToDo.Domain",
+    "\\ToDo.Infra.Data",
+    "\\ToDo.Infra.Data\\Repository"
   ],
-  "SelectedNode": "\\ToDo.API\\Controllers\\AdminController.cs",
+  "SelectedNode": "\\ToDo.Infra.Data\\Repository\\AssignmentListRepository.cs",
   "PreviewInSolutionExplorer": false
 }

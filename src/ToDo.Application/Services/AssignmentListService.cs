@@ -35,9 +35,25 @@ public class AssignmentListService : IAssignmentListService
 
     public async Task<AssignmentList> GetListById(SearchAssignmentListDTO search)
     {
-        var lAssignment = await _assignmentListRepository.GetListByListId(search.UserId, search.UserId);
+        var lAssignment = await _assignmentListRepository.GetListByListId(search.UserId, search.ListId);
         var list = await _assignmentListRepository.GetAll();
         var assignment = list.Where(l => l.Id == lAssignment.Id).ToList();
         return assignment.FirstOrDefault();
     }
+
+
+    public async Task<AssignmentList> RemoveTaskList(SearchAssignmentListDTO dto)
+    {
+        var atListExists = await GetListById(dto);
+
+        if(atListExists is not null)
+        {
+            _assignmentListRepository.Delete(atListExists.Id);
+        }
+
+        return atListExists;
+
+
+    }
+
 }

@@ -129,8 +129,8 @@ public class AdminController : ControllerBase
     [Route("/DeleteTaskList")]
     public async Task<IActionResult> DeleteTaskList([FromForm] SearchAssignmentListDTO search)
     {
-        await _adminService.RemoveTaskList(search);
-        return Ok();
+       
+        return Ok(await _assignmentListService.RemoveTaskList(search));
     }
 
     [HttpPut]
