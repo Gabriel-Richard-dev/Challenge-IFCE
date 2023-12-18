@@ -67,4 +67,12 @@ public class UserService : IUserService
         userExist.Password = userExist.Password.GenerateHash();
         return await _userRepository.Update(userExist);
     }
+    
+        
+    public async Task<List<User>> SearchByName(string parsename)
+    {
+        var users = await _userRepository.GetAll();
+
+        return users.Where(u => u.Name.ToLower().Contains(parsename.ToLower())).ToList();
+    }
 }

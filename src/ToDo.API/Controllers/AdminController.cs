@@ -139,4 +139,23 @@ public class AdminController : ControllerBase
     {
         return Ok(await _userService.Update(usr, id));
     }
+    
+    
+    [HttpPut]
+    [Route("UpdateTask/{id}")]
+    public async Task<IActionResult> UpdateUser([FromBody] AddAssignmentDTO dto, long id)
+    {
+        return Ok(await _assignmentService.UpdateTask(dto, id));
+    }
+
+    [HttpGet]
+    [Route("SearchUserByName/{parsename}")]
+    public async Task<IActionResult> SearchByName(string parsename)
+    {
+        return Ok(await _userService.SearchByName(parsename));
+    }
+    
+    
+    
+    
 }

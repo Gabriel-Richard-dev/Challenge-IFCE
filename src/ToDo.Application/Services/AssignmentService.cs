@@ -84,4 +84,47 @@ public class AssignmentService : IAssignmentService
 
 
     }
+
+    public async Task<Assignment> UpdateTask(AddAssignmentDTO dto, long id)
+    {
+        var baseAssignment = await _assignmentRepository.GetById(id);
+        
+        if(baseAssignment is not null)
+        {
+            var assignmentMapped = _mapper.Map<Assignment>(dto);
+            assignmentMapped.Id = id;
+            assignmentMapped.UserId = baseAssignment.UserId;
+            assignmentMapped.Validation();
+            await _assignmentRepository.Update(assignmentMapped);
+            return assignmentMapped;
+        }
+
+        throw new Exception();
+    }
+
+
+    public async Task<Assignment> UpdateUserTask(AddAssignmentDTO dto, long id)
+    {
+        
+        var baseAssignment = await _assignmentRepository.GetById(id);
+
+        if (baseAssignment is not null && baseAssignment.Id == AuthenticatedUser.Id) 
+        {
+            var assignmentMapped = _mapper.Map<Assignment>(dto);
+            assignmentMapped.Id = id;
+            assignmentMapped.UserId = baseAssignment.UserId;
+            assignmentMapped.Validation();
+            await _assignmentRepository.Update(assignmentMapped);
+            return assignmentMapped;
+        }
+
+        throw new Exception();
+        
+        
+    }
+
+
+  
+    
+    
 }

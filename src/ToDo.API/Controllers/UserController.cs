@@ -92,5 +92,12 @@ public class UserController : ControllerBase
     {
         return Ok(await _userService.UpdatePassword(search, confirmpassword, newpassword));
     }
+
+    [HttpPut]
+    [Route("/UpdateUserTask/{id}")]
+    public async Task<IActionResult> UpdateUserTask([FromBody] AddAssignmentDTO dto, long id)
+    {
+        return Ok(await _assignmentService.UpdateUserTask(dto, id));
+    }    
     
 }
