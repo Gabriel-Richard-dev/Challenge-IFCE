@@ -1,9 +1,11 @@
 using AutoMapper;
+using System.Net.WebSockets;
 using ToDo.Application.Criptografy;
 using ToDo.Application.DTO;
 using ToDo.Application.Interfaces;
 using ToDo.Domain.Contracts.Repository;
 using ToDo.Domain.Entities;
+using ToDo.Core.Exceptions;
 
 namespace ToDo.Application.Services;
 
@@ -20,10 +22,22 @@ public class UserService : IUserService
     public async Task<User> CreateUser(UserDTO user)
     {
         User userMapped = _mapper.Map<User>(user);
+        
+        var userExists = await GetByEmail(user.Email);
+
+        if (userExists != null)
+        {
+
+            throw new ToDoException("Email já cadastrado.");
+
+        }
+
         userMapped.Validation();
+        
         userMapped.Password = userMapped.Password.GenerateHash();
         var userCreated = await _userRepository.Create(userMapped);
         return userCreated;
+        
     }
 
     private readonly IUserRepository _userRepository;
@@ -37,11 +51,15 @@ public class UserService : IUserService
         return userListMapped;
     }
 
-    public async Task<SearchUserDTO> GetByEmail(string email)
+    public async Task<SearchUserDTO?> GetByEmail(string email)
     {
         var user = await _userRepository.GetByEmail(email);
+        if (user != null) { 
         var userMapped = _mapper.Map<SearchUserDTO>(user);
         return userMapped;
+        }
+
+        return null;
     }
 
     public async Task<bool> LoginValid(LoginUserDTO dto)

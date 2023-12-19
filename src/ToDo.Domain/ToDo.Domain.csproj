@@ -10,4 +10,8 @@
     <PackageReference Include="FluentValidation" Version="11.8.0" />
   </ItemGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\ToDo.Core\ToDo.Core.csproj" />
+	</ItemGroup>
+
 </Project>

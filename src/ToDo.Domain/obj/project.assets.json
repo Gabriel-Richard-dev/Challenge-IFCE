@@ -14,6 +14,16 @@
             "related": ".xml"
           }
         }
+      },
+      "ToDo.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ToDo.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ToDo.Core.dll": {}
+        }
       }
     }
   },
@@ -40,38 +50,55 @@
         "lib/netstandard2.1/FluentValidation.dll",
         "lib/netstandard2.1/FluentValidation.xml"
       ]
+    },
+    "ToDo.Core/1.0.0": {
+      "type": "project",
+      "path": "../ToDo.Core/ToDo.Core.csproj",
+      "msbuildProject": "../ToDo.Core/ToDo.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "FluentValidation >= 11.8.0"
+      "FluentValidation >= 11.8.0",
+      "ToDo.Core >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "/home/gabrielrichard/.nuget/packages/": {}
+    "C:\\Users\\Gabriel Richard\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/ToDo.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj",
       "projectName": "ToDo.Domain",
-      "projectPath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/ToDo.Domain.csproj",
-      "packagesPath": "/home/gabrielrichard/.nuget/packages/",
-      "outputPath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/obj/",
+      "projectPath": "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj",
+      "packagesPath": "C:\\Users\\Gabriel Richard\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Domain\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/home/gabrielrichard/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Gabriel Richard\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj": {
+              "projectPath": "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -105,7 +132,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/gabrielrichard/.dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

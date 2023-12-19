@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "ToDo.Domain/1.0.0": {
         "dependencies": {
-          "FluentValidation": "11.8.0"
+          "FluentValidation": "11.8.0",
+          "ToDo.Core": "1.0.0"
         },
         "runtime": {
           "ToDo.Domain.dll": {}
@@ -20,6 +21,11 @@
             "assemblyVersion": "11.0.0.0",
             "fileVersion": "11.8.0.0"
           }
+        }
+      },
+      "ToDo.Core/1.0.0": {
+        "runtime": {
+          "ToDo.Core.dll": {}
         }
       }
     }
@@ -36,6 +42,11 @@
       "sha512": "sha512-TiEaaYqSIAS+wXQv46LRm8Mca092XYNePD0n231Hqlkmm5FuToZoWnjI1ef/vJUxBzqR7/k2vaVQXxijNgVKRQ==",
       "path": "fluentvalidation/11.8.0",
       "hashPath": "fluentvalidation.11.8.0.nupkg.sha512"
+    },
+    "ToDo.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

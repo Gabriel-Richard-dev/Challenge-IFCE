@@ -301,7 +301,8 @@
       },
       "ToDo.Domain/1.0.0": {
         "dependencies": {
-          "FluentValidation": "11.8.0"
+          "FluentValidation": "11.8.0",
+          "ToDo.Core": "1.0.0"
         },
         "runtime": {
           "ToDo.Domain.dll": {}

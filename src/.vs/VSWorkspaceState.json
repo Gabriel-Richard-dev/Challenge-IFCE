@@ -2,14 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\ToDo.API",
-    "\\ToDo.API\\Controllers",
     "\\ToDo.Application",
-    "\\ToDo.Application\\Interfaces",
     "\\ToDo.Application\\Services",
+    "\\ToDo.Core",
+    "\\ToDo.Core\\Exceptions",
     "\\ToDo.Domain",
+    "\\ToDo.Domain\\Entities",
     "\\ToDo.Infra.Data",
     "\\ToDo.Infra.Data\\Repository"
   ],
-  "SelectedNode": "\\ToDo.Infra.Data\\Repository\\AssignmentListRepository.cs",
+  "SelectedNode": "\\ToDo.API\\appsettings.json",
   "PreviewInSolutionExplorer": false
 }

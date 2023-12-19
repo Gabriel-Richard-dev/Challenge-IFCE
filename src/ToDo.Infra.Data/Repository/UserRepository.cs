@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ToDo.Domain.Entities;
 using ToDo.Domain.Contracts.Repository;
 using ToDo.Infra.Data.Context;
+using ToDo.Core.Exceptions;
 
 namespace ToDo.Infra.Data.Repository;
 
@@ -10,10 +11,11 @@ public class UserRepository : BaseRepository<User>, IUserRepository
 {
     public UserRepository(ToDoContext context) : base(context)
     { }
-    
-    public async Task<User> GetByEmail(string email)
+
+    public async Task<User?> GetByEmail(string email)
     {
         var list = await _context.Users.ToListAsync();
+
         var userexists = list.Where(u => u.Email == email).ToList();
         if (userexists.FirstOrDefault() is not null)
         {
@@ -21,7 +23,7 @@ public class UserRepository : BaseRepository<User>, IUserRepository
             return user.FirstOrDefault();
         }
 
-        throw new Exception();
+        return null;
     }
 
     public async Task<bool> LoginValid(string email, string password)

@@ -2,12 +2,14 @@ using System.Collections.ObjectModel;
 using FluentValidation;
 using ToDo.Domain.Contracts;
 using ToDo.Domain.Validators;
+using ToDo.Core.Exceptions;
 
 namespace ToDo.Domain.Entities;
 
 public class User : Base
 {
     protected User(){ }
+
     public User(long id, string name, string email, string password, bool adminPrivileges)
     {
         Id = id;
@@ -15,7 +17,11 @@ public class User : Base
         Email = email;
         Password = password;
         AdminPrivileges = adminPrivileges;
+
+        _erros = new List<string>();
+
         Validation();
+
     }
 
     #region props
@@ -41,13 +47,18 @@ public class User : Base
 
     public override bool Validation()
     {
-        var validator = new  UserValidator().Validate(this);
-        if (!validator.IsValid)
+        var validator = new UserValidator();
+        var validation = validator.Validate(this);
+
+        if (!validation.IsValid)
         {
-            throw new Exception();
+            foreach (var erros in validation.Errors)
+                _erros.Add(erros.ErrorMessage);
+
+            throw new ToDoException("Campo inválido, corrija-os.");
         }
 
-        return validator.IsValid;
+        return true;
     }
     
     

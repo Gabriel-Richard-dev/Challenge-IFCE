@@ -5,6 +5,8 @@ using ToDo.Application.DTO;
 using ToDo.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 using ToDo.Domain.Entities;
+using ToDo.Core.ViewModel;
+
 
 
 namespace ToDo.API.Controllers;
@@ -30,10 +32,18 @@ public class AdminController : ControllerBase
 
     [HttpPost]
     [Route("/CreateUser")]
-    public async Task<IActionResult> CreateUser([FromForm] UserDTO user)
+    public async Task<IActionResult> CreateUser([FromBody] UserDTO user)
     {
         await _userService.CreateUser(user);
-        return Ok(user);
+
+        return Ok(new ResultViewModel
+        {
+
+            Message = "Usuário criado com sucesso!",
+            Sucess = true,
+            Data = user
+
+        });
     }
 
     [HttpPost]
@@ -41,7 +51,14 @@ public class AdminController : ControllerBase
     public async Task<IActionResult> CreateList([FromBody] AssignmentListDTO list)
     {
         await _adminService.DelegateList(list);
-        return Ok(list);
+        return Ok(new ResultViewModel
+        {
+
+            Message = "Lista criada com sucesso!",
+            Sucess = true,
+            Data = list
+
+        });
     }
 
     [HttpPost]
@@ -56,14 +73,28 @@ public class AdminController : ControllerBase
     [Route("/GetUsers")]
     public async Task<IActionResult> GetUsers()
     {
-        return Ok(await _userService.GetAllUsers());
+        return Ok(new ResultViewModel
+        {
+            Message = "Lista de Usuários:",
+            Sucess = true,
+            Data = await _userService.GetAllUsers()
+        });
     }
 
     [HttpGet]
     [Route("/GetUserById/{id}")]
     public async Task<IActionResult> GetUserById(int id)
     {
-        return Ok(await _adminService.GetUserById(id));
+
+        var user = await _adminService.GetUserById(id);
+
+
+        return Ok(new ResultViewModel
+        {
+            Message = "Usuário recebido com sucesso!",
+            Sucess = true,
+            Data = user
+        });
     }
 
     [HttpGet]
@@ -71,9 +102,15 @@ public class AdminController : ControllerBase
     public async Task<IActionResult> GetTaskList(long userid)
     {
         var user = await _adminService.GetUserById(userid);
+        
         if (user is not null)
         {
-            return Ok(await _assignmentListService.GetAllLists(userid));
+            return Ok(new ResultViewModel
+            {
+                Message = $"Listas de tarefas do Usuário: {user.Name}",
+                Sucess = true,
+                Data = await _assignmentListService.GetAllLists(userid)
+            });
         }
 
         throw new Exception();
@@ -90,8 +127,13 @@ public class AdminController : ControllerBase
             ListId = listId,
             UserId = userId
         };
-        
-        return Ok(await _assignmentService.GetTaskById(search));
+        var task = await _assignmentService.GetTaskById(search);
+        return Ok(new ResultViewModel
+        {
+            Message = "Usuário criado com sucesso:",
+            Sucess = true,
+            Data = task
+        });
     }
 
     [HttpGet]

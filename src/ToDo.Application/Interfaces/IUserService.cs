@@ -9,7 +9,7 @@ public interface IUserService
 
     Task<User> Update(UserDTO userDto, long id);
     Task<List<SearchUserDTO>?> GetAllUsers();
-    Task<SearchUserDTO> GetByEmail(string email);
+    Task<SearchUserDTO?> GetByEmail(string email);
     Task<bool> LoginValid(LoginUserDTO dto);
     Task<User> UpdatePassword(LoginUserDTO user, string confirmpass, string newpass);
     Task<List<SearchUserDTO>> SearchByName(string parsename);

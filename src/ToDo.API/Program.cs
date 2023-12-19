@@ -40,6 +40,7 @@ void AutoMapperDependencyInjection()
         options.CreateMap<SearchAssignmentDTO, UserSearchAssignmentDTO>().ReverseMap();
         options.CreateMap<SearchAssignmentDTO, Assignment>().ReverseMap();
         options.CreateMap<AddAssignmentDTO, Assignment>().ReverseMap();
+        options.CreateMap<UserDTO, SearchUserDTO>().ReverseMap();
     });
 
     builder.Services.AddSingleton(automapperconfigure.CreateMapper());
@@ -61,6 +62,9 @@ builder.Services.AddScoped<IAssignmentListService, AssignmentListService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAssignmentRepository, AssignmentRepository>();
 builder.Services.AddScoped<IAssignmentListRepository, AssignmentListRepository>();
+
+
+
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
