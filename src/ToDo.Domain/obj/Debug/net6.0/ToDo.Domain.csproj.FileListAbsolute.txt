@@ -9,31 +9,19 @@
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/obj/Debug/net6.0/ToDo.Domain.dll
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/obj/Debug/net6.0/ref/ToDo.Domain.dll
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/obj/Debug/net6.0/ToDo.Domain.pdb
-C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Domain/bin/Debug/net6.0/ToDo.Domain.deps.json
-C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Domain/bin/Debug/net6.0/ToDo.Domain.dll
-C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Domain/bin/Debug/net6.0/ToDo.Domain.pdb
-C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Domain/obj/Debug/net6.0/ToDo.Domain.csproj.AssemblyReference.cache
-C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Domain/obj/Debug/net6.0/ToDo.Domain.GeneratedMSBuildEditorConfig.editorconfig
-C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Domain/obj/Debug/net6.0/ToDo.Domain.AssemblyInfoInputs.cache
-C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Domain/obj/Debug/net6.0/ToDo.Domain.AssemblyInfo.cs
-C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Domain/obj/Debug/net6.0/ToDo.Domain.csproj.CoreCompileInputs.cache
-C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Domain/obj/Debug/net6.0/ToDo.Domain.dll
-C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Domain/obj/Debug/net6.0/refint/ToDo.Domain.dll
-C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Domain/obj/Debug/net6.0/ToDo.Domain.pdb
-C:/Users/Gabriel Richard/Code/Challenge-IFCE/src/ToDo.Domain/obj/Debug/net6.0/ref/ToDo.Domain.dll
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/obj/Debug/net6.0/refint/ToDo.Domain.dll
 C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Domain\bin\Debug\net6.0\ToDo.Domain.deps.json
 C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Domain\bin\Debug\net6.0\ToDo.Domain.dll
 C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Domain\bin\Debug\net6.0\ToDo.Domain.pdb
+C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Domain\bin\Debug\net6.0\ToDo.Core.dll
+C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Domain\bin\Debug\net6.0\ToDo.Core.pdb
 C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Domain\obj\Debug\net6.0\ToDo.Domain.csproj.AssemblyReference.cache
 C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Domain\obj\Debug\net6.0\ToDo.Domain.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Domain\obj\Debug\net6.0\ToDo.Domain.AssemblyInfoInputs.cache
 C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Domain\obj\Debug\net6.0\ToDo.Domain.AssemblyInfo.cs
 C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Domain\obj\Debug\net6.0\ToDo.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Domain\obj\Debug\net6.0\ToDo.Domain.csproj.CopyComplete
 C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Domain\obj\Debug\net6.0\ToDo.Domain.dll
 C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Domain\obj\Debug\net6.0\refint\ToDo.Domain.dll
 C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Domain\obj\Debug\net6.0\ToDo.Domain.pdb
 C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Domain\obj\Debug\net6.0\ref\ToDo.Domain.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Domain\bin\Debug\net6.0\ToDo.Core.dll
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Domain\bin\Debug\net6.0\ToDo.Core.pdb
-C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Domain\obj\Debug\net6.0\ToDo.Domain.csproj.CopyComplete

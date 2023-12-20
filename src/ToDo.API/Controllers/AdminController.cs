@@ -39,7 +39,7 @@ public class AdminController : ControllerBase
         return Ok(new ResultViewModel
         {
 
-            Message = "Usuário criado com sucesso!",
+            Message = "User created sucessfully.",
             Sucess = true,
             Data = user
 
@@ -54,7 +54,7 @@ public class AdminController : ControllerBase
         return Ok(new ResultViewModel
         {
 
-            Message = "Lista criada com sucesso!",
+            Message = "List created sucessufully.",
             Sucess = true,
             Data = list
 
@@ -63,10 +63,15 @@ public class AdminController : ControllerBase
 
     [HttpPost]
     [Route("/DelegateTask")]
-    public async Task<IActionResult> DelegateTask([FromForm] AssignmentDTO assignment)
+    public async Task<IActionResult> DelegateTask([FromBody] AssignmentDTO assignment)
     {
         var assignmentCreated = await _assignmentService.CreateTask(assignment);
-        return Ok(assignment);
+        return Ok(new ResultViewModel
+        {
+            Message = $"Task delegated to user {_adminService.GetUserById(assignment.UserId).Result.Name}",
+            Sucess = true,
+            Data = assignment
+        });
     }
 
     [HttpGet]
@@ -75,7 +80,7 @@ public class AdminController : ControllerBase
     {
         return Ok(new ResultViewModel
         {
-            Message = "Lista de Usuários:",
+            Message = "List of Users:",
             Sucess = true,
             Data = await _userService.GetAllUsers()
         });
@@ -83,7 +88,7 @@ public class AdminController : ControllerBase
 
     [HttpGet]
     [Route("/GetUserById/{id}")]
-    public async Task<IActionResult> GetUserById(int id)
+    public async Task<IActionResult> GetUserById(long id)
     {
 
         var user = await _adminService.GetUserById(id);
@@ -91,7 +96,7 @@ public class AdminController : ControllerBase
 
         return Ok(new ResultViewModel
         {
-            Message = "Usuário recebido com sucesso!",
+            Message = "User recevied with sucessfully!",
             Sucess = true,
             Data = user
         });
@@ -107,7 +112,7 @@ public class AdminController : ControllerBase
         {
             return Ok(new ResultViewModel
             {
-                Message = $"Listas de tarefas do Usuário: {user.Name}",
+                Message = $"List of taks of user: {user.Name}",
                 Sucess = true,
                 Data = await _assignmentListService.GetAllLists(userid)
             });
@@ -130,7 +135,7 @@ public class AdminController : ControllerBase
         var task = await _assignmentService.GetTaskById(search);
         return Ok(new ResultViewModel
         {
-            Message = "Usuário criado com sucesso:",
+            Message = $"Tasks do user {_adminService.GetUserById(userId).Result.Name}",
             Sucess = true,
             Data = task
         });
@@ -140,14 +145,25 @@ public class AdminController : ControllerBase
     [Route("/GetTasks/{userId}/{listId}")]
     public async Task<IActionResult> GetTasks(long userId, long listId)
     {
-        return Ok(await _assignmentService.GetTasks(userId, listId));
+        return Ok(new ResultViewModel
+        {
+            Message = $"Tasks of {_adminService.GetUserById(userId).Result.Name}",
+            Sucess = true,
+            Data = await _assignmentService.GetTasks(userId, listId)
+
+        });
     }
 
     [HttpGet]
     [Route("/GetByEmail/{email}")]
     public async Task<IActionResult> GetByEmail(string email)
     {
-        return Ok(await _userService.GetByEmail(email));
+        return Ok(new ResultViewModel
+        {
+            Message ="User recevied with sucess",
+            Sucess = true,
+            Data = await _userService.GetByEmail(email)
+        });
     }
 
     [HttpDelete]
@@ -156,45 +172,77 @@ public class AdminController : ControllerBase
     {
         var userdeleted = await _adminService.GetUserById(id);
         await _adminService.RemoveUser(id);
-        return Ok(userdeleted);
+        return Ok(new ResultViewModel
+        {
+            Message = "User deleted with sucess",
+            Sucess = true,
+            Data = userdeleted
+        });
     }
 
     [HttpDelete]
     [Route("/DeleteTask/")]
     public async Task<IActionResult> DeleteTask(SearchAssignmentDTO dto)
     {
-      
-        return Ok(await _assignmentService.RemoveTask(dto));
+        await _assignmentService.RemoveTask(dto);
+        return Ok(new ResultViewModel
+        {
+            Message = "Task deleted with sucess",
+            Sucess = true,
+            Data = dto
+        });
     }
 
     [HttpDelete]
     [Route("/DeleteTaskList")]
-    public async Task<IActionResult> DeleteTaskList([FromForm] SearchAssignmentListDTO search)
+    public async Task<IActionResult> DeleteTaskList([FromBody] SearchAssignmentListDTO search)
     {
-       
-        return Ok(await _assignmentListService.RemoveTaskList(search));
+        await _assignmentListService.RemoveTaskList(search);
+        return Ok(new ResultViewModel
+        {
+            Message = "TaskList deleted with success",
+            Sucess = true,
+            Data = search
+        });
     }
 
     [HttpPut]
     [Route("UpdateUser/{id}")]
     public async Task<IActionResult> UpdateUser([FromBody] UserDTO usr, long id)
     {
-        return Ok(await _userService.Update(usr, id));
+        await _userService.Update(usr, id);
+        return Ok(new ResultViewModel
+        {
+            Message = "User updated",
+            Sucess = true,
+            Data = usr
+        });
     }
     
     
     [HttpPut]
     [Route("UpdateTask/{id}")]
-    public async Task<IActionResult> UpdateUser([FromBody] AddAssignmentDTO dto, long id)
+    public async Task<IActionResult> UpdateTask([FromBody] AddAssignmentDTO dto, long id)
     {
-        return Ok(await _assignmentService.UpdateTask(dto, id));
+        await _assignmentService.UpdateTask(dto, id);
+        return Ok(new ResultViewModel
+        {
+            Message = "Task updated",
+            Sucess = true,
+            Data = dto
+        });
     }
 
     [HttpGet]
     [Route("SearchUserByName/{parsename}")]
     public async Task<IActionResult> SearchByName(string parsename)
     {
-        return Ok(await _userService.SearchByName(parsename));
+        return Ok(new ResultViewModel
+        {
+            Message = "Users corresponding :",
+            Sucess = true,
+            Data = await _userService.SearchByName(parsename)
+        });
     }
     
     
@@ -202,7 +250,12 @@ public class AdminController : ControllerBase
     [Route("SearchUserByEmail/{parseEmail}")]
     public async Task<IActionResult> SearchByEmail(string parseEmail)
     {
-        return Ok(await _userService.SearchByEmail(parseEmail));
+        return Ok(new ResultViewModel
+        {
+            Message = "Users corresponding :",
+            Sucess = true,
+            Data = await _userService.SearchByEmail(parseEmail)
+        });
     }
 
     

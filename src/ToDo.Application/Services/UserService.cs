@@ -16,6 +16,7 @@ public class UserService : IUserService
         _userRepository = userRepository;
         _mapper = mapper;
     }
+    private readonly IUserRepository _userRepository;
 
     private readonly IMapper _mapper;
 
@@ -28,7 +29,7 @@ public class UserService : IUserService
         if (userExists != null)
         {
 
-            throw new ToDoException("Email já cadastrado.");
+            throw new ToDoException("Email has already been used");
 
         }
 
@@ -40,7 +41,6 @@ public class UserService : IUserService
         
     }
 
-    private readonly IUserRepository _userRepository;
     
     
     
@@ -55,8 +55,8 @@ public class UserService : IUserService
     {
         var user = await _userRepository.GetByEmail(email);
         if (user != null) { 
-        var userMapped = _mapper.Map<SearchUserDTO>(user);
-        return userMapped;
+            var userMapped = _mapper.Map<SearchUserDTO>(user);
+            return userMapped;
         }
 
         return null;
@@ -73,12 +73,28 @@ public class UserService : IUserService
         var userMapped = _mapper.Map<User>(user);
         userMapped.Id = id;
         userMapped.Validation();
+
+        var userExist = await GetByEmail(user.Email);
+
+        if(userExist is null)
+        {
+            throw new ToDoException("You can't update an user inexistent");
+        }
+
         userMapped.Password = userMapped.Password.GenerateHash();
         return await _userRepository.Update(userMapped);
+
     }
     public async Task<User> UpdatePassword(LoginUserDTO user, string confirmpass, string newpass)
     {
         User userExist = await _userRepository.GetByEmail(user.Email);
+
+        if(userExist is null)
+        {
+            throw new ToDoException("User inexistent.");
+        }
+
+
         confirmpass  = userExist.Password;
         userExist.AtualizaPassword(confirmpass, confirmpass, newpass);
         userExist.Validation();

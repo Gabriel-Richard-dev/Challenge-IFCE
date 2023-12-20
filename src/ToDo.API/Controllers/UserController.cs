@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using ToDo.Application.DTO;
 using ToDo.Application.Interfaces;
 using ToDo.Domain.Entities;
+using ToDo.Core.ViewModel;
 
 namespace ToDo.API.Controllers;
 
@@ -27,16 +28,20 @@ public class UserController : ControllerBase
 
     [HttpPost]
     [Route("/CreateTask")]
-    public async Task<IActionResult> CreateTask([FromForm] AddAssignmentDTO assignmentDto)
+    public async Task<IActionResult> CreateTask([FromBody] AddAssignmentDTO assignmentDto)
     {
         var assignmentMapper = _mapper.Map<AssignmentDTO>(assignmentDto);
         assignmentMapper.UserId = AuthenticatedUser.Id;
-        return Ok(await _assignmentService.CreateTask(assignmentMapper));
+        var taskCreated = await _assignmentService.CreateTask(assignmentMapper);
+        return Ok(new ResultViewModel
+        {
+
+        });
     }
 
     [HttpPost]
     [Route("/CreateTaskList")]
-    public async Task<IActionResult> CreateTaskList([FromForm] AddAssignmentListDTO assignmentDto)
+    public async Task<IActionResult> CreateTaskList([FromBody] AddAssignmentListDTO assignmentDto)
     {
         var assignmentMapper = _mapper.Map<AssignmentListDTO>(assignmentDto);
         assignmentMapper.UserId = AuthenticatedUser.Id;
@@ -68,7 +73,7 @@ public class UserController : ControllerBase
 
     [HttpPost]
     [Route("/GetUserTask")]
-    public async Task<IActionResult> GetTask([FromForm] UserSearchAssignmentDTO dto)
+    public async Task<IActionResult> GetTask([FromBody] UserSearchAssignmentDTO dto)
     {
         var search = _mapper.Map<SearchAssignmentDTO>(dto);
         search.UserId = dto.UserId;
@@ -88,8 +93,8 @@ public class UserController : ControllerBase
 
     [HttpPut]
     [Route("/UpdatePassword")]
-    public async Task<IActionResult> UpdatePassword([FromForm] LoginUserDTO search, [FromForm] string confirmpassword,
-        [FromForm] string newpassword)
+    public async Task<IActionResult> UpdatePassword([FromBody] LoginUserDTO search, string confirmpassword,
+         string newpassword)
     {
         return Ok(await _userService.UpdatePassword(search, confirmpassword, newpassword));
     }
