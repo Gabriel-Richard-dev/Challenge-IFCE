@@ -4,6 +4,7 @@ using ToDo.Application.DTO;
 using ToDo.Application.Interfaces;
 using ToDo.Domain.Entities;
 using ToDo.Core.ViewModel;
+using ToDo.Core.Exceptions;
 
 namespace ToDo.API.Controllers;
 
@@ -35,7 +36,9 @@ public class UserController : ControllerBase
         var taskCreated = await _assignmentService.CreateTask(assignmentMapper);
         return Ok(new ResultViewModel
         {
-
+            Message = "Task created sucessfully.",
+            Sucess = true,
+            Data = assignmentDto
         });
     }
 
@@ -45,7 +48,13 @@ public class UserController : ControllerBase
     {
         var assignmentMapper = _mapper.Map<AssignmentListDTO>(assignmentDto);
         assignmentMapper.UserId = AuthenticatedUser.Id;
-        return Ok(await _assignmentListService.CreateList(assignmentMapper));
+        var taskListCreated = await _assignmentListService.CreateList(assignmentMapper)
+        return Ok(new ResultViewModel()
+        {
+            Message = "TaskList Created",
+            Sucess = true,
+            Data = assignmentDto
+        });
     }
 
 
@@ -57,10 +66,22 @@ public class UserController : ControllerBase
         var user = await _adminService.GetUserById(userid);
         if (user is not null)
         {
-            return Ok(await _assignmentListService.GetAllLists(userid));
+            var lists = await _assignmentListService.GetAllLists(userid);
+            return Ok(new ResultViewModel()
+            {
+                
+                Message = $"Task list of user: {user.Name}",
+                Sucess = true,
+                Data = lists
+            });
         }
 
-        throw new Exception();
+        return BadRequest(new ResultViewModel()
+        {
+            Message = "Nenhuma lista deste usuário!",
+            Sucess = false,
+            Data = null
+        });
     }
 
     [HttpGet]
@@ -68,7 +89,13 @@ public class UserController : ControllerBase
     public async Task<IActionResult> GetTasksByIds(long listid)
     {
         var userId = AuthenticatedUser.Id;
-        return Ok(await _assignmentService.GetTasks(userId, listid));
+        var tasks = await _assignmentService.GetTasks(userId, listid);
+        return Ok(new ResultViewModel()
+        {
+            Message = $"Tasks recevied sucessfully of list ({listid})",
+            Sucess = true,
+            Data = tasks
+        });
     }
 
     [HttpPost]
@@ -87,8 +114,12 @@ public class UserController : ControllerBase
     public async Task<IActionResult> DeleteTask(long id, long listId)
     {
         var search = new SearchAssignmentDTO() { Id = id, ListId = listId, UserId = AuthenticatedUser.Id };
-
-        return Ok(await _assignmentService.RemoveTask(search));
+        await _assignmentService.RemoveTask(search)
+        return Ok(new ResultViewModel() { 
+            Message = "Task removed sucessfully",
+            Sucess= true,
+            Data = null
+        });
     }
 
     [HttpPut]
@@ -96,14 +127,26 @@ public class UserController : ControllerBase
     public async Task<IActionResult> UpdatePassword([FromBody] LoginUserDTO search, string confirmpassword,
          string newpassword)
     {
-        return Ok(await _userService.UpdatePassword(search, confirmpassword, newpassword));
+        await _userService.UpdatePassword(search, confirmpassword, newpassword)
+        return Ok(new ResultViewModel()
+        {
+            Message = "Password updated.",
+            Sucess= true,
+            Data = null
+        });
     }
 
     [HttpPut]
     [Route("/UpdateUserTask/{id}")]
     public async Task<IActionResult> UpdateUserTask([FromBody] AddAssignmentDTO dto, long id)
     {
-        return Ok(await _assignmentService.UpdateUserTask(dto, id));
+        await _assignmentService.UpdateUserTask(dto, id)
+        return Ok(new ResultViewModel()
+        {
+            Message = "User updated sucessfully.",
+            Sucess= true,
+            Data = null
+        });
     }
 
 
@@ -111,6 +154,12 @@ public class UserController : ControllerBase
     [Route("/SearchTaskByTitle/{parseTitle}")]
     public async Task<IActionResult> SearchTaskByTitle(string parseTitle)
     {
-        return Ok(await _assignmentService.SearchTaskByTitle(parseTitle));
+        var result = await _assignmentService.SearchTaskByTitle(parseTitle);
+        return Ok(new ResultViewModel()
+        {
+            Message = $"You search:'{parseTitle}'\n Corresponding result:",
+            Sucess = true,
+            Data = result
+        });
     }
 }

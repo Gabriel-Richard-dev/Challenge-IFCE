@@ -45,13 +45,7 @@ public class AdminController : ControllerBase
             UserId = id
         });
 
-        if(_assignmentListService.GetAllLists(id).Result.Count == 0)
-        {
-            throw new Exception();
-        }
-
-
-
+   
         return Ok(new ResultViewModel
         {
 
@@ -255,7 +249,7 @@ public class AdminController : ControllerBase
     {
         return Ok(new ResultViewModel
         {
-            Message = "Users corresponding :",
+            Message = $"Users corresponding to '{parsename}':",
             Sucess = true,
             Data = await _userService.SearchByName(parsename)
         });
@@ -268,7 +262,7 @@ public class AdminController : ControllerBase
     {
         return Ok(new ResultViewModel
         {
-            Message = "Users corresponding :",
+            Message = $"Users corresponding to '{parseEmail}':",
             Sucess = true,
             Data = await _userService.SearchByEmail(parseEmail)
         });
