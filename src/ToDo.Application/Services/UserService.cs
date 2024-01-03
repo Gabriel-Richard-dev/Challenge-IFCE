@@ -11,19 +11,21 @@ namespace ToDo.Application.Services;
 
 public class UserService : IUserService
 {
-    public UserService(IUserRepository userRepository, IMapper mapper)
+    public UserService(IUserRepository userRepository, IAssignmentListService listService, IMapper mapper)
     {
         _userRepository = userRepository;
+        _listService = listService;
         _mapper = mapper;
     }
     private readonly IUserRepository _userRepository;
+    private readonly IAssignmentListService _listService;
 
     private readonly IMapper _mapper;
 
     public async Task<User> CreateUser(UserDTO user)
     {
-        User userMapped = _mapper.Map<User>(user);
-        
+        var userMapped = _mapper.Map<User>(user);
+
         var userExists = await GetByEmail(user.Email);
 
         if (userExists != null)
@@ -34,9 +36,11 @@ public class UserService : IUserService
         }
 
         userMapped.Validation();
-        
+
         userMapped.Password = userMapped.Password.GenerateHash();
         var userCreated = await _userRepository.Create(userMapped);
+
+        
         return userCreated;
         
     }

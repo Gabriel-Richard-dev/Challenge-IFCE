@@ -2,6 +2,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using ToDo.Application.DTO;
 using ToDo.Application.Interfaces;
+using ToDo.Core.ViewModel;
 using ToDo.Domain.Entities;
 
 namespace ToDo.API.Controllers;
@@ -23,13 +24,17 @@ public class AuthController : ControllerBase
     [Route("/Login")]
     public async Task<IActionResult> Login([FromBody]LoginUserDTO dto)
     {
-        var listUsers = await _userService.GetAllUsers();
-        
+
         if (await _userService.LoginValid(dto))
         {
             var user = await _userService.GetByEmail(dto.Email);
             AuthenticatedUser.Id = user.Id;
-            return Ok("Logado com sucesso!");
+            return Ok(new ResultViewModel
+            {
+                Message = $"Logado com sucesso! Bem vindo {user.Name}",
+                Sucess = true,
+                Data = null
+            });
         }
 
         throw new Exception();

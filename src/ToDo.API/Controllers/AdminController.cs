@@ -32,16 +32,32 @@ public class AdminController : ControllerBase
 
     [HttpPost]
     [Route("/CreateUser")]
-    public async Task<IActionResult> CreateUser([FromBody] UserDTO user)
+    public async Task<IActionResult> CreateUser(UserDTO user)
     {
-        await _userService.CreateUser(user);
+        _userService.CreateUser(user).Wait();
+        var baseUser = _mapper.Map<BaseUserDTO>(user);
+        
+        var id =  _adminService.GetCredentials(baseUser.Email).Result.Id;
+
+        await _assignmentListService.CreateList(new AssignmentListDTO
+        {
+            Name = "Your List",
+            UserId = id
+        });
+
+        if(_assignmentListService.GetAllLists(id).Result.Count == 0)
+        {
+            throw new Exception();
+        }
+
+
 
         return Ok(new ResultViewModel
         {
 
             Message = "User created sucessfully.",
             Sucess = true,
-            Data = user
+            Data = baseUser
 
         });
     }

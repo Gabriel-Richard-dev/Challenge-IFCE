@@ -41,6 +41,7 @@ void AutoMapperDependencyInjection()
         options.CreateMap<SearchAssignmentDTO, Assignment>().ReverseMap();
         options.CreateMap<AddAssignmentDTO, Assignment>().ReverseMap();
         options.CreateMap<UserDTO, SearchUserDTO>().ReverseMap();
+        options.CreateMap<UserDTO, BaseUserDTO>().ReverseMap();
     });
 
     builder.Services.AddSingleton(automapperconfigure.CreateMapper());

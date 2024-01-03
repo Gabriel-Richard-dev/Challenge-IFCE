@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj": {}
+    "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj": {
+    "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj",
         "projectName": "ToDo.Core",
-        "projectPath": "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj",
-        "packagesPath": "C:\\Users\\Gabriel Richard\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gabriel Richard\\Code\\Challenge-IFCE\\src\\ToDo.Core\\obj\\",
+        "projectPath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj",
+        "packagesPath": "C:\\Users\\Gabri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Gabriel Richard\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -59,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

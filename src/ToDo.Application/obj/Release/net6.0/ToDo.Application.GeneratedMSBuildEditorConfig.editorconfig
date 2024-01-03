@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ToDo.Application
-build_property.ProjectDir = C:\Users\Gabriel Richard\Code\Challenge-IFCE\src\ToDo.Application\
+build_property.ProjectDir = C:\Users\Gabri\Code\Challenge-IFCE\src\ToDo.Application\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
