@@ -40,7 +40,7 @@ public class UserService : IUserService
         userMapped.Password = userMapped.Password.GenerateHash();
         var userCreated = await _userRepository.Create(userMapped);
 
-        
+
         return userCreated;
         
     }
