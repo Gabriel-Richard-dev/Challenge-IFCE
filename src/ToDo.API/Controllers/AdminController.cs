@@ -6,6 +6,7 @@ using ToDo.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 using ToDo.Domain.Entities;
 using ToDo.Core.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 
 
 
@@ -30,10 +31,12 @@ public class AdminController : ControllerBase
     private readonly IUserService _userService;
     private readonly IMapper _mapper;
 
+    [Authorize(Roles = "True")]
     [HttpPost]
     [Route("/CreateUser")]
     public async Task<IActionResult> CreateUser(UserDTO user)
     {
+        
         _userService.CreateUser(user).Wait();
         var baseUser = _mapper.Map<BaseUserDTO>(user);
         
@@ -55,7 +58,7 @@ public class AdminController : ControllerBase
 
         });
     }
-
+    [Authorize(Roles = "True")]
     [HttpPost]
     [Route("/CreateListToUser")]
     public async Task<IActionResult> CreateList([FromBody] AssignmentListDTO list)
@@ -70,7 +73,7 @@ public class AdminController : ControllerBase
 
         });
     }
-
+    [Authorize(Roles = "True")]
     [HttpPost]
     [Route("/DelegateTask")]
     public async Task<IActionResult> DelegateTask([FromBody] AssignmentDTO assignment)
@@ -84,18 +87,22 @@ public class AdminController : ControllerBase
         });
     }
 
+    [Authorize(Roles = "True")]
     [HttpGet]
     [Route("/GetUsers")]
     public async Task<IActionResult> GetUsers()
     {
+
+
+        
         return Ok(new ResultViewModel
         {
             Message = "List of Users:",
             Sucess = true,
             Data = await _userService.GetAllUsers()
-        });
+    });
     }
-
+    [Authorize(Roles = "True")]
     [HttpGet]
     [Route("/GetUserById/{id}")]
     public async Task<IActionResult> GetUserById(long id)
@@ -111,7 +118,7 @@ public class AdminController : ControllerBase
             Data = user
         });
     }
-
+    [Authorize(Roles = "True")]
     [HttpGet]
     [Route("/GetListsByUserId")]
     public async Task<IActionResult> GetTaskList(long userid)
@@ -131,7 +138,7 @@ public class AdminController : ControllerBase
         throw new Exception();
     }
 
-
+    [Authorize(Roles = "True")]
     [HttpGet]
     [Route("/GetTaskByIds/{id}/{listId}/{userId}")]
     public async Task<IActionResult> GetTaskByIds(long id, long listId, long userId)
@@ -150,7 +157,7 @@ public class AdminController : ControllerBase
             Data = task
         });
     }
-
+    [Authorize(Roles = "True")]
     [HttpGet]
     [Route("/GetTasks/{userId}/{listId}")]
     public async Task<IActionResult> GetTasks(long userId, long listId)
@@ -163,7 +170,7 @@ public class AdminController : ControllerBase
 
         });
     }
-
+    [Authorize(Roles = "True")]
     [HttpGet]
     [Route("/GetByEmail/{email}")]
     public async Task<IActionResult> GetByEmail(string email)
@@ -175,7 +182,7 @@ public class AdminController : ControllerBase
             Data = await _userService.GetByEmail(email)
         });
     }
-
+    [Authorize(Roles = "True")]
     [HttpDelete]
     [Route("/DeleteUser/{id}")]
     public async Task<IActionResult> DeleteUser(long id)
@@ -189,7 +196,7 @@ public class AdminController : ControllerBase
             Data = userdeleted
         });
     }
-
+    [Authorize(Roles = "True")]
     [HttpDelete]
     [Route("/DeleteTask/")]
     public async Task<IActionResult> DeleteTask(SearchAssignmentDTO dto)
@@ -202,7 +209,7 @@ public class AdminController : ControllerBase
             Data = dto
         });
     }
-
+    [Authorize(Roles = "True")]
     [HttpDelete]
     [Route("/DeleteTaskList")]
     public async Task<IActionResult> DeleteTaskList([FromBody] SearchAssignmentListDTO search)
@@ -215,7 +222,7 @@ public class AdminController : ControllerBase
             Data = search
         });
     }
-
+    [Authorize(Roles = "True")]
     [HttpPut]
     [Route("UpdateUser/{id}")]
     public async Task<IActionResult> UpdateUser([FromBody] UserDTO usr, long id)
@@ -228,8 +235,8 @@ public class AdminController : ControllerBase
             Data = usr
         });
     }
-    
-    
+
+    [Authorize(Roles = "True")]
     [HttpPut]
     [Route("UpdateTask/{id}")]
     public async Task<IActionResult> UpdateTask([FromBody] AddAssignmentDTO dto, long id)
@@ -242,7 +249,7 @@ public class AdminController : ControllerBase
             Data = dto
         });
     }
-
+    [Authorize(Roles = "True")]
     [HttpGet]
     [Route("SearchUserByName/{parsename}")]
     public async Task<IActionResult> SearchByName(string parsename)
@@ -254,8 +261,8 @@ public class AdminController : ControllerBase
             Data = await _userService.SearchByName(parsename)
         });
     }
-    
-    
+
+    [Authorize(Roles = "True")]
     [HttpGet]
     [Route("SearchUserByEmail/{parseEmail}")]
     public async Task<IActionResult> SearchByEmail(string parseEmail)

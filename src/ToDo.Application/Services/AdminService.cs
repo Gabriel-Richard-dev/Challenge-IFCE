@@ -76,4 +76,10 @@ public class AdminService : IAdminService
 	{
 		return await _userRepository.GetByEmail(email);
 	}
+
+
+    public async Task<User> UserLogged(string email)
+	{
+		return await _userRepository.GetByEmail(email);
+	}
 }

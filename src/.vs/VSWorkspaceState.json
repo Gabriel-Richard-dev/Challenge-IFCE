@@ -2,8 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\ToDo.API",
-    "\\ToDo.API\\Controllers"
+    "\\ToDo.API\\Controllers",
+    "\\ToDo.Application",
+    "\\ToDo.Application\\Interfaces",
+    "\\ToDo.Application\\Services",
+    "\\ToDo.Domain",
+    "\\ToDo.Domain\\Entities",
+    "\\ToDo.Domain\\Keys",
+    "\\ToDo.Infra.Data"
   ],
-  "SelectedNode": "\\ToDo.API\\Controllers\\AdminController.cs",
+  "SelectedNode": "\\ToDo.API\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

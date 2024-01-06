@@ -62,5 +62,16 @@ public class User : Base
     }
     
     
+    public string IsAdministrator()
+    {
+        if(AdminPrivileges == false)
+        {
+            return "false";
+        }
+        return "true";
+    }
+
+
+
 
 }

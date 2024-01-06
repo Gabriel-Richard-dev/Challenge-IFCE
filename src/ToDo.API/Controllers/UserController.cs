@@ -5,6 +5,7 @@ using ToDo.Application.Interfaces;
 using ToDo.Domain.Entities;
 using ToDo.Core.ViewModel;
 using ToDo.Core.Exceptions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ToDo.API.Controllers;
 
@@ -26,7 +27,8 @@ public class UserController : ControllerBase
     private readonly IAssignmentService _assignmentService;
     private readonly IAssignmentListService _assignmentListService;
     private readonly IMapper _mapper;
-
+    
+    [Authorize]
     [HttpPost]
     [Route("/CreateTask")]
     public async Task<IActionResult> CreateTask([FromBody] AddAssignmentDTO assignmentDto)
@@ -41,14 +43,14 @@ public class UserController : ControllerBase
             Data = assignmentDto
         });
     }
-
+    [Authorize]
     [HttpPost]
     [Route("/CreateTaskList")]
     public async Task<IActionResult> CreateTaskList([FromBody] AddAssignmentListDTO assignmentDto)
     {
         var assignmentMapper = _mapper.Map<AssignmentListDTO>(assignmentDto);
         assignmentMapper.UserId = AuthenticatedUser.Id;
-        var taskListCreated = await _assignmentListService.CreateList(assignmentMapper)
+        var taskListCreated = await _assignmentListService.CreateList(assignmentMapper);
         return Ok(new ResultViewModel()
         {
             Message = "TaskList Created",
@@ -56,8 +58,7 @@ public class UserController : ControllerBase
             Data = assignmentDto
         });
     }
-
-
+    [Authorize]
     [HttpGet]
     [Route("/GetLists")]
     public async Task<IActionResult> GetTaskList()
@@ -83,7 +84,7 @@ public class UserController : ControllerBase
             Data = null
         });
     }
-
+    [Authorize]
     [HttpGet]
     [Route("/GetUserTasksByIds/{listid}")]
     public async Task<IActionResult> GetTasksByIds(long listid)
@@ -97,7 +98,7 @@ public class UserController : ControllerBase
             Data = tasks
         });
     }
-
+    [Authorize]
     [HttpPost]
     [Route("/GetUserTask")]
     public async Task<IActionResult> GetTask([FromBody] UserSearchAssignmentDTO dto)
@@ -108,26 +109,26 @@ public class UserController : ControllerBase
 
         return Ok(assignment);
     }
-
+    [Authorize]
     [HttpDelete]
     [Route("/DeleteUserTask/{id}")]
     public async Task<IActionResult> DeleteTask(long id, long listId)
     {
         var search = new SearchAssignmentDTO() { Id = id, ListId = listId, UserId = AuthenticatedUser.Id };
-        await _assignmentService.RemoveTask(search)
+        await _assignmentService.RemoveTask(search);
         return Ok(new ResultViewModel() { 
             Message = "Task removed sucessfully",
             Sucess= true,
             Data = null
         });
     }
-
+    [Authorize]
     [HttpPut]
     [Route("/UpdatePassword")]
     public async Task<IActionResult> UpdatePassword([FromBody] LoginUserDTO search, string confirmpassword,
          string newpassword)
     {
-        await _userService.UpdatePassword(search, confirmpassword, newpassword)
+        await _userService.UpdatePassword(search, confirmpassword, newpassword);
         return Ok(new ResultViewModel()
         {
             Message = "Password updated.",
@@ -135,12 +136,12 @@ public class UserController : ControllerBase
             Data = null
         });
     }
-
+    [Authorize]
     [HttpPut]
     [Route("/UpdateUserTask/{id}")]
     public async Task<IActionResult> UpdateUserTask([FromBody] AddAssignmentDTO dto, long id)
     {
-        await _assignmentService.UpdateUserTask(dto, id)
+        await _assignmentService.UpdateUserTask(dto, id);
         return Ok(new ResultViewModel()
         {
             Message = "User updated sucessfully.",
@@ -149,7 +150,8 @@ public class UserController : ControllerBase
         });
     }
 
-
+    [Authorize]
+    [Authorize]
     [HttpGet]
     [Route("/SearchTaskByTitle/{parseTitle}")]
     public async Task<IActionResult> SearchTaskByTitle(string parseTitle)

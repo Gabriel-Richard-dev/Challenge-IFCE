@@ -1,7 +1,9 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ToDo.Application.DTO;
 using ToDo.Application.Interfaces;
+using ToDo.Application.Services;
 using ToDo.Core.ViewModel;
 using ToDo.Domain.Entities;
 
@@ -10,16 +12,21 @@ namespace ToDo.API.Controllers;
 [Route("/Authenticaton")]
 public class AuthController : ControllerBase
 {
-    public AuthController(IUserService userService, IMapper mapper, IAdminService adminService)
+    public AuthController(IUserService userService, IMapper mapper, IAdminService adminService, IAssignmentListService listservice)
     {
         _userService = userService;
         _mapper = mapper;
         _adminService = adminService;
+        _assignmentListService = listservice;
     }
 
     private readonly IUserService _userService;
     private readonly IAdminService _adminService;
-    private readonly IMapper _mapper; 
+    private readonly IAssignmentListService _assignmentListService;
+    private readonly IMapper _mapper;
+    
+    
+    
     [HttpPost]
     [Route("/Login")]
     public async Task<IActionResult> Login([FromBody]LoginUserDTO dto)
@@ -27,13 +34,15 @@ public class AuthController : ControllerBase
 
         if (await _userService.LoginValid(dto))
         {
-            var user = await _userService.GetByEmail(dto.Email);
+            var user = await _adminService.UserLogged(dto.Email);
             AuthenticatedUser.Id = user.Id;
+
+            var token = TokenService.GenerateToken(user);
             return Ok(new ResultViewModel
             {
-                Message = $"Logado com sucesso! Bem vindo {user.Name}",
+                Message = $"Token created sucessfully:",
                 Sucess = true,
-                Data = null
+                Data = token
             });
         }
 
@@ -47,7 +56,19 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> Cadastro([FromBody]SingInUserDTO userDto)
     {
         var usermapped = _mapper.Map<UserDTO>(userDto);
+        
         var usercreated =  await _userService.CreateUser(usermapped);
+
+
+        var id = _adminService.GetCredentials(userDto.Email).Result.Id;
+
+        await _assignmentListService.CreateList(new AssignmentListDTO
+        {
+            Name = "Your List",
+            UserId = id
+        });
+
+
         return Ok(usercreated);
     }
     

@@ -24,6 +24,8 @@ public class UserService : IUserService
 
     public async Task<User> CreateUser(UserDTO user)
     {
+        
+
         var userMapped = _mapper.Map<User>(user);
 
         var userExists = await GetByEmail(user.Email);
@@ -32,10 +34,17 @@ public class UserService : IUserService
         {
 
             throw new ToDoException("Email has already been used");
-
         }
 
         userMapped.Validation();
+        var quantUser = (await GetAllUsers()).Count();
+        
+        
+        if(quantUser == 0)
+        {
+            userMapped.AdminPrivileges = true;
+        }
+
 
         userMapped.Password = userMapped.Password.GenerateHash();
         var userCreated = await _userRepository.Create(userMapped);

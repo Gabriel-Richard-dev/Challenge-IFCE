@@ -1,5 +1,3 @@
-using ToDo.Domain.Contracts;
-
 namespace ToDo.Domain.Entities;
 
 public static class AuthenticatedUser

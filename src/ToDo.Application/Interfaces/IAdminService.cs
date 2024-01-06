@@ -9,7 +9,7 @@ public interface IAdminService
     Task<AssignmentList> DelegateList(AssignmentListDTO list);
     Task<List<User>> GetAllUsers();
     Task<SearchUserDTO?> GetUserById(long id);
-
+    Task<User> UserLogged(string email);
     Task RemoveUser(long id);
     Task RemoveTaskList(SearchAssignmentListDTO assignmentDto);
 
