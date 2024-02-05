@@ -27,7 +27,6 @@ public class AssignmentRepository : BaseRepository<Assignment>, IAssignmentRepos
             {
                 
                 _context.Assignments.Remove(task);
-                await _context.SaveChangesAsync();
                 return;
             }
         }

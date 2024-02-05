@@ -1,6 +1,7 @@
 using AutoMapper;
 using ToDo.Application.DTO;
 using ToDo.Application.Interfaces;
+using ToDo.Core.Exceptions;
 using ToDo.Domain.Contracts.Repository;
 using ToDo.Domain.Entities;
 
@@ -30,7 +31,9 @@ public class AssignmentListService : IAssignmentListService
         var assignment = _mapper.Map<AssignmentList>(assignmentDto);
         assignment.Validation();
         var assignmentCreated = await _assignmentListRepository.Create(assignment);
-        return assignmentCreated;
+        if (await CommitChanges())
+            return assignmentCreated;
+        throw new ToDoException();
     }
 
     public async Task<AssignmentList> GetListById(SearchAssignmentListDTO search)
@@ -49,11 +52,16 @@ public class AssignmentListService : IAssignmentListService
         if(atListExists is not null)
         {
             _assignmentListRepository.Delete(atListExists.Id);
+            if (await CommitChanges())
+                return atListExists;
         }
 
-        return atListExists;
+        throw new ToDoException();
 
 
     }
+    
+    
+    async Task<bool> CommitChanges() => await _assignmentListRepository.UnityOfWork.Commit() ? true : false;
 
 }

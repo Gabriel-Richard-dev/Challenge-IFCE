@@ -1,12 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
+using ToDo.Domain.Contracts.Repository;
 using ToDo.Domain.Entities;
 using ToDo.Infra.Data.Mappings;
 
 namespace ToDo.Infra.Data.Context;
 
-public class ToDoContext : DbContext
+public class ToDoContext : DbContext, IUnityOfWork
 {
     public ToDoContext() { }
 
@@ -32,5 +33,7 @@ public class ToDoContext : DbContext
         builder.ApplyConfiguration(new AssignmentMap());
         builder.ApplyConfiguration(new AssignmentListMap());
     }
-    
+
+    public async Task<bool> Commit() => await SaveChangesAsync() > 0; 
+
 }

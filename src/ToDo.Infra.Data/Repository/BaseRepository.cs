@@ -5,7 +5,7 @@ using ToDo.Infra.Data.Context;
 
 namespace ToDo.Infra.Data.Repository;
 
-public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
+public abstract class BaseRepository<T> : IUnityOfWork, IBaseRepository<T> where T : Base
 {
     public BaseRepository(ToDoContext context)
     {
@@ -15,11 +15,13 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
     
     protected readonly ToDoContext _context;
     private readonly DbSet<T> _dbset;
+
+
+    public IUnityOfWork UnityOfWork => _context;
     
     public virtual async Task<T> Create(T entity)
     {
         _dbset.Add(entity);
-        await _context.SaveChangesAsync();
         return entity;
     }
     
@@ -41,7 +43,6 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
         var entityEntry = _dbset.Entry(PreviousEntity).State;
         entityEntry = EntityState.Detached;
         _dbset.Update(entity);
-        await _context.SaveChangesAsync();
         return entity;
     }
 
@@ -52,10 +53,17 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : Base
         {
             _dbset.Entry(entity).State = EntityState.Deleted;
             _dbset.Remove(entity);
-            await _context.SaveChangesAsync();
             return;
         }
 
         throw new Exception();
     }
+
+
+    public async Task<bool> Commit()
+    {
+        return await _context.SaveChangesAsync() > 0;
+    }
+
+  
 }

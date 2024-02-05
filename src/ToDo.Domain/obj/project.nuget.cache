@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ltEGvLF+zFV8VTQG08ItOp3dv4Tq/cn8hnaX6T+OwTzqF5UOsxKqAcecM+ktBmIk3vffAO/CMb57c++14EUc9Q==",
+  "dgSpecHash": "IvPvBptgYaXTQtlxvxp+OCGF9dzXZbSIEwu5faMmIUDW4JGg52kGFs5oIJeRvg1Y9VT0AHkUCzpVX1IQrskbsA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj",
+  "projectFilePath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/ToDo.Domain.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Gabri\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512"
+    "/home/gabrielrichard/.nuget/packages/fluentvalidation/11.8.0/fluentvalidation.11.8.0.nupkg.sha512"
   ],
   "logs": []
 }

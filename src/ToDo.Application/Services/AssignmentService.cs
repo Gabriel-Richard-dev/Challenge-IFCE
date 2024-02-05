@@ -3,6 +3,7 @@ using System.Xml;
 using AutoMapper;
 using ToDo.Application.DTO;
 using ToDo.Application.Interfaces;
+using ToDo.Core.Exceptions;
 using ToDo.Domain.Contracts.Repository;
 using ToDo.Domain.Entities;
 
@@ -80,8 +81,9 @@ public class AssignmentService : IAssignmentService
 
        var removed = await GetTaskById(dto);
        await _assignmentRepository.RemoveTask(dto.Id, dto.UserId);
-       return removed;
-
+       if(await CommitChanges())
+        return removed;
+       throw new ToDoException();
 
     }
 
@@ -96,7 +98,9 @@ public class AssignmentService : IAssignmentService
             assignmentMapped.UserId = baseAssignment.UserId;
             assignmentMapped.Validation();
             await _assignmentRepository.Update(assignmentMapped);
-            return assignmentMapped;
+            if (await CommitChanges())
+                return assignmentMapped;
+            
         }
 
         throw new Exception();
@@ -114,8 +118,11 @@ public class AssignmentService : IAssignmentService
             assignmentMapped.Id = id;
             assignmentMapped.UserId = baseAssignment.UserId;
             assignmentMapped.Validation();
-            await _assignmentRepository.Update(assignmentMapped);
-            return assignmentMapped;
+            var assignmentUpdated = await _assignmentRepository.Update(assignmentMapped);
+            if (await CommitChanges())
+                return assignmentUpdated;
+            throw new ToDoException();
+
         }
 
         throw new Exception();
@@ -136,7 +143,9 @@ public class AssignmentService : IAssignmentService
 
 
     }
-  
-    
-    
+
+    public async Task<bool> CommitChanges() => await _assignmentRepository.UnityOfWork.Commit() ? true : false;
+
+
+
 }

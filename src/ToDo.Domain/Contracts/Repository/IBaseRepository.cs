@@ -9,6 +9,7 @@ public interface IBaseRepository<T> where T : Base
     Task<List<T>?> GetAll();
     Task<T> Update(T entity);
     Task Delete(long id);
-    
+    Task<bool> Commit();
 
+    IUnityOfWork UnityOfWork { get; }
 }

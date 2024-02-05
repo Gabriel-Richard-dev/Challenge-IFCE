@@ -1718,43 +1718,42 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gabri\\.nuget\\packages\\": {}
+    "/home/gabrielrichard/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.API\\ToDo.API.csproj",
+      "projectUniqueName": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/ToDo.API.csproj",
       "projectName": "ToDo.API",
-      "projectPath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.API\\ToDo.API.csproj",
-      "packagesPath": "C:\\Users\\Gabri\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.API\\obj\\",
+      "projectPath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/ToDo.API.csproj",
+      "packagesPath": "/home/gabrielrichard/.nuget/packages/",
+      "outputPath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/gabrielrichard/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "/home/gabrielrichard/.dotnet/sdk/7.0.306/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Application\\ToDo.Application.csproj": {
-              "projectPath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Application\\ToDo.Application.csproj"
+            "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/ToDo.Application.csproj": {
+              "projectPath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/ToDo.Application.csproj"
             },
-            "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj": {
-              "projectPath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj"
+            "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Core/ToDo.Core.csproj": {
+              "projectPath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Core/ToDo.Core.csproj"
             },
-            "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj": {
-              "projectPath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj"
+            "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/ToDo.Domain.csproj": {
+              "projectPath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/ToDo.Domain.csproj"
             },
-            "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Infra.Data\\ToDo.Infra.Data.csproj": {
-              "projectPath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Infra.Data\\ToDo.Infra.Data.csproj"
+            "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/ToDo.Infra.Data.csproj": {
+              "projectPath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/ToDo.Infra.Data.csproj"
             }
           }
         }
@@ -1801,7 +1800,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/home/gabrielrichard/.dotnet/sdk/7.0.306/RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -79,7 +79,7 @@ public class UserController : ControllerBase
 
         return BadRequest(new ResultViewModel()
         {
-            Message = "Nenhuma lista deste usuário!",
+            Message = "User don't have lists",
             Sucess = false,
             Data = null
         });

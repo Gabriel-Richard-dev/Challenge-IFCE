@@ -5,6 +5,7 @@ using ToDo.Application.DTO;
 using ToDo.Domain.Contracts.Repository;
 using ToDo.Application.Interfaces;
 using AutoMapper;
+using ToDo.Core.Exceptions;
 
 namespace ToDo.Application.Services;
 
@@ -14,7 +15,7 @@ public class AdminService : IAdminService
     private readonly IAssignmentRepository _assignmentRepository;
     private readonly IAssignmentListRepository _atListRepository;
 	private readonly IMapper _mapper;
-	
+	private readonly IBaseRepository<Base> _baseRepository;
     public AdminService(IUserRepository userRepository, IAssignmentRepository assignmentRepository, IAssignmentListRepository assignmentListRepository, IMapper mapper)
 	{
 		_userRepository = userRepository;
@@ -31,7 +32,11 @@ public class AdminService : IAdminService
 		assignmentMapped.ListId = listid;
 		
 		AssignmentList assignmentListcreated = await _atListRepository.Create(assignmentMapped);
-		return assignmentListcreated;
+		if(await CommitChanges())
+			return assignmentListcreated;
+
+		throw new ToDoException();
+
 	}
 
 	// public async Task<Assignment> DelegateTask(AssignmentDTO assignment)
@@ -61,6 +66,8 @@ public class AdminService : IAdminService
 	public async Task RemoveUser(long id)
 	{ 
 		await _userRepository.Delete(id);
+		if (await CommitChanges())
+			return;
 	}
 
 
@@ -82,4 +89,8 @@ public class AdminService : IAdminService
 	{
 		return await _userRepository.GetByEmail(email);
 	}
+
+
+	async Task<bool> CommitChanges() => await _baseRepository.UnityOfWork.Commit() ? true : false;
+
 }

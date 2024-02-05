@@ -48,10 +48,9 @@ public class UserService : IUserService
 
         userMapped.Password = userMapped.Password.GenerateHash();
         var userCreated = await _userRepository.Create(userMapped);
-
-
-        return userCreated;
-        
+        if(await CommitChanges())
+            return userCreated;
+        throw new ToDoException();
     }
 
     
@@ -88,14 +87,17 @@ public class UserService : IUserService
         userMapped.Validation();
 
         var userExist = await GetByEmail(user.Email);
-
+        
         if(userExist is null)
         {
             throw new ToDoException("You can't update an user inexistent");
         }
 
         userMapped.Password = userMapped.Password.GenerateHash();
-        return await _userRepository.Update(userMapped);
+        var userCreated = await _userRepository.Update(userMapped);
+        if (await CommitChanges())
+            return userCreated;
+        throw new ToDoException();
 
     }
     public async Task<User> UpdatePassword(LoginUserDTO user, string confirmpass, string newpass)
@@ -112,7 +114,14 @@ public class UserService : IUserService
         userExist.AtualizaPassword(confirmpass, confirmpass, newpass);
         userExist.Validation();
         userExist.Password = userExist.Password.GenerateHash();
-        return await _userRepository.Update(userExist);
+        var userUpdated = await _userRepository.Update(userExist);
+
+        if (await CommitChanges())
+            return userUpdated;
+
+        throw new ToDoException();
+
+
     }
     
         
@@ -137,5 +146,13 @@ public class UserService : IUserService
 
     }
 
-   
+    public async Task<bool> CommitChanges()
+    {
+        if (await _userRepository.UnityOfWork.Commit())
+        {
+            return true;
+        }
+
+        return false;
+    }
 }
