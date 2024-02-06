@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using ToDo.Application.Notifications;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -73,7 +74,7 @@ builder.Services.AddScoped<IAssignmentListService, AssignmentListService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAssignmentRepository, AssignmentRepository>();
 builder.Services.AddScoped<IAssignmentListRepository, AssignmentListRepository>();
-
+builder.Services.AddScoped<INotification, Notificator>();
 
 
 

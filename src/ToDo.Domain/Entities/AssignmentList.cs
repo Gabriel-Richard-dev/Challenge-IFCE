@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using FluentValidation.Results;
 using ToDo.Domain.Validators;
 
 namespace ToDo.Domain.Entities;
@@ -24,9 +25,9 @@ public class AssignmentList : Base
      
     #endregion
 
-    public override bool Validation()
+    public override List<ValidationFailure> Validation()
     {
         var validator = new  AssignmentListValidator().Validate(this);
-        return validator.IsValid;
+        return validator.Errors;
     }
 }

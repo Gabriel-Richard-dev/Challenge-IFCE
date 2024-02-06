@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using FluentValidation;
+using FluentValidation.Results;
 using ToDo.Domain.Contracts;
 using ToDo.Domain.Validators;
 using ToDo.Core.Exceptions;
@@ -45,20 +46,12 @@ public class User : Base
         throw new Exception();
     }
 
-    public override bool Validation()
+    public override List<string> Validation()
     {
         var validator = new UserValidator();
         var validation = validator.Validate(this);
-
-        if (!validation.IsValid)
-        {
-            foreach (var erros in validation.Errors)
-                _erros.Add(erros.ErrorMessage);
-
-            throw new ToDoException("Campo inválido, corrija-os.");
-        }
-
-        return true;
+        
+        
     }
     
     

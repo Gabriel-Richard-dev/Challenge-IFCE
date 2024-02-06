@@ -1,3 +1,4 @@
+using FluentValidation.Results;
 using ToDo.Domain.Contracts;
 using ToDo.Domain.Validators;
 
@@ -36,9 +37,9 @@ public class Assignment : Base
 
     #endregion
     
-    public override bool Validation()
+    public override List<ValidationFailure> Validation()
     {
         var validator = new  AssignmentValidator().Validate(this);
-        return validator.IsValid;
+        return validator.Errors;
     }
 }

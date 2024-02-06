@@ -3,6 +3,7 @@ using System.Net.WebSockets;
 using ToDo.Application.Criptografy;
 using ToDo.Application.DTO;
 using ToDo.Application.Interfaces;
+using ToDo.Application.Notifications;
 using ToDo.Domain.Contracts.Repository;
 using ToDo.Domain.Entities;
 using ToDo.Core.Exceptions;
@@ -11,15 +12,16 @@ namespace ToDo.Application.Services;
 
 public class UserService : IUserService
 {
-    public UserService(IUserRepository userRepository, IAssignmentListService listService, IMapper mapper)
+    public UserService(IUserRepository userRepository, IAssignmentListService listService, IMapper mapper, INotification notificator)
     {
         _userRepository = userRepository;
         _listService = listService;
         _mapper = mapper;
+        _notificator = notificator;
     }
     private readonly IUserRepository _userRepository;
     private readonly IAssignmentListService _listService;
-
+    private readonly INotification _notificator;
     private readonly IMapper _mapper;
 
     public async Task<User> CreateUser(UserDTO user)
@@ -32,8 +34,7 @@ public class UserService : IUserService
 
         if (userExists != null)
         {
-
-            throw new ToDoException("Email has already been used");
+            _notificator.AddNotification("Já existe um usuário cadastrado com esse email!");
         }
 
         userMapped.Validation();
@@ -84,7 +85,7 @@ public class UserService : IUserService
     {
         var userMapped = _mapper.Map<User>(user);
         userMapped.Id = id;
-        userMapped.Validation();
+        _notificator.AddNotification(userMapped.Validation().ToList());
 
         var userExist = await GetByEmail(user.Email);
         
