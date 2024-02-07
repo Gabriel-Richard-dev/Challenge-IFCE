@@ -76,6 +76,8 @@ namespace ToDo.Infra.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("AssignmentList", (string)null);
                 });
 
@@ -109,6 +111,20 @@ namespace ToDo.Infra.Data.Migrations
                         .IsUnique();
 
                     b.ToTable("User", (string)null);
+                });
+
+            modelBuilder.Entity("ToDo.Domain.Entities.AssignmentList", b =>
+                {
+                    b.HasOne("ToDo.Domain.Entities.User", null)
+                        .WithMany("AssignmentLists")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ToDo.Domain.Entities.User", b =>
+                {
+                    b.Navigation("AssignmentLists");
                 });
 #pragma warning restore 612, 618
         }

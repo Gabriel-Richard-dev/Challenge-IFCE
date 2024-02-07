@@ -7,22 +7,23 @@ using Microsoft.AspNetCore.Mvc;
 using ToDo.Domain.Entities;
 using ToDo.Core.ViewModel;
 using Microsoft.AspNetCore.Authorization;
-
+using ToDo.Application.Notifications;
 
 
 namespace ToDo.API.Controllers;
 
 [ApiController]
-public class AdminController : ControllerBase
+public class AdminController : BaseController
 {
     public AdminController(IAdminService adminService, IAssignmentService assignmentService,
-        IAssignmentListService assignmentListService, IUserService userService, IMapper mapper)
+        IAssignmentListService assignmentListService, IUserService userService, IMapper mapper, INotification notification) : base(notification)
     {
         _adminService = adminService;
         _assignmentListService = assignmentListService;
         _userService = userService;
         _mapper = mapper;
         _assignmentService = assignmentService;
+        
     }
 
     private readonly IAdminService _adminService;
@@ -34,29 +35,15 @@ public class AdminController : ControllerBase
     [Authorize(Roles = "True")]
     [HttpPost]
     [Route("/CreateUser")]
+    
+    
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
     public async Task<IActionResult> CreateUser(UserDTO user)
     {
-        
-        _userService.CreateUser(user).Wait();
-        var baseUser = _mapper.Map<BaseUserDTO>(user);
-        
-        var id =  _adminService.GetCredentials(baseUser.Email).Result.Id;
-
-        await _assignmentListService.CreateList(new AssignmentListDTO
-        {
-            Name = "Your List",
-            UserId = id
-        });
-
-   
-        return Ok(new ResultViewModel
-        {
-
-            Message = "User created sucessfully.",
-            Sucess = true,
-            Data = baseUser
-
-        });
+        return CustomResponse(await _userService.CreateUser(user));
     }
     [Authorize(Roles = "True")]
     [HttpPost]
@@ -225,15 +212,12 @@ public class AdminController : ControllerBase
     [Authorize(Roles = "True")]
     [HttpPut]
     [Route("UpdateUser/{id}")]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType(typeof(List<User>), StatusCodes.Status200OK)]
     public async Task<IActionResult> UpdateUser([FromBody] UserDTO usr, long id)
     {
-        await _userService.Update(usr, id);
-        return Ok(new ResultViewModel
-        {
-            Message = "User updated",
-            Sucess = true,
-            Data = usr
-        });
+       return CustomResponse(await _userService.Update(usr, id));
     }
 
     [Authorize(Roles = "True")]
@@ -241,13 +225,7 @@ public class AdminController : ControllerBase
     [Route("UpdateTask/{id}")]
     public async Task<IActionResult> UpdateTask([FromBody] AddAssignmentDTO dto, long id)
     {
-        await _assignmentService.UpdateTask(dto, id);
-        return Ok(new ResultViewModel
-        {
-            Message = "Task updated",
-            Sucess = true,
-            Data = dto
-        });
+        return CustomResponse(await _assignmentService.UpdateTask(dto, id));
     }
     [Authorize(Roles = "True")]
     [HttpGet]

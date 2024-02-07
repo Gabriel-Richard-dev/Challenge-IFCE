@@ -6,8 +6,8 @@ namespace ToDo.Domain.Entities;
 
 public class AssignmentList : Base
 {
-    protected AssignmentList() { }
     
+    public AssignmentList() { }
     public AssignmentList(long id, string name, long userId, long listId)
     {
         Id = id;
@@ -16,6 +16,7 @@ public class AssignmentList : Base
         ListId = listId;
         Validation();
     }
+    
 
     #region props
         public string Name { get; set; }
@@ -25,9 +26,9 @@ public class AssignmentList : Base
      
     #endregion
 
-    public override List<ValidationFailure> Validation()
+    public override List<string> Validation()
     {
         var validator = new  AssignmentListValidator().Validate(this);
-        return validator.Errors;
+        return new List<string>();
     }
 }

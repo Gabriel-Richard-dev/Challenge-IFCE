@@ -32,14 +32,21 @@ public class Assignment : Base
         public bool Concluded { get; set; }
         public DateTime? DateConcluded { get; set; }
         public DateTime? Deadline { get; set; }
-
+        
 
 
     #endregion
     
-    public override List<ValidationFailure> Validation()
+    public override List<string> Validation()
     {
         var validator = new  AssignmentValidator().Validate(this);
-        return validator.Errors;
+        var listErros = new List<string>();
+
+        foreach (var erro in validator.Errors)
+        {
+            listErros.Add(erro.ErrorMessage);
+        }
+
+        return listErros;
     }
 }

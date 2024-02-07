@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "v/ze/bcmK5f5h6bxYtI6USJWPB+JefK9wIpg650kvrSmxCtIlLS+o92I8wunZ35bMH3VeRK1b9yggU+dXA6aQQ==",
+  "dgSpecHash": "EeIYRxvfDXVcoief4b46dp9HqgPcQ28WPLUc4T66yEyAib++xx3RNrug2x62RrNoZS/3UQhgeWnk7vo4Q+o7NA==",
   "success": true,
   "projectFilePath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/ToDo.Infra.Data.csproj",
   "expectedPackageFiles": [

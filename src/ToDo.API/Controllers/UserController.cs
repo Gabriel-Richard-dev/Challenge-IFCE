@@ -6,14 +6,15 @@ using ToDo.Domain.Entities;
 using ToDo.Core.ViewModel;
 using ToDo.Core.Exceptions;
 using Microsoft.AspNetCore.Authorization;
+using ToDo.Application.Notifications;
 
 namespace ToDo.API.Controllers;
 
 [ApiController]
-public class UserController : ControllerBase
+public class UserController : BaseController
 {
     public UserController(IUserService userService, IAssignmentService assignmentService, IMapper mapper,
-        IAssignmentListService assignmentListService, IAdminService adminService)
+        IAssignmentListService assignmentListService, IAdminService adminService, INotification notification) : base(notification)
     {
         _userService = userService;
         _assignmentService = assignmentService;

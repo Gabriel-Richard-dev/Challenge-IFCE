@@ -62,8 +62,11 @@ AutoMapperDependencyInjection();
 
 var connectionstring = builder.Configuration.GetConnectionString("DEFAULT");
 
-builder.Services.AddDbContext<ToDoContext>(options => options.UseMySql(connectionstring,
-    ServerVersion.AutoDetect(connectionstring)));
+builder.Services.AddDbContext<ToDoContext>(options => 
+    options
+        .UseMySql(connectionstring, ServerVersion.AutoDetect(connectionstring))
+        .EnableDetailedErrors()
+        .EnableSensitiveDataLogging());
 
 builder.Services.AddSingleton(d => builder.Configuration);
 

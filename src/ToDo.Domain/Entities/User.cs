@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using FluentValidation;
 using FluentValidation.Results;
 using ToDo.Domain.Contracts;
@@ -18,7 +19,6 @@ public class User : Base
         Email = email;
         Password = password;
         AdminPrivileges = adminPrivileges;
-
         _erros = new List<string>();
 
         Validation();
@@ -31,7 +31,9 @@ public class User : Base
     public string Email { get; set; }
     public string Password { get; set; }
     public bool AdminPrivileges { get; set; }
-  
+
+    
+    
     #endregion
 
     public void AtualizaPassword(string pass, string confirmpass, string newpassword)
@@ -46,12 +48,24 @@ public class User : Base
         throw new Exception();
     }
 
-    public override List<string> Validation()
+    public override List<string?> Validation()
     {
         var validator = new UserValidator();
         var validation = validator.Validate(this);
+
+        var listErros = new List<string>();
         
         
+        foreach (var erro in validation.Errors)
+        {
+            listErros.Add(erro.ErrorMessage);
+        }
+        
+        if(listErros is not null)
+            return listErros;
+        
+        
+        return null;
     }
     
     
@@ -65,6 +79,6 @@ public class User : Base
     }
 
 
-
+  
 
 }

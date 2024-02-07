@@ -10,14 +10,16 @@ namespace ToDo.Application.Services;
 public class AssignmentListService : IAssignmentListService
 {
 
-    public AssignmentListService(IAssignmentListRepository assignmentListRepository, IMapper mapperr)
+    public AssignmentListService(IAssignmentListRepository assignmentListRepository, IMapper mapperr, IUserRepository userRepository)
     {
         _assignmentListRepository = assignmentListRepository;
         _mapper = mapperr;
+        _userRepository = userRepository;
     }
 
     private readonly IAssignmentListRepository _assignmentListRepository;
     private readonly IMapper _mapper;
+    private readonly IUserRepository _userRepository;
     public async Task<List<AssignmentList>> GetAllLists(long userid)
     {
         var list = await _assignmentListRepository.GetAll();
@@ -34,6 +36,17 @@ public class AssignmentListService : IAssignmentListService
         if (await CommitChanges())
             return assignmentCreated;
         throw new ToDoException();
+    }
+    public async Task<bool> CreateList(string name)
+    {
+        var list = CreateList(new AssignmentListDTO()
+        {
+            Name = name
+        });
+
+
+        return list is not null;
+
     }
 
     public async Task<AssignmentList> GetListById(SearchAssignmentListDTO search)

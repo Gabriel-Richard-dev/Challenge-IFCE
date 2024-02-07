@@ -7,7 +7,7 @@ namespace ToDo.Domain.Entities;
 public abstract class Base : IBaseEntity
 {
     public long Id { get; set; }
-    public abstract List<ValidationFailure> Validation();
+    public abstract List<string?> Validation();
 
     internal List<string>? _erros;
     

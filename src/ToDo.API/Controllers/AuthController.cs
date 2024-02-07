@@ -3,16 +3,19 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ToDo.Application.DTO;
 using ToDo.Application.Interfaces;
+using ToDo.Application.Notifications;
 using ToDo.Application.Services;
 using ToDo.Core.ViewModel;
 using ToDo.Domain.Entities;
 
 namespace ToDo.API.Controllers;
+
 [ApiController]
 [Route("/Authenticaton")]
-public class AuthController : ControllerBase
+public class AuthController : BaseController
 {
-    public AuthController(IUserService userService, IMapper mapper, IAdminService adminService, IAssignmentListService listservice)
+    public AuthController(IUserService userService, IMapper mapper, IAdminService adminService, IAssignmentListService listservice, 
+        INotification notification) : base(notification)
     {
         _userService = userService;
         _mapper = mapper;
@@ -53,23 +56,15 @@ public class AuthController : ControllerBase
     
     [HttpPost]
     [Route("/Cadastro")]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
     public async Task<IActionResult> Cadastro([FromBody]SingInUserDTO userDto)
     {
         var usermapped = _mapper.Map<UserDTO>(userDto);
         
-        var usercreated =  await _userService.CreateUser(usermapped);
-
-
-        var id = _adminService.GetCredentials(userDto.Email).Result.Id;
-
-        await _assignmentListService.CreateList(new AssignmentListDTO
-        {
-            Name = "Your List",
-            UserId = id
-        });
-
-
-        return Ok(usercreated);
+        return CustomResponse(await _userService.CreateUser(usermapped));
+        
     }
     
     [HttpPut]

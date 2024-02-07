@@ -35,23 +35,35 @@ public class UserService : IUserService
         if (userExists != null)
         {
             _notificator.AddNotification("Já existe um usuário cadastrado com esse email!");
+            return null;
         }
-
-        userMapped.Validation();
-        var quantUser = (await GetAllUsers()).Count();
         
+        _notificator.AddNotification(userMapped.Validation());
+
+
+        if (_notificator.HasNotification())
+            return null;
+        
+        
+        var quantUser = (await GetAllUsers()).Count();
         
         if(quantUser == 0)
         {
             userMapped.AdminPrivileges = true;
         }
-
-
+        
+        
         userMapped.Password = userMapped.Password.GenerateHash();
-        var userCreated = await _userRepository.Create(userMapped);
+        User userCreated = await _userRepository.Create(userMapped);
+
+       
+     
+        
+        
         if(await CommitChanges())
             return userCreated;
-        throw new ToDoException();
+        _notificator.AddNotification("Erro ao criar usuário");
+        return null;
     }
 
     
@@ -85,20 +97,28 @@ public class UserService : IUserService
     {
         var userMapped = _mapper.Map<User>(user);
         userMapped.Id = id;
-        _notificator.AddNotification(userMapped.Validation().ToList());
+        
+        _notificator.AddNotification(userMapped.Validation());
+        if (_notificator.HasNotification())
+            return null;
 
         var userExist = await GetByEmail(user.Email);
         
-        if(userExist is null)
+        if(userExist is not null)
         {
-            throw new ToDoException("You can't update an user inexistent");
+            _notificator.AddNotification("User already exists");
+            return null;
         }
-
+        
         userMapped.Password = userMapped.Password.GenerateHash();
         var userCreated = await _userRepository.Update(userMapped);
+        
+        
+        
         if (await CommitChanges())
             return userCreated;
-        throw new ToDoException();
+        _notificator.AddNotification("Erro ao criar o usuário");
+        return null;
 
     }
     public async Task<User> UpdatePassword(LoginUserDTO user, string confirmpass, string newpass)
@@ -120,7 +140,8 @@ public class UserService : IUserService
         if (await CommitChanges())
             return userUpdated;
 
-        throw new ToDoException();
+        _notificator.AddNotification("Não foi possível retornar o usuário");
+        return null;
 
 
     }
