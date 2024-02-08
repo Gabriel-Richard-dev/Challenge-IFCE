@@ -52,13 +52,9 @@ public class UserService : IUserService
             userMapped.AdminPrivileges = true;
         }
         
-        
+        userMapped.AddFirstList();
         userMapped.Password = userMapped.Password.GenerateHash();
         User userCreated = await _userRepository.Create(userMapped);
-
-       
-     
-        
         
         if(await CommitChanges())
             return userCreated;

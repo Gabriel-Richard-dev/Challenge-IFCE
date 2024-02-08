@@ -32,4 +32,4 @@ C:/Users/Gabri/Code/Challenge-IFCE/src/ToDo.Core/obj/Debug/net6.0/ToDo.Core.dll
 C:/Users/Gabri/Code/Challenge-IFCE/src/ToDo.Core/obj/Debug/net6.0/refint/ToDo.Core.dll
 C:/Users/Gabri/Code/Challenge-IFCE/src/ToDo.Core/obj/Debug/net6.0/ToDo.Core.pdb
 C:/Users/Gabri/Code/Challenge-IFCE/src/ToDo.Core/obj/Debug/net6.0/ref/ToDo.Core.dll
-/home/gabrielrichard/ToDo-Challenge/src/ToDo.Core/bin/Debug/net6.0/ref/ToDo.Core.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Core/obj/Debug/net6.0/refint/ToDo.Core.dll

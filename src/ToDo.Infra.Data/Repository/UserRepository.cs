@@ -12,8 +12,11 @@ public class UserRepository : BaseRepository<User>, IUserRepository
 {
     public UserRepository(ToDoContext context) : base(context)
     { }
-
-   
+    
+    public override async Task Delete(User user)
+    {
+        _context.Users.Remove(user);
+    }
 
     public async Task<User?> GetByEmail(string email)
     {

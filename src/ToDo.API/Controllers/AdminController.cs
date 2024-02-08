@@ -79,9 +79,6 @@ public class AdminController : BaseController
     [Route("/GetUsers")]
     public async Task<IActionResult> GetUsers()
     {
-
-
-        
         return Ok(new ResultViewModel
         {
             Message = "List of Users:",
@@ -89,6 +86,7 @@ public class AdminController : BaseController
             Data = await _userService.GetAllUsers()
     });
     }
+    
     [Authorize(Roles = "True")]
     [HttpGet]
     [Route("/GetUserById/{id}")]
@@ -169,20 +167,19 @@ public class AdminController : BaseController
             Data = await _userService.GetByEmail(email)
         });
     }
+    
     [Authorize(Roles = "True")]
     [HttpDelete]
     [Route("/DeleteUser/{id}")]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<IActionResult> DeleteUser(long id)
     {
-        var userdeleted = await _adminService.GetUserById(id);
-        await _adminService.RemoveUser(id);
-        return Ok(new ResultViewModel
-        {
-            Message = "User deleted with sucess",
-            Sucess = true,
-            Data = userdeleted
-        });
+        return CustomResponse(_adminService.RemoveUser(id));
     }
+    
+    
     [Authorize(Roles = "True")]
     [HttpDelete]
     [Route("/DeleteTask/")]

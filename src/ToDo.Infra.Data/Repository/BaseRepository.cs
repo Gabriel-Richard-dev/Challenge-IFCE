@@ -21,6 +21,7 @@ public abstract class BaseRepository<T> : IUnityOfWork, IBaseRepository<T> where
     
     public virtual async Task<T> Create(T entity)
     {
+        
         _dbset.Add(entity);
         return entity;
     }
@@ -45,19 +46,11 @@ public abstract class BaseRepository<T> : IUnityOfWork, IBaseRepository<T> where
         _dbset.Update(entity);
         return entity;
     }
-
-    public virtual async Task Delete(long id)
+   
+    public virtual async Task Delete(T entity)
     {
-        var entity = await GetById(id);
-        if (entity is not null)
-        {
-            _dbset.Entry(entity).State = EntityState.Deleted;
-            _dbset.Remove(entity);
-            return;
-        }
-
-        throw new Exception();
-    }
+        _dbset.Remove(entity);
+    } 
 
 
     public async Task<bool> Commit()

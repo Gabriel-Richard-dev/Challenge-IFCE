@@ -32,6 +32,7 @@ public class User : Base
     public string Password { get; set; }
     public bool AdminPrivileges { get; set; }
 
+    public Collection<AssignmentList> AssignmentLists { get; set; } = new();
     
     
     #endregion
@@ -78,7 +79,14 @@ public class User : Base
         return "true";
     }
 
-
-  
+    public void AddFirstList()
+    {
+        AssignmentLists.Add(new AssignmentList()
+        {
+            Name = "Your List",
+            ListId = 0,
+            UserId = this.Id
+        });
+    }
 
 }

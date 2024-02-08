@@ -43,4 +43,4 @@ C:/Users/Gabri/Code/Challenge-IFCE/src/ToDo.Domain/obj/Debug/net6.0/ref/ToDo.Dom
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/bin/Debug/net6.0/ToDo.Core.dll
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/bin/Debug/net6.0/ToDo.Core.pdb
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/obj/Debug/net6.0/ToDo.Domain.csproj.CopyComplete
-/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/bin/Debug/net6.0/ref/ToDo.Domain.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/obj/Debug/net6.0/refint/ToDo.Domain.dll

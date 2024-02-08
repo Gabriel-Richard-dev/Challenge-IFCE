@@ -10,4 +10,5 @@ public interface IUserRepository: IBaseRepository<User>
     Task<bool> LoginValid(string email, string password);
     Task<User?> GetByEmail(string email);
     Task<User> Create(User entity);
+    Task Delete(User user);
 }

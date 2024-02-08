@@ -20,7 +20,7 @@ public class AssignmentList : Base
 
     #region props
         public string Name { get; set; }
-        public long UserId { get; set; }
+        public long? UserId { get; set; }
         public long ListId { get; set; }
 
      

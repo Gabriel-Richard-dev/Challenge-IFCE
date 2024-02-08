@@ -5,6 +5,7 @@ using ToDo.Application.DTO;
 using ToDo.Domain.Contracts.Repository;
 using ToDo.Application.Interfaces;
 using AutoMapper;
+using ToDo.Application.Notifications;
 using ToDo.Core.Exceptions;
 
 namespace ToDo.Application.Services;
@@ -15,13 +16,17 @@ public class AdminService : IAdminService
     private readonly IAssignmentRepository _assignmentRepository;
     private readonly IAssignmentListRepository _atListRepository;
 	private readonly IMapper _mapper;
+	private readonly INotification _notificator;
 	private readonly IBaseRepository<Base> _baseRepository;
-    public AdminService(IUserRepository userRepository, IAssignmentRepository assignmentRepository, IAssignmentListRepository assignmentListRepository, IMapper mapper)
+    public AdminService(IUserRepository userRepository, IAssignmentRepository assignmentRepository, 
+	    IAssignmentListRepository assignmentListRepository, IMapper mapper,
+	    INotification notificator)
 	{
 		_userRepository = userRepository;
 		_assignmentRepository = assignmentRepository;
 		_atListRepository = assignmentListRepository;
 		_mapper = mapper;
+		_notificator = notificator;
 	}
     
 	public async Task<AssignmentList> DelegateList(AssignmentListDTO assignmentlist)
@@ -64,10 +69,17 @@ public class AdminService : IAdminService
 	}
 
 	public async Task RemoveUser(long id)
-	{ 
-		await _userRepository.Delete(id);
-		if (await CommitChanges())
-			return;
+	{
+		var user = await _userRepository.GetById(id);
+		if(user is not null)
+		{
+			await _userRepository.Delete(user);
+			if (await CommitChanges())
+				return;
+			_notificator.AddNotification("Impossível remover o usuário.");
+		}
+		
+		
 	}
 
 
@@ -76,7 +88,10 @@ public class AdminService : IAdminService
 		var list = await _atListRepository
 			.GetListByListId(assignmentDto.UserId, assignmentDto.ListId);
 
-		await _atListRepository.Delete(list.Id);
+		await _atListRepository.Delete(list);
+		if (await CommitChanges())
+			return;
+		_notificator.AddNotification("Impossível remover a tasklist.");
 	}
 
 	public async Task<User> GetCredentials(string email)
@@ -91,6 +106,16 @@ public class AdminService : IAdminService
 	}
 
 
-	async Task<bool> CommitChanges() => await _baseRepository.UnityOfWork.Commit() ? true : false;
+	async Task<bool> CommitChanges()
+	{
+		if (await _userRepository.UnityOfWork.Commit() 
+		    || await _atListRepository.UnityOfWork.Commit() 
+		    || await _assignmentRepository.UnityOfWork.Commit())
+		{
+			return true;
+		}
+
+		return false;
+	}
 
 }

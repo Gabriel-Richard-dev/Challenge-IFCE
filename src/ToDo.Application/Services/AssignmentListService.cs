@@ -64,7 +64,7 @@ public class AssignmentListService : IAssignmentListService
 
         if(atListExists is not null)
         {
-            _assignmentListRepository.Delete(atListExists.Id);
+            _assignmentListRepository.Delete(atListExists);
             if (await CommitChanges())
                 return atListExists;
         }

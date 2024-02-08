@@ -33,6 +33,9 @@ public class UserMap : IEntityTypeConfiguration<User>
         builder.Property(u => u.AdminPrivileges)
             .HasDefaultValue(0)
             .HasColumnType("TINYINT");
-        
+
+    
+
+
     }
 }

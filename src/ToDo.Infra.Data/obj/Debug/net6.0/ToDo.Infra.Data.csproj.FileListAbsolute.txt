@@ -55,4 +55,4 @@ C:/Users/Gabri/Code/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Inf
 C:/Users/Gabri/Code/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ref/ToDo.Infra.Data.dll
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Core.dll
 /home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/bin/Debug/net6.0/ToDo.Core.pdb
-/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/bin/Debug/net6.0/ref/ToDo.Infra.Data.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/obj/Debug/net6.0/refint/ToDo.Infra.Data.dll
