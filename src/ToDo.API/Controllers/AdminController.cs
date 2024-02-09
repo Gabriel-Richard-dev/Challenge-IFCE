@@ -1,5 +1,4 @@
 using System;
-using AutoMapper;
 using ToDo.Application.Interfaces;
 using ToDo.Application.DTO;
 using ToDo.Application.Services;
@@ -16,12 +15,12 @@ namespace ToDo.API.Controllers;
 public class AdminController : BaseController
 {
     public AdminController(IAdminService adminService, IAssignmentService assignmentService,
-        IAssignmentListService assignmentListService, IUserService userService, IMapper mapper, INotification notification) : base(notification)
+        IAssignmentListService assignmentListService, IUserService userService,
+        INotification notification) : base(notification)
     {
         _adminService = adminService;
         _assignmentListService = assignmentListService;
         _userService = userService;
-        _mapper = mapper;
         _assignmentService = assignmentService;
         
     }
@@ -30,7 +29,6 @@ public class AdminController : BaseController
     private readonly IAssignmentService _assignmentService;
     private readonly IAssignmentListService _assignmentListService;
     private readonly IUserService _userService;
-    private readonly IMapper _mapper;
 
     [Authorize(Roles = "True")]
     [HttpPost]
@@ -176,7 +174,7 @@ public class AdminController : BaseController
     [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<IActionResult> DeleteUser(long id)
     {
-        return CustomResponse(_adminService.RemoveUser(id));
+        return CustomResponse(await _adminService.RemoveUser(id));
     }
     
     

@@ -3,6 +3,7 @@ using System.Xml;
 using AutoMapper;
 using ToDo.Application.DTO;
 using ToDo.Application.Interfaces;
+using ToDo.Application.Notifications;
 using ToDo.Core.Exceptions;
 using ToDo.Domain.Contracts.Repository;
 using ToDo.Domain.Entities;
@@ -12,16 +13,18 @@ namespace ToDo.Application.Services;
 public class AssignmentService : IAssignmentService
 {
     public AssignmentService(IAssignmentRepository assignmentRepository, IMapper mapper,
-        IAssignmentListService listService)
+        IAssignmentListService listService, INotification notification)
     {
         _assignmentRepository = assignmentRepository;
         _assignmentListService = listService;
         _mapper = mapper;
+        _notification = notification;
     }
 
     private readonly IAssignmentRepository _assignmentRepository;
     private readonly IAssignmentListService _assignmentListService;
     private readonly IMapper _mapper;
+    private readonly INotification _notification;
 
 
     public async Task<Assignment> CreateTask(AssignmentDTO assignmentDto)
@@ -35,7 +38,7 @@ public class AssignmentService : IAssignmentService
 
         if (assignment.Concluded == true && assignment.DateConcluded == null)
         {
-            throw new Exception();
+            _notification.AddNotification("Você não pode dizer que uma task foi concluida sem informar a data de conclusão");
         }
 
         if (assignment.Deadline.Equals("0001-01-01 00:00:00.000000"))
@@ -43,7 +46,7 @@ public class AssignmentService : IAssignmentService
             assignment.Deadline = null;
         }
 
-        assignment.Validation();
+        _notification.AddNotification(assignment.Validation());
 
         var listsuser = await _assignmentListService.GetAllLists(assignmentDto.UserId);
         foreach (var item in listsuser)
@@ -55,7 +58,8 @@ public class AssignmentService : IAssignmentService
             }
         }
 
-        throw new Exception();
+        _notification.AddNotification("Lista inexistente.");
+        return null;
     }
 
 

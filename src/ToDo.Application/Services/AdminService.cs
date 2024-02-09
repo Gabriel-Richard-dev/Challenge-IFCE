@@ -40,21 +40,10 @@ public class AdminService : IAdminService
 		if(await CommitChanges())
 			return assignmentListcreated;
 
-		throw new ToDoException();
-
+		_notificator.AddNotification("Não foi possível criar tasklist");
+		return null;
 	}
-
-	// public async Task<Assignment> DelegateTask(AssignmentDTO assignment)
-
-	// {
-
-	// 	Assignment assignmentmapper = _mapper.Map<Assignment>(assignment); 
-
-	// 	var assignmentcreated = await _assignmentRepository.Create(assignmentmapper);
-
-	// 	return assignmentcreated;
-
-	// }
+	
 
 	public async Task<List<User>?> GetAllUsers()
 	{
@@ -68,18 +57,18 @@ public class AdminService : IAdminService
 		return userMapped;
 	}
 
-	public async Task RemoveUser(long id)
+	public async Task<bool> RemoveUser(long id)
 	{
 		var user = await _userRepository.GetById(id);
 		if(user is not null)
 		{
+			await _atListRepository.Delete(user);
 			await _userRepository.Delete(user);
-			if (await CommitChanges())
-				return;
-			_notificator.AddNotification("Impossível remover o usuário.");
 		}
-		
-		
+		if (await CommitChanges()) 
+			return true;
+		_notificator.AddNotification("Impossível remover o usuário.");
+		return false;
 	}
 
 

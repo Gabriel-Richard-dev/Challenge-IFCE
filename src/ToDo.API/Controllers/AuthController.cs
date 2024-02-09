@@ -29,29 +29,27 @@ public class AuthController : BaseController
     private readonly IMapper _mapper;
     
     
-    
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
     [HttpPost]
     [Route("/Login")]
     public async Task<IActionResult> Login([FromBody]LoginUserDTO dto)
     {
-
+        string token = null;
         if (await _userService.LoginValid(dto))
         {
             var user = await _adminService.UserLogged(dto.Email);
             AuthenticatedUser.Id = user.Id;
 
-            var token = TokenService.GenerateToken(user);
-            return Ok(new ResultViewModel
-            {
-                Message = $"Token created sucessfully:",
-                Sucess = true,
-                Data = token
-            });
+            token = TokenService.GenerateToken(user);
+
         }
 
-        throw new Exception();
 
-        
+        return CustomResponse(token);
+
+
     }
     
     [HttpPost]
@@ -67,19 +65,15 @@ public class AuthController : BaseController
         
     }
     
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     [HttpPut]
     [Route("/RecoveryPassword")]
-    public async Task<IActionResult> UpdatePassword([FromBody] LoginUserDTO userDto)
+    public async Task<IActionResult> UpdatePassword([FromBody] LoginUserDTO userDto, string newPassword)
     {
-        var parseuser = _adminService.GetCredentials(userDto.Email).Result;
-        var senha = parseuser.Password;
-        var search = new LoginUserDTO()
-        {
-            Email = userDto.Email,
-            Password = senha
-        };
-        await _userService.UpdatePassword(search, search.Password, userDto.Password);
-        return Ok("Senha alterada com sucesso");
+        await _userService.UpdatePassword(userDto, newPassword);
+        return CustomResponse("Senha alterada com sucesso");
     }
 
 }

@@ -85,8 +85,17 @@ public class UserService : IUserService
 
     public async Task<bool> LoginValid(LoginUserDTO dto)
     {
+        var user = await GetByEmail(dto.Email);
+        
+        
+        if(user is null)
+            _notificator.AddNotification("Email inexistente!");
+        
         dto.Password = dto.Password.GenerateHash();
-        return await _userRepository.LoginValid(dto.Email, dto.Password);
+        if (await _userRepository.LoginValid(dto.Email, dto.Password))
+            return true;
+        _notificator.AddNotification("Login inválido");
+        return false;
     }
 
     public async Task<User> Update(UserDTO user, long id)
@@ -117,26 +126,30 @@ public class UserService : IUserService
         return null;
 
     }
-    public async Task<User> UpdatePassword(LoginUserDTO user, string confirmpass, string newpass)
+    public async Task<User> UpdatePassword(LoginUserDTO userDto, string newPassword)
     {
-        User userExist = await _userRepository.GetByEmail(user.Email);
+        
+        User userExist = await _userRepository.GetByEmail(userDto.Email);
 
         if(userExist is null)
         {
-            throw new ToDoException("User inexistent.");
+            _notificator.AddNotification("Usuário inexistente");
+            return null;
         }
 
+        if(await LoginValid(userDto)) {
+            userExist.AtualizaPassword(userDto.Password.GenerateHash(),
+                userDto.Password.GenerateHash(), 
+                newPassword);
+            _notificator.AddNotification(userExist.Validation());
+            userExist.Password = userExist.Password.GenerateHash();
+            var userUpdated = await _userRepository.Update(userExist);
+            
+            if (await CommitChanges())
+                return userUpdated;
+        }
 
-        confirmpass  = userExist.Password;
-        userExist.AtualizaPassword(confirmpass, confirmpass, newpass);
-        userExist.Validation();
-        userExist.Password = userExist.Password.GenerateHash();
-        var userUpdated = await _userRepository.Update(userExist);
-
-        if (await CommitChanges())
-            return userUpdated;
-
-        _notificator.AddNotification("Não foi possível retornar o usuário");
+        _notificator.AddNotification("Não foi possível alterar a senha  do usuário");
         return null;
 
 

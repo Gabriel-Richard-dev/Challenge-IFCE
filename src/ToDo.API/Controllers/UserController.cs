@@ -32,17 +32,15 @@ public class UserController : BaseController
     [Authorize]
     [HttpPost]
     [Route("/CreateTask")]
+    [ProducesResponseType(typeof(Assignment), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     public async Task<IActionResult> CreateTask([FromBody] AddAssignmentDTO assignmentDto)
     {
         var assignmentMapper = _mapper.Map<AssignmentDTO>(assignmentDto);
         assignmentMapper.UserId = AuthenticatedUser.Id;
         var taskCreated = await _assignmentService.CreateTask(assignmentMapper);
-        return Ok(new ResultViewModel
-        {
-            Message = "Task created sucessfully.",
-            Sucess = true,
-            Data = assignmentDto
-        });
+        return CustomResponse(taskCreated);
     }
     [Authorize]
     [HttpPost]
@@ -126,16 +124,10 @@ public class UserController : BaseController
     [Authorize]
     [HttpPut]
     [Route("/UpdatePassword")]
-    public async Task<IActionResult> UpdatePassword([FromBody] LoginUserDTO search, string confirmpassword,
-         string newpassword)
+    public async Task<IActionResult> UpdatePassword([FromBody] LoginUserDTO search, string newpassword)
     {
-        await _userService.UpdatePassword(search, confirmpassword, newpassword);
-        return Ok(new ResultViewModel()
-        {
-            Message = "Password updated.",
-            Sucess= true,
-            Data = null
-        });
+        await _userService.UpdatePassword(search, newpassword);
+        return CustomResponse();
     }
     [Authorize]
     [HttpPut]

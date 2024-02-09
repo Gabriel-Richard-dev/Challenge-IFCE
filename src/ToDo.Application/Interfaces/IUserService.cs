@@ -11,7 +11,7 @@ public interface IUserService
     Task<List<SearchUserDTO>?> GetAllUsers();
     Task<SearchUserDTO?> GetByEmail(string email);
     Task<bool> LoginValid(LoginUserDTO dto);
-    Task<User> UpdatePassword(LoginUserDTO user, string confirmpass, string newpass);
+    Task<User> UpdatePassword(LoginUserDTO user, string newPassword);
     Task<List<SearchUserDTO>> SearchByName(string parsename);
     Task<List<SearchUserDTO>> SearchByEmail(string parseEmail);
 }
