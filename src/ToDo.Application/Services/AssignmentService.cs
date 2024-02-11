@@ -87,8 +87,9 @@ public class AssignmentService : IAssignmentService
        await _assignmentRepository.RemoveTask(dto.Id, dto.UserId);
        if(await CommitChanges())
         return removed;
-       throw new ToDoException();
-
+       
+       _notification.AddNotification("Impossível remover a lista");
+       return null;
     }
 
     public async Task<Assignment> UpdateTask(AddAssignmentDTO dto, long id)
@@ -100,14 +101,22 @@ public class AssignmentService : IAssignmentService
             var assignmentMapped = _mapper.Map<Assignment>(dto);
             assignmentMapped.Id = id;
             assignmentMapped.UserId = baseAssignment.UserId;
-            assignmentMapped.Validation();
+            _notification.AddNotification(assignmentMapped.Validation());
+            
+            if (_notification.HasNotification())
+            {
+                return null;
+            }
+            
             await _assignmentRepository.Update(assignmentMapped);
             if (await CommitChanges())
                 return assignmentMapped;
-            
+            _notification.AddNotification("Não foi possível atualizar a tarefa");
+            return null;
         }
 
-        throw new Exception();
+        _notification.NotFound();
+        return null;
     }
 
 
@@ -121,17 +130,25 @@ public class AssignmentService : IAssignmentService
             var assignmentMapped = _mapper.Map<Assignment>(dto);
             assignmentMapped.Id = id;
             assignmentMapped.UserId = baseAssignment.UserId;
-            assignmentMapped.Validation();
+            _notification.AddNotification(assignmentMapped.Validation());
+
+
+            if (_notification.HasNotification())
+            {
+                return null;
+            }
+            
+            
             var assignmentUpdated = await _assignmentRepository.Update(assignmentMapped);
+            
             if (await CommitChanges())
                 return assignmentUpdated;
-            throw new ToDoException();
-
+            _notification.AddNotification("Não foi possível atualizar");
         }
 
-        throw new Exception();
-        
-        
+        _notification.NotFound();
+        return null;
+
     }
 
     public async Task<List<AssignmentDTO>> SearchTaskByTitle(string parseTitle)

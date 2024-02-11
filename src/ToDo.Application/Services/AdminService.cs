@@ -53,8 +53,13 @@ public class AdminService : IAdminService
 	public async Task<SearchUserDTO?> GetUserById(long id)
 	{
 		var user = await _userRepository.GetById(id);
-		var userMapped = _mapper.Map<SearchUserDTO>(user);
-		return userMapped;
+		if(user is not null)
+		{
+			var userMapped = _mapper.Map<SearchUserDTO>(user);
+			return userMapped;
+		}
+		_notificator.AddNotification("Usuário inexistente");
+		return null;
 	}
 
 	public async Task<bool> RemoveUser(long id)

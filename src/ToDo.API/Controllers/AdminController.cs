@@ -33,8 +33,6 @@ public class AdminController : BaseController
     [Authorize(Roles = "True")]
     [HttpPost]
     [Route("/CreateUser")]
-    
-    
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -43,33 +41,30 @@ public class AdminController : BaseController
     {
         return CustomResponse(await _userService.CreateUser(user));
     }
+    
+    
+    
     [Authorize(Roles = "True")]
     [HttpPost]
     [Route("/CreateListToUser")]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType(typeof(AssignmentList), StatusCodes.Status200OK)]
     public async Task<IActionResult> CreateList([FromBody] AssignmentListDTO list)
     {
-        await _adminService.DelegateList(list);
-        return Ok(new ResultViewModel
-        {
-
-            Message = "List created sucessufully.",
-            Sucess = true,
-            Data = list
-
-        });
+        return CustomResponse(await _adminService.DelegateList(list));
     }
+    
+    
     [Authorize(Roles = "True")]
     [HttpPost]
     [Route("/DelegateTask")]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType(typeof(Assignment), StatusCodes.Status200OK)]
     public async Task<IActionResult> DelegateTask([FromBody] AssignmentDTO assignment)
     {
-        var assignmentCreated = await _assignmentService.CreateTask(assignment);
-        return Ok(new ResultViewModel
-        {
-            Message = $"Task delegated to user {_adminService.GetUserById(assignment.UserId).Result.Name}",
-            Sucess = true,
-            Data = assignment
-        });
+        return CustomResponse(await _assignmentService.CreateTask(assignment));
     }
 
     [Authorize(Roles = "True")]

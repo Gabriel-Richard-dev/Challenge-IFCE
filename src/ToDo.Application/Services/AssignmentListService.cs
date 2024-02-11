@@ -1,6 +1,7 @@
 using AutoMapper;
 using ToDo.Application.DTO;
 using ToDo.Application.Interfaces;
+using ToDo.Application.Notifications;
 using ToDo.Core.Exceptions;
 using ToDo.Domain.Contracts.Repository;
 using ToDo.Domain.Entities;
@@ -10,16 +11,20 @@ namespace ToDo.Application.Services;
 public class AssignmentListService : IAssignmentListService
 {
 
-    public AssignmentListService(IAssignmentListRepository assignmentListRepository, IMapper mapperr, IUserRepository userRepository)
+    public AssignmentListService(IAssignmentListRepository assignmentListRepository,
+        IMapper mapperr,
+        IUserRepository userRepository, INotification notification)
     {
         _assignmentListRepository = assignmentListRepository;
         _mapper = mapperr;
         _userRepository = userRepository;
+        _notification = notification;
     }
 
     private readonly IAssignmentListRepository _assignmentListRepository;
     private readonly IMapper _mapper;
     private readonly IUserRepository _userRepository;
+    private readonly INotification _notification;
     public async Task<List<AssignmentList>> GetAllLists(long userid)
     {
         var list = await _assignmentListRepository.GetAll();
@@ -31,11 +36,17 @@ public class AssignmentListService : IAssignmentListService
     public async Task<AssignmentList> CreateList(AssignmentListDTO assignmentDto)
     {
         var assignment = _mapper.Map<AssignmentList>(assignmentDto);
-        assignment.Validation();
+        _notification.AddNotification(assignment.Validation());
+        if (_notification.HasNotification())
+        {
+            return null;
+        }
+        
         var assignmentCreated = await _assignmentListRepository.Create(assignment);
         if (await CommitChanges())
             return assignmentCreated;
-        throw new ToDoException();
+        _notification.AddNotification("Impossível criar a lista");
+        return null;
     }
     public async Task<bool> CreateList(string name)
     {
@@ -67,10 +78,12 @@ public class AssignmentListService : IAssignmentListService
             _assignmentListRepository.Delete(atListExists);
             if (await CommitChanges())
                 return atListExists;
+            _notification.AddNotification("Impossível remover a lista");
+            return null;
         }
 
-        throw new ToDoException();
-
+        _notification.NotFound();
+        return null;
 
     }
     

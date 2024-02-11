@@ -39,7 +39,8 @@ public class AssignmentListRepository : BaseRepository<AssignmentList>, IAssignm
             return list.FirstOrDefault();
         }
 
-        throw new Exception();
+        return null;
+
     }
     public async Task<List<AssignmentList>> GetListByListId(long userId)
     {
