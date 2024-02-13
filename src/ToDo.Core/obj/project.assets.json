@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj",
+      "projectUniqueName": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj",
       "projectName": "ToDo.Core",
-      "projectPath": "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj",
+      "projectPath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj",
       "packagesPath": "C:\\Users\\Gabri\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Core\\obj\\",
+      "outputPath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",

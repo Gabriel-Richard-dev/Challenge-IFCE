@@ -75,5 +75,5 @@ public class AuthController : BaseController
         await _userService.UpdatePassword(userDto, newPassword);
         return CustomResponse("Senha alterada com sucesso");
     }
-
+   
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Application\\ToDo.Application.csproj": {}
+    "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Application\\ToDo.Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Application\\ToDo.Application.csproj": {
+    "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Application\\ToDo.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Application\\ToDo.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Application\\ToDo.Application.csproj",
         "projectName": "ToDo.Application",
-        "projectPath": "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Application\\ToDo.Application.csproj",
+        "projectPath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Application\\ToDo.Application.csproj",
         "packagesPath": "C:\\Users\\Gabri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Application\\obj\\",
+        "outputPath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj": {
-                "projectPath": "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj"
+              "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj": {
+                "projectPath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj"
               }
             }
           }
@@ -81,14 +81,14 @@
         }
       }
     },
-    "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj": {
+    "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj",
         "projectName": "ToDo.Core",
-        "projectPath": "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj",
+        "projectPath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj",
         "packagesPath": "C:\\Users\\Gabri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Core\\obj\\",
+        "outputPath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -136,14 +136,14 @@
         }
       }
     },
-    "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj": {
+    "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj",
         "projectName": "ToDo.Domain",
-        "projectPath": "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj",
+        "projectPath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Domain\\ToDo.Domain.csproj",
         "packagesPath": "C:\\Users\\Gabri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -160,8 +160,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj": {
-                "projectPath": "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj"
+              "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj": {
+                "projectPath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj"
               }
             }
           }

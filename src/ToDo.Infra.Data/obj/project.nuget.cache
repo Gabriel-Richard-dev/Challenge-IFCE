@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bUJVMfSPH7RxNH+lD7SPOvzwtYaQUaxTx2daDn6OViMPlw97WqRVqi8Nh11mLRNzLTdigUL6Andm/ChHlgcDBw==",
+  "dgSpecHash": "VE73EAQjOzFSc3psR4EUZIhHTCr5bOMOW/P3FjhNrskiMauSMPTGulb7pC0XzHabsY/JCaBq/vlSw8v3N2jB5g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gabri\\Code\\ChallengeIFCE\\Challenge-IFCE\\src\\ToDo.Infra.Data\\ToDo.Infra.Data.csproj",
+  "projectFilePath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Infra.Data\\ToDo.Infra.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gabri\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Gabri\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",

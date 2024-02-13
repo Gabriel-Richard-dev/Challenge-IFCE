@@ -9,7 +9,7 @@ namespace ToDo.API.Controllers;
 public abstract class BaseController : ControllerBase
 {
     private readonly INotification _notification;
-    
+
     protected BaseController(INotification notification)
     {
         _notification = notification;
@@ -32,13 +32,9 @@ public abstract class BaseController : ControllerBase
         (
             error: _notification.GetNotifications().ToList()
         );
-        
+
     }
-    
-    
-    
-    
-    
+
     
 
 
