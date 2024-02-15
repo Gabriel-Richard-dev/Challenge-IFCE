@@ -398,6 +398,7 @@
           "Microsoft.EntityFrameworkCore": "7.0.12",
           "Microsoft.EntityFrameworkCore.Relational": "7.0.12",
           "Pomelo.EntityFrameworkCore.MySql": "7.0.0",
+          "ToDo.Application": "1.0.0",
           "ToDo.Domain": "1.0.0"
         },
         "runtime": {

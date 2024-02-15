@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6+DoNrGItaE+bUGbNmK+4qrsQ7+A7KHBNq3vrtKwrQHltJW7j216t8K2nIeei5H/jSoshoqgxtXSsBL5mW9x4Q==",
+  "dgSpecHash": "2jFTAMrErd4A1OuretB1/BZWpDcM7qD0JYA0wQbRtE1D2VFNoKr+LkuT6354zYyZ9le50SqyXY6UlNw95hBdQQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gabri\\Code\\Challenge-IFCE\\src\\ToDo.Core\\ToDo.Core.csproj",
+  "projectFilePath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Core/ToDo.Core.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
