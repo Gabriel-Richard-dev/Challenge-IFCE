@@ -6,10 +6,11 @@ public static class SwaggerConfiguration
 {
     public static void ConfigureSwagger(this IServiceCollection services)
     {
+        services.AddEndpointsApiExplorer();
         services.AddSwaggerGen
         (c =>
         {
-
+            c.EnableAnnotations();
             c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
                 Name = "Authorization",
@@ -35,6 +36,7 @@ public static class SwaggerConfiguration
                 }
             });
         });
+
     }
 
 }

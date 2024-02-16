@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zg1iR4VdNyVejZqnbKvg549jSdR8D4V5P8xcAEXCgBKyuMzjsNSukgXzZmtBBzFvPQf8nsB0GGCNPzwF7AoTHA==",
+  "dgSpecHash": "lwhUFQH6D7eQZQm8kVmR7IlCXB63iC2POysEgpr9aFQsr+XwHn0L8MjAujUDu3SBbbha9DtiqBkFmBDHGzaKsA==",
   "success": true,
   "projectFilePath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/ToDo.API.csproj",
   "expectedPackageFiles": [
@@ -37,6 +37,7 @@
     "/home/gabrielrichard/.nuget/packages/mysqlconnector/2.2.5/mysqlconnector.2.2.5.nupkg.sha512",
     "/home/gabrielrichard/.nuget/packages/pomelo.entityframeworkcore.mysql/7.0.0/pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512",
     "/home/gabrielrichard/.nuget/packages/swashbuckle.aspnetcore/6.0.0/swashbuckle.aspnetcore.6.0.0.nupkg.sha512",
+    "/home/gabrielrichard/.nuget/packages/swashbuckle.aspnetcore.annotations/6.0.0/swashbuckle.aspnetcore.annotations.6.0.0.nupkg.sha512",
     "/home/gabrielrichard/.nuget/packages/swashbuckle.aspnetcore.swagger/6.0.0/swashbuckle.aspnetcore.swagger.6.0.0.nupkg.sha512",
     "/home/gabrielrichard/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.0.0/swashbuckle.aspnetcore.swaggergen.6.0.0.nupkg.sha512",
     "/home/gabrielrichard/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.0.0/swashbuckle.aspnetcore.swaggerui.6.0.0.nupkg.sha512",

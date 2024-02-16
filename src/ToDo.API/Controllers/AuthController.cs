@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ using ToDo.Application.Notifications;
 using ToDo.Application.Services;
 using ToDo.Core.ViewModel;
 using ToDo.Domain.Entities;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace ToDo.API.Controllers;
 
@@ -54,6 +56,7 @@ public class AuthController : BaseController
     
     [HttpPost]
     [Route("/Cadastro")]
+    [SwaggerOperation(Summary = "Register a user")]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
@@ -77,3 +80,4 @@ public class AuthController : BaseController
     }
    
 }
+

@@ -23,6 +23,7 @@ public static class DependencyInjection
                 .UseMySql(connectionstring, ServerVersion.AutoDetect(connectionstring))
                 .EnableDetailedErrors()
                 .EnableSensitiveDataLogging());
+        
         services.AddScoped<IAdminService, AdminService>();
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IAssignmentService, AssignmentService>();

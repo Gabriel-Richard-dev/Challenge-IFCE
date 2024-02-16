@@ -245,3 +245,4 @@ C:/Users/Gabri/Code/ChallengeIFCE/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/r
 C:/Users/Gabri/Code/ChallengeIFCE/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ToDo.API.pdb
 C:/Users/Gabri/Code/ChallengeIFCE/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ToDo.API.genruntimeconfig.cache
 C:/Users/Gabri/Code/ChallengeIFCE/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ref/ToDo.API.dll
+/home/gabrielrichard/ToDo-Challenge/src/ToDo.API/bin/Debug/net6.0/Swashbuckle.AspNetCore.Annotations.dll
