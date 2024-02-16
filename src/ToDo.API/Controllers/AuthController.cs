@@ -30,7 +30,7 @@ public class AuthController : BaseController
     private readonly IAssignmentListService _assignmentListService;
     private readonly IMapper _mapper;
     
-    
+    [SwaggerOperation(Summary = "Login, enter your credentials")]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
@@ -67,7 +67,7 @@ public class AuthController : BaseController
         return CustomResponse(await _userService.CreateUser(usermapped));
         
     }
-    
+    [SwaggerOperation(Summary = "Recover your password")]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType(StatusCodes.Status200OK)]
