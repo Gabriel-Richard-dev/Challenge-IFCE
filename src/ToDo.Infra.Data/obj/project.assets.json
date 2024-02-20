@@ -1792,11 +1792,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/ToDo.Infra.Data.csproj",
+      "projectUniqueName": "/home/gabrielrichard/Challenge-IFCE/src/ToDo.Infra.Data/ToDo.Infra.Data.csproj",
       "projectName": "ToDo.Infra.Data",
-      "projectPath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/ToDo.Infra.Data.csproj",
+      "projectPath": "/home/gabrielrichard/Challenge-IFCE/src/ToDo.Infra.Data/ToDo.Infra.Data.csproj",
       "packagesPath": "/home/gabrielrichard/.nuget/packages/",
-      "outputPath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Infra.Data/obj/",
+      "outputPath": "/home/gabrielrichard/Challenge-IFCE/src/ToDo.Infra.Data/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/gabrielrichard/.nuget/NuGet/NuGet.Config"
@@ -1811,11 +1811,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/ToDo.Application.csproj": {
-              "projectPath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Application/ToDo.Application.csproj"
+            "/home/gabrielrichard/Challenge-IFCE/src/ToDo.Application/ToDo.Application.csproj": {
+              "projectPath": "/home/gabrielrichard/Challenge-IFCE/src/ToDo.Application/ToDo.Application.csproj"
             },
-            "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/ToDo.Domain.csproj": {
-              "projectPath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Domain/ToDo.Domain.csproj"
+            "/home/gabrielrichard/Challenge-IFCE/src/ToDo.Domain/ToDo.Domain.csproj": {
+              "projectPath": "/home/gabrielrichard/Challenge-IFCE/src/ToDo.Domain/ToDo.Domain.csproj"
             }
           }
         }

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Core/ToDo.Core.csproj",
+      "projectUniqueName": "/home/gabrielrichard/Challenge-IFCE/src/ToDo.Core/ToDo.Core.csproj",
       "projectName": "ToDo.Core",
-      "projectPath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Core/ToDo.Core.csproj",
+      "projectPath": "/home/gabrielrichard/Challenge-IFCE/src/ToDo.Core/ToDo.Core.csproj",
       "packagesPath": "/home/gabrielrichard/.nuget/packages/",
-      "outputPath": "/home/gabrielrichard/ToDo-Challenge/src/ToDo.Core/obj/",
+      "outputPath": "/home/gabrielrichard/Challenge-IFCE/src/ToDo.Core/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/gabrielrichard/.nuget/NuGet/NuGet.Config"
