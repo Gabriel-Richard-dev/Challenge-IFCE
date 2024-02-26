@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "HcuM/X35Zn4Vh2CnasyoZl3eJfR0XzpC3uD8MCyX5L55QOyFix+cqLieCoGlb4qJGc48yYy2oYsP3UC32cE4AQ==",
+  "dgSpecHash": "3iqMTVA1rIc4D4+HjJvIR/+AGPhN8zwLtpgSkrLO12B8ymX5ZnzKB3i0xvF0i51GA2PlfL3fJNWRW0dOi4p0Bw==",
   "success": true,
   "projectFilePath": "/home/gabrielrichard/Challenge-IFCE/src/ToDo.Domain/ToDo.Domain.csproj",
   "expectedPackageFiles": [
-    "/home/gabrielrichard/.nuget/packages/fluentvalidation/11.8.0/fluentvalidation.11.8.0.nupkg.sha512"
+    "/home/gabrielrichard/.nuget/packages/fluentvalidation/11.8.0/fluentvalidation.11.8.0.nupkg.sha512",
+    "/home/gabrielrichard/.nuget/packages/microsoft.netcore.app.ref/6.0.27/microsoft.netcore.app.ref.6.0.27.nupkg.sha512",
+    "/home/gabrielrichard/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.27/microsoft.aspnetcore.app.ref.6.0.27.nupkg.sha512"
   ],
   "logs": []
 }

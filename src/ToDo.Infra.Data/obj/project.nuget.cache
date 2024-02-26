@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1uTwSs+ISBZsIOyBoiC6Kr/6TJkXJNGPC7TJfew5A4PYBSRxv/7WgC9N3/ZkkONfOVUtebjbMJ00sOVII4/DIA==",
+  "dgSpecHash": "rY/CZIkvzl3AzCj6GMmFxnJ/7J46THuDojnUpHAkuxlk9CO+k+qgIsdOSiW1azq8+CxS1M+QnZutl3M653FPlg==",
   "success": true,
   "projectFilePath": "/home/gabrielrichard/Challenge-IFCE/src/ToDo.Infra.Data/ToDo.Infra.Data.csproj",
   "expectedPackageFiles": [
@@ -35,8 +35,11 @@
     "/home/gabrielrichard/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/6.10.0/microsoft.identitymodel.protocols.openidconnect.6.10.0.nupkg.sha512",
     "/home/gabrielrichard/.nuget/packages/microsoft.identitymodel.tokens/6.10.0/microsoft.identitymodel.tokens.6.10.0.nupkg.sha512",
     "/home/gabrielrichard/.nuget/packages/microsoft.net.http.headers/2.2.0/microsoft.net.http.headers.2.2.0.nupkg.sha512",
+    "/home/gabrielrichard/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.3/microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "/home/gabrielrichard/.nuget/packages/microsoft.netframework.referenceassemblies.net461/1.0.3/microsoft.netframework.referenceassemblies.net461.1.0.3.nupkg.sha512",
     "/home/gabrielrichard/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
     "/home/gabrielrichard/.nuget/packages/mysqlconnector/2.2.5/mysqlconnector.2.2.5.nupkg.sha512",
+    "/home/gabrielrichard/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
     "/home/gabrielrichard/.nuget/packages/pomelo.entityframeworkcore.mysql/7.0.0/pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512",
     "/home/gabrielrichard/.nuget/packages/system.buffers/4.5.0/system.buffers.4.5.0.nupkg.sha512",
     "/home/gabrielrichard/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
@@ -44,7 +47,9 @@
     "/home/gabrielrichard/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/home/gabrielrichard/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512",
     "/home/gabrielrichard/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",
-    "/home/gabrielrichard/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512"
+    "/home/gabrielrichard/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512",
+    "/home/gabrielrichard/.nuget/packages/microsoft.netcore.app.ref/6.0.27/microsoft.netcore.app.ref.6.0.27.nupkg.sha512",
+    "/home/gabrielrichard/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.27/microsoft.aspnetcore.app.ref.6.0.27.nupkg.sha512"
   ],
   "logs": []
 }

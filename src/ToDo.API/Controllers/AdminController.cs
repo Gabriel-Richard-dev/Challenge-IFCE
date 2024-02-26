@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using ToDo.Domain.Entities;
 using ToDo.Core.ViewModel;
 using Microsoft.AspNetCore.Authorization;
+using Swashbuckle.AspNetCore.Annotations;
 using ToDo.Application.Notifications;
 
 
@@ -29,10 +30,11 @@ public class AdminController : BaseController
     private readonly IAssignmentService _assignmentService;
     private readonly IAssignmentListService _assignmentListService;
     private readonly IUserService _userService;
-
+    
     [Authorize(Roles = "True")]
     [HttpPost]
     [Route("/CreateUser")]
+    [SwaggerOperation(Summary = "Create an user")]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -43,7 +45,7 @@ public class AdminController : BaseController
     }
     
     
-    
+    [SwaggerOperation(Summary = "Create a List")]
     [Authorize(Roles = "True")]
     [HttpPost]
     [Route("/CreateListToUser")]
@@ -55,7 +57,7 @@ public class AdminController : BaseController
         return CustomResponse(await _adminService.DelegateList(list));
     }
     
-    
+    [SwaggerOperation(Summary = "Delegate a Task")]
     [Authorize(Roles = "True")]
     [HttpPost]
     [Route("/DelegateTask")]
@@ -67,6 +69,7 @@ public class AdminController : BaseController
         return CustomResponse(await _assignmentService.CreateTask(assignment));
     }
 
+    [SwaggerOperation(Summary = "Get all users")]
     [Authorize(Roles = "True")]
     [HttpGet]
     [Route("/GetUsers")]
@@ -80,6 +83,7 @@ public class AdminController : BaseController
     });
     }
     
+    [SwaggerOperation(Summary = "GetUser by Id")]
     [Authorize(Roles = "True")]
     [HttpGet]
     [Route("/GetUserById/{id}")]
@@ -96,6 +100,8 @@ public class AdminController : BaseController
             Data = user
         });
     }
+    
+    [SwaggerOperation(Summary = "Get tasks list")]
     [Authorize(Roles = "True")]
     [HttpGet]
     [Route("/GetListsByUserId")]
@@ -115,7 +121,7 @@ public class AdminController : BaseController
 
         throw new Exception();
     }
-
+    [SwaggerOperation(Summary = "Get user task by ids (TASKID,LISTID,USERID)")]
     [Authorize(Roles = "True")]
     [HttpGet]
     [Route("/GetTaskByIds/{id}/{listId}/{userId}")]
@@ -135,6 +141,8 @@ public class AdminController : BaseController
             Data = task
         });
     }
+    
+    [SwaggerOperation(Summary = "Get all tasks")]
     [Authorize(Roles = "True")]
     [HttpGet]
     [Route("/GetTasks/{userId}/{listId}")]
@@ -148,6 +156,8 @@ public class AdminController : BaseController
 
         });
     }
+    
+    [SwaggerOperation(Summary = "Get user by email")]
     [Authorize(Roles = "True")]
     [HttpGet]
     [Route("/GetByEmail/{email}")]
@@ -161,6 +171,7 @@ public class AdminController : BaseController
         });
     }
     
+    [SwaggerOperation(Summary = "Delete an user")]
     [Authorize(Roles = "True")]
     [HttpDelete]
     [Route("/DeleteUser/{id}")]
@@ -172,7 +183,7 @@ public class AdminController : BaseController
         return CustomResponse(await _adminService.RemoveUser(id));
     }
     
-    
+    [SwaggerOperation(Summary = "Delete a task")]
     [Authorize(Roles = "True")]
     [HttpDelete]
     [Route("/DeleteTask/")]
@@ -186,6 +197,7 @@ public class AdminController : BaseController
             Data = dto
         });
     }
+    [SwaggerOperation(Summary = "Delegate tasklist user")]
     [Authorize(Roles = "True")]
     [HttpDelete]
     [Route("/DeleteTaskList")]
@@ -199,6 +211,9 @@ public class AdminController : BaseController
             Data = search
         });
     }
+    
+    
+    [SwaggerOperation(Summary = "Login, enter your credentials")]
     [Authorize(Roles = "True")]
     [HttpPut]
     [Route("UpdateUser/{id}")]
@@ -208,8 +223,9 @@ public class AdminController : BaseController
     public async Task<IActionResult> UpdateUser([FromBody] UserDTO usr, long id)
     {
        return CustomResponse(await _userService.Update(usr, id));
-    }
-
+    } 
+    
+    [SwaggerOperation(Summary = "Update your task")]
     [Authorize(Roles = "True")]
     [HttpPut]
     [Route("UpdateTask/{id}")]
@@ -217,6 +233,8 @@ public class AdminController : BaseController
     {
         return CustomResponse(await _assignmentService.UpdateTask(dto, id));
     }
+    
+    [SwaggerOperation(Summary = "Search an user by name")]
     [Authorize(Roles = "True")]
     [HttpGet]
     [Route("SearchUserByName/{parsename}")]
@@ -229,7 +247,8 @@ public class AdminController : BaseController
             Data = await _userService.SearchByName(parsename)
         });
     }
-
+    
+    [SwaggerOperation(Summary = "Search an user by email")]
     [Authorize(Roles = "True")]
     [HttpGet]
     [Route("SearchUserByEmail/{parseEmail}")]

@@ -1,2 +1,2 @@
 .vs
-src/ToDo.API/dbacess.json
+src/ToDo.Infra.Data/dbacess.json

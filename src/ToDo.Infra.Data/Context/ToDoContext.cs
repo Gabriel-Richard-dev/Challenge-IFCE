@@ -1,9 +1,12 @@
 using System.ComponentModel.DataAnnotations;
+using System.IdentityModel.Tokens.Jwt;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using ToDo.Domain.Contracts.Repository;
 using ToDo.Domain.Entities;
 using ToDo.Infra.Data.Mappings;
+using ToDo.Infra.Data.Util;
+
 
 namespace ToDo.Infra.Data.Context;
 
@@ -21,8 +24,9 @@ public class ToDoContext : DbContext, IUnityOfWork
 
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
+
+        string connection = "server=localhost; port=3306;database=TODODB; uid=root;password=Lab@inf019";
         
-        var connection = "server=localhost; port=3306;database=TODODB; uid=root;password=Gr0612";
         builder.UseMySql(connection, ServerVersion.AutoDetect(connection));
         builder.EnableSensitiveDataLogging(true);
     }

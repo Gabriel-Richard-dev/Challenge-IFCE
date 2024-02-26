@@ -6,6 +6,7 @@ using ToDo.Domain.Entities;
 using ToDo.Core.ViewModel;
 using ToDo.Core.Exceptions;
 using Microsoft.AspNetCore.Authorization;
+using Swashbuckle.AspNetCore.Annotations;
 using ToDo.Application.Notifications;
 
 namespace ToDo.API.Controllers;
@@ -31,74 +32,56 @@ public class UserController : BaseController
     
     [Authorize]
     [HttpPost]
+    [SwaggerOperation(Summary = "Create a task")]
     [Route("/CreateTask")]
     [ProducesResponseType(typeof(Assignment), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     public async Task<IActionResult> CreateTask([FromBody] AddAssignmentDTO assignmentDto)
     {
-        var assignmentMapper = _mapper.Map<AssignmentDTO>(assignmentDto);
-        assignmentMapper.UserId = AuthenticatedUser.Id;
-        var taskCreated = await _assignmentService.CreateTask(assignmentMapper);
-        return CustomResponse(taskCreated);
+        var assignment = _mapper.Map<AssignmentDTO>(assignmentDto);
+        assignment.UserId = AuthenticatedUser.Id;
+        return CustomResponse(await _assignmentService.CreateTask(assignment));
     }
     [Authorize]
     [HttpPost]
+    [SwaggerOperation(Summary = "Create a TaskList")]
     [Route("/CreateTaskList")]
     public async Task<IActionResult> CreateTaskList([FromBody] AddAssignmentListDTO assignmentDto)
     {
-        var assignmentMapper = _mapper.Map<AssignmentListDTO>(assignmentDto);
-        assignmentMapper.UserId = AuthenticatedUser.Id;
-        var taskListCreated = await _assignmentListService.CreateList(assignmentMapper);
-        return Ok(new ResultViewModel()
-        {
-            Message = "TaskList Created",
-            Sucess = true,
-            Data = assignmentDto
-        });
+        var assignmentlist = _mapper.Map<AssignmentListDTO>(assignmentDto);
+        assignmentlist.UserId = AuthenticatedUser.Id;
+        return CustomResponse(await _adminService.DelegateList(assignmentlist));
     }
     [Authorize]
     [HttpGet]
+    [SwaggerOperation(Summary = "Get a tasklist")]
     [Route("/GetLists")]
     public async Task<IActionResult> GetTaskList()
     {
         var userid = AuthenticatedUser.Id;
-        var user = await _adminService.GetUserById(userid);
-        if (user is not null)
-        {
+     
             var lists = await _assignmentListService.GetAllLists(userid);
-            return Ok(new ResultViewModel()
-            {
-                
-                Message = $"Task list of user: {user.Name}",
-                Sucess = true,
-                Data = lists
-            });
-        }
-
-        return BadRequest(new ResultViewModel()
-        {
-            Message = "User don't have lists",
-            Sucess = false,
-            Data = null
-        });
+            return CustomResponse(lists);
+        
+        
     }
+    
     [Authorize]
     [HttpGet]
+    [SwaggerOperation(Summary = "Get User Task by ListId")]
     [Route("/GetUserTasksByIds/{listid}")]
     public async Task<IActionResult> GetTasksByIds(long listid)
     {
         var userId = AuthenticatedUser.Id;
         var tasks = await _assignmentService.GetTasks(userId, listid);
-        return Ok(new ResultViewModel()
-        {
-            Message = $"Tasks recevied sucessfully of list ({listid})",
-            Sucess = true,
-            Data = tasks
-        });
+        return CustomResponse(tasks);
     }
+    
+    
     [Authorize]
     [HttpPost]
+    [SwaggerOperation(Summary = "Get a user task")]
     [Route("/GetUserTask")]
     public async Task<IActionResult> GetTask([FromBody] UserSearchAssignmentDTO dto)
     {
@@ -106,21 +89,20 @@ public class UserController : BaseController
         search.UserId = dto.UserId;
         var assignment = await _assignmentService.GetTaskById(search);
 
-        return Ok(assignment);
+        return CustomResponse(assignment);
     }
     [Authorize]
     [HttpDelete]
+    [SwaggerOperation(Summary = "Delete a task")]
     [Route("/DeleteUserTask/{id}")]
     public async Task<IActionResult> DeleteTask(long id, long listId)
     {
         var search = new SearchAssignmentDTO() { Id = id, ListId = listId, UserId = AuthenticatedUser.Id };
         await _assignmentService.RemoveTask(search);
-        return Ok(new ResultViewModel() { 
-            Message = "Task removed sucessfully",
-            Sucess= true,
-            Data = null
-        });
+        return CustomResponse("Task removed");
     }
+    
+    [SwaggerOperation(Summary = "Update your Password")]
     [Authorize]
     [HttpPut]
     [Route("/UpdatePassword")]
@@ -129,20 +111,16 @@ public class UserController : BaseController
         await _userService.UpdatePassword(search, newpassword);
         return CustomResponse();
     }
+    [SwaggerOperation(Summary = "Update a user task")]
     [Authorize]
     [HttpPut]
     [Route("/UpdateUserTask/{id}")]
     public async Task<IActionResult> UpdateUserTask([FromBody] AddAssignmentDTO dto, long id)
     {
         await _assignmentService.UpdateUserTask(dto, id);
-        return Ok(new ResultViewModel()
-        {
-            Message = "User updated sucessfully.",
-            Sucess= true,
-            Data = null
-        });
+        return CustomResponse();
     }
-
+    [SwaggerOperation(Summary = "search task by title")]
     [Authorize]
     [Authorize]
     [HttpGet]
@@ -150,14 +128,6 @@ public class UserController : BaseController
     public async Task<IActionResult> SearchTaskByTitle(string parseTitle)
     {
         var result = await _assignmentService.SearchTaskByTitle(parseTitle);
-        return Ok(new ResultViewModel()
-        {
-            Message = $"You search:'{parseTitle}'\n Corresponding result:",
-            Sucess = true,
-            Data = result
-        });
+        return CustomResponse(result);
     }
-
-
-   
 }
