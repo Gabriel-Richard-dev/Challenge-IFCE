@@ -30,7 +30,8 @@ public class AssignmentService : IAssignmentService
     public async Task<Assignment> CreateTask(AssignmentDTO assignmentDto)
     {
         var assignment = _mapper.Map<Assignment>(assignmentDto);
-
+        assignment.AssignmentListId = assignmentDto.AtListId;
+        
         if (assignment.DateConcluded.Equals("0001-01-01 00:00:00.000000"))
         {
             assignment.DateConcluded = null;
@@ -48,16 +49,21 @@ public class AssignmentService : IAssignmentService
 
         _notification.AddNotification(assignment.Validation());
 
-        var listsuser = await _assignmentListService.GetAllLists(assignmentDto.UserId);
-        foreach (var item in listsuser)
+        var listsuser = await _assignmentListService.GetListById(new SearchAssignmentListDTO()
         {
-            if (item.ListId == assignmentDto.AtListId)
-            {
-                var assignmentCreated = await _assignmentRepository.Create(assignment);
-                return assignmentCreated;
-            }
-        }
+            ListId = assignmentDto.AtListId,
+            UserId = assignment.UserId
+        });
 
+
+        if (listsuser is not null)
+        {
+            await _assignmentRepository.Create(assignment);
+            if (await CommitChanges())
+                return assignment;
+        }
+        
+        
         _notification.AddNotification("Lista inexistente.");
         return null;
     }
