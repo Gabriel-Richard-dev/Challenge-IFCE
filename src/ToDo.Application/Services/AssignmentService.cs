@@ -94,7 +94,7 @@ public class AssignmentService : IAssignmentService
        if(await CommitChanges())
         return removed;
        
-       _notification.AddNotification("Impossível remover a lista");
+       _notification.AddNotification("Impossível remover a tarefa");
        return null;
     }
 

@@ -9,4 +9,5 @@ public interface IAssignmentListRepository : IBaseRepository<AssignmentList>
     Task<AssignmentList> GetListByListId(long userId, long listId);
 
     Task Delete(User user);
+    
 }

@@ -189,13 +189,8 @@ public class AdminController : BaseController
     [Route("/DeleteTask/")]
     public async Task<IActionResult> DeleteTask(SearchAssignmentDTO dto)
     {
-        await _assignmentService.RemoveTask(dto);
-        return Ok(new ResultViewModel
-        {
-            Message = "Task deleted with sucess",
-            Sucess = true,
-            Data = dto
-        });
+        return CustomResponse(await _assignmentService.RemoveTask(dto));
+       
     }
     [SwaggerOperation(Summary = "Delegate tasklist user")]
     [Authorize(Roles = "True")]
@@ -203,13 +198,8 @@ public class AdminController : BaseController
     [Route("/DeleteTaskList")]
     public async Task<IActionResult> DeleteTaskList([FromBody] SearchAssignmentListDTO search)
     {
-        await _assignmentListService.RemoveTaskList(search);
-        return Ok(new ResultViewModel
-        {
-            Message = "TaskList deleted with success",
-            Sucess = true,
-            Data = search
-        });
+        return CustomResponse(await _assignmentListService.RemoveTaskList(search));
+        
     }
     
     

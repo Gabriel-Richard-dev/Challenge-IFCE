@@ -13,15 +13,18 @@ public class AssignmentListService : IAssignmentListService
 
     public AssignmentListService(IAssignmentListRepository assignmentListRepository,
         IMapper mapperr,
-        IUserRepository userRepository, INotification notification)
+        IUserRepository userRepository, INotification notification,
+        IAssignmentRepository assignmentRepository )
     {
         _assignmentListRepository = assignmentListRepository;
         _mapper = mapperr;
         _userRepository = userRepository;
         _notification = notification;
+        _assignmentRepository = assignmentRepository;
     }
 
     private readonly IAssignmentListRepository _assignmentListRepository;
+    private readonly IAssignmentRepository _assignmentRepository;
     private readonly IMapper _mapper;
     private readonly IUserRepository _userRepository;
     private readonly INotification _notification;
@@ -75,7 +78,8 @@ public class AssignmentListService : IAssignmentListService
 
         if(atListExists is not null)
         {
-            _assignmentListRepository.Delete(atListExists);
+            await _assignmentListRepository.Delete(atListExists);
+            await _assignmentRepository.DeleteByList(await _userRepository.GetById(dto.UserId), dto.ListId);
             if (await CommitChanges())
                 return atListExists;
             _notification.AddNotification("Impossível remover a lista");

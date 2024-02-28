@@ -33,7 +33,7 @@ public class AssignmentListRepository : BaseRepository<AssignmentList>, IAssignm
     public async Task<AssignmentList> GetListByListId(long userId, long listId)
     {
         var list = await _context.AssignmentLists.Where(l =>
-            l.UserId == userId && l.ListId == listId).ToListAsync();
+            l.UserId == userId && l.ListId == listId).AsNoTrackingWithIdentityResolution().ToListAsync();
         if (list.FirstOrDefault() is not null)
         {
             return list.FirstOrDefault();
@@ -45,7 +45,7 @@ public class AssignmentListRepository : BaseRepository<AssignmentList>, IAssignm
     public async Task<List<AssignmentList>> GetListByListId(long userId)
     {
         var list = await _context.AssignmentLists.Where(l =>
-            l.UserId == userId).ToListAsync();
+            l.UserId == userId).AsNoTrackingWithIdentityResolution().ToListAsync();
 
 
         return list;

@@ -33,5 +33,32 @@ public class AssignmentRepository : BaseRepository<Assignment>, IAssignmentRepos
 
         return;
     }
+    
+    public async Task Delete(User user)
+    {
+        var assignments = await GetAllTasks(user.Id);
+ 
+        foreach (var a in assignments)
+        {
+            _context.Assignments.Remove(a);
+        }
+        
+    }
 
+    
+
+
+    public async Task DeleteByList(User user, long listid)
+    {
+        var assignments = (await GetAllTasks(user.Id))
+            .Where(a => a.AssignmentListId == listid)
+            .ToList();
+ 
+        foreach (var a in assignments)
+        {
+            _context.Assignments.Remove(a);
+        }
+    }
+    
+    
 }

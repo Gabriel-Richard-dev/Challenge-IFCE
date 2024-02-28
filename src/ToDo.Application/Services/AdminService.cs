@@ -68,6 +68,7 @@ public class AdminService : IAdminService
 		if(user is not null)
 		{
 			await _atListRepository.Delete(user);
+			await _assignmentRepository.Delete(user);
 			await _userRepository.Delete(user);
 		}
 		if (await CommitChanges()) 
@@ -77,16 +78,6 @@ public class AdminService : IAdminService
 	}
 
 
-	public async Task RemoveTaskList(SearchAssignmentListDTO assignmentDto)
-	{
-		var list = await _atListRepository
-			.GetListByListId(assignmentDto.UserId, assignmentDto.ListId);
-
-		await _atListRepository.Delete(list);
-		if (await CommitChanges())
-			return;
-		_notificator.AddNotification("Impossível remover a tasklist.");
-	}
 
 	public async Task<User> GetCredentials(string email)
 	{
