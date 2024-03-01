@@ -13,6 +13,7 @@ using ToDo.Application.Notifications;
 namespace ToDo.API.Controllers;
 
 [ApiController]
+[Route("/Admin")]
 public class AdminController : BaseController
 {
     public AdminController(IAdminService adminService, IAssignmentService assignmentService,

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3iqMTVA1rIc4D4+HjJvIR/+AGPhN8zwLtpgSkrLO12B8ymX5ZnzKB3i0xvF0i51GA2PlfL3fJNWRW0dOi4p0Bw==",
+  "dgSpecHash": "CLaJGLCUnl0SsB8iUWb5q2ev6ICU7/Ah5MQzcpz31YvDQbIV/sGe8znJZBLehqH2KjriU/rqG5dTJaCZh+BTOg==",
   "success": true,
   "projectFilePath": "/home/gabrielrichard/Challenge-IFCE/src/ToDo.Domain/ToDo.Domain.csproj",
   "expectedPackageFiles": [

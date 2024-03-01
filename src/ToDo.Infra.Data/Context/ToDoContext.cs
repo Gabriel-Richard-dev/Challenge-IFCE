@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using ToDo.Domain.Contracts.Repository;
 using ToDo.Domain.Entities;
 using ToDo.Infra.Data.Mappings;
-using ToDo.Infra.Data.Util;
 
 
 namespace ToDo.Infra.Data.Context;

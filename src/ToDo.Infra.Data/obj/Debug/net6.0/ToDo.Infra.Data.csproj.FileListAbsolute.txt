@@ -93,10 +93,10 @@ C:/Users/Gabri/Code/ChallengeIFCE/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/n
 /home/gabrielrichard/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.AssemblyInfoInputs.cache
 /home/gabrielrichard/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.AssemblyInfo.cs
 /home/gabrielrichard/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.csproj.CoreCompileInputs.cache
+/home/gabrielrichard/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.sourcelink.json
+/home/gabrielrichard/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.csproj.CopyComplete
 /home/gabrielrichard/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.dll
+/home/gabrielrichard/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/refint/ToDo.Infra.Data.dll
 /home/gabrielrichard/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.pdb
 /home/gabrielrichard/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.genruntimeconfig.cache
 /home/gabrielrichard/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ref/ToDo.Infra.Data.dll
-/home/gabrielrichard/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Infra.Data.sourcelink.json
-/home/gabrielrichard/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/refint/ToDo.Infra.Data.dll
-/home/gabrielrichard/Challenge-IFCE/src/ToDo.Infra.Data/obj/Debug/net6.0/ToDo.Inf.6DD1636E.Up2Date
