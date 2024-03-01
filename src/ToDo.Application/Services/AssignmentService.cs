@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using System.Xml;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using ToDo.Application.DTO;
 using ToDo.Application.Interfaces;
 using ToDo.Application.Notifications;
@@ -72,6 +73,13 @@ public class AssignmentService : IAssignmentService
     public async Task<List<Assignment>> GetTasks(long userid, long listId)
     {
         var list = await _assignmentRepository.GetAll();
+
+        if (list is null)
+        {
+            _notification.NotFound();
+            return null;
+        }
+        
         
         return list
             .Where(a => a.AssignmentListId == listId 
@@ -83,6 +91,13 @@ public class AssignmentService : IAssignmentService
         var listAssignment = GetTasks(dto.UserId, dto.ListId).Result;
 
         var assignment = listAssignment.Where(a => a.Id == dto.Id).ToList().FirstOrDefault();
+
+        if (assignment is null)
+        {
+            _notification.NotFound();
+            return null;
+        }
+        
         return assignment;
     }
 
@@ -131,7 +146,7 @@ public class AssignmentService : IAssignmentService
         
         var baseAssignment = await _assignmentRepository.GetById(id);
 
-        if (baseAssignment is not null && baseAssignment.Id == AuthenticatedUser.Id) 
+        if (baseAssignment is not null) 
         {
             var assignmentMapped = _mapper.Map<Assignment>(dto);
             assignmentMapped.Id = id;
@@ -157,12 +172,12 @@ public class AssignmentService : IAssignmentService
 
     }
 
-    public async Task<List<AssignmentDTO>> SearchTaskByTitle(string parseTitle)
+    public async Task<List<AssignmentDTO>> SearchTaskByTitle(string parseTitle, long userId)
     {
         var tasks = await _assignmentRepository.GetAll();
 
         var listTasks = tasks
-            .Where(a => a.UserId == AuthenticatedUser.Id 
+            .Where(a => a.UserId == userId
                         && a.Title.ToLower().Contains(parseTitle.ToLower()))
             .ToList();
 

@@ -8,6 +8,7 @@ using ToDo.Core.Exceptions;
 using Microsoft.AspNetCore.Authorization;
 using Swashbuckle.AspNetCore.Annotations;
 using ToDo.Application.Notifications;
+using ToDo.Application.Services;
 
 namespace ToDo.API.Controllers;
 
@@ -15,7 +16,8 @@ namespace ToDo.API.Controllers;
 public class UserController : BaseController
 {
     public UserController(IUserService userService, IAssignmentService assignmentService, IMapper mapper,
-        IAssignmentListService assignmentListService, IAdminService adminService, INotification notification) : base(notification)
+        IAssignmentListService assignmentListService, IAdminService adminService,
+        INotification notification) : base(notification)
     {
         _userService = userService;
         _assignmentService = assignmentService;
@@ -23,12 +25,17 @@ public class UserController : BaseController
         _assignmentListService = assignmentListService;
         _adminService = adminService;
     }
-
+    
     private readonly IUserService _userService;
     private readonly IAdminService _adminService;
     private readonly IAssignmentService _assignmentService;
     private readonly IAssignmentListService _assignmentListService;
     private readonly IMapper _mapper;
+    
+   
+    async Task<long> GetIdToken() => TokenService.GetUserIdByToken(HttpContext.Request.Headers["Authorization"]);
+    
+    
     
     [Authorize]
     [HttpPost]
@@ -40,7 +47,7 @@ public class UserController : BaseController
     public async Task<IActionResult> CreateTask([FromBody] AddAssignmentDTO assignmentDto)
     {
         var assignment = _mapper.Map<AssignmentDTO>(assignmentDto);
-        assignment.UserId = AuthenticatedUser.Id;
+        assignment.UserId = await GetIdToken();
         return CustomResponse(await _assignmentService.CreateTask(assignment));
     }
     [Authorize]
@@ -50,7 +57,7 @@ public class UserController : BaseController
     public async Task<IActionResult> CreateTaskList([FromBody] AddAssignmentListDTO assignmentDto)
     {
         var assignmentlist = _mapper.Map<AssignmentListDTO>(assignmentDto);
-        assignmentlist.UserId = AuthenticatedUser.Id;
+        assignmentlist.UserId = await GetIdToken();
         return CustomResponse(await _adminService.DelegateList(assignmentlist));
     }
     [Authorize]
@@ -59,7 +66,7 @@ public class UserController : BaseController
     [Route("/GetLists")]
     public async Task<IActionResult> GetTaskList()
     {
-        var userid = AuthenticatedUser.Id;
+        var userid = await GetIdToken();
      
             var lists = await _assignmentListService.GetAllLists(userid);
             return CustomResponse(lists);
@@ -73,7 +80,7 @@ public class UserController : BaseController
     [Route("/GetUserTasksByIds/{listid}")]
     public async Task<IActionResult> GetTasksByIds(long listid)
     {
-        var userId = AuthenticatedUser.Id;
+        var userId = await GetIdToken();
         var tasks = await _assignmentService.GetTasks(userId, listid);
         return CustomResponse(tasks);
     }
@@ -86,7 +93,7 @@ public class UserController : BaseController
     public async Task<IActionResult> GetTask([FromBody] UserSearchAssignmentDTO dto)
     {
         var search = _mapper.Map<SearchAssignmentDTO>(dto);
-        search.UserId = dto.UserId;
+        search.UserId = await GetIdToken();
         var assignment = await _assignmentService.GetTaskById(search);
 
         return CustomResponse(assignment);
@@ -97,7 +104,7 @@ public class UserController : BaseController
     [Route("/DeleteUserTask/{id}")]
     public async Task<IActionResult> DeleteTask(long id, long listId)
     {
-        var search = new SearchAssignmentDTO() { Id = id, ListId = listId, UserId = AuthenticatedUser.Id };
+        var search = new SearchAssignmentDTO() { Id = id, ListId = listId, UserId = await GetIdToken() };
         await _assignmentService.RemoveTask(search);
         return CustomResponse("Task removed");
     }
@@ -120,14 +127,14 @@ public class UserController : BaseController
         await _assignmentService.UpdateUserTask(dto, id);
         return CustomResponse();
     }
+   
     [SwaggerOperation(Summary = "search task by title")]
-    [Authorize]
     [Authorize]
     [HttpGet]
     [Route("/SearchTaskByTitle/{parseTitle}")]
     public async Task<IActionResult> SearchTaskByTitle(string parseTitle)
     {
-        var result = await _assignmentService.SearchTaskByTitle(parseTitle);
+        var result = await _assignmentService.SearchTaskByTitle(parseTitle, await GetIdToken());
         return CustomResponse(result);
     }
 }

@@ -42,8 +42,6 @@ public class AuthController : BaseController
         if (await _userService.LoginValid(dto))
         {
             var user = await _adminService.UserLogged(dto.Email);
-            AuthenticatedUser.Id = user.Id;
-
             token = TokenService.GenerateToken(user);
 
         }

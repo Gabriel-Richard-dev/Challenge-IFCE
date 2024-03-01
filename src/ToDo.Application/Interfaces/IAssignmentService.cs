@@ -13,5 +13,5 @@ public interface IAssignmentService
 
     Task<Assignment> UpdateUserTask(AddAssignmentDTO dto, long id);
 
-    Task<List<AssignmentDTO>> SearchTaskByTitle(string parseTitle);
+    Task<List<AssignmentDTO>> SearchTaskByTitle(string parseTitle, long userId);
 }
