@@ -16,7 +16,7 @@ public class UserValidator : AbstractValidator<User>
             .WithMessage("O nome deve ter no minimo 3 caracteres")
             .MaximumLength(70)
             .WithMessage("O nome deve ter no maximo 70 caracteres")
-            .Matches(@"^[A-Za-z\s]*$");
+            .Matches(@"^[\p{L}\s]*$");
             
         RuleFor(u => u.Email)
             .NotEmpty()
@@ -32,6 +32,7 @@ public class UserValidator : AbstractValidator<User>
             .NotEmpty().WithMessage("Senha não pode estar vazia")
             .NotNull().WithMessage("Senha não pode estar nula")
             .MinimumLength(4).WithMessage("A senha deve ter no minimo 4 caracteres")
-            .MaximumLength(40).WithMessage("A senha deve ter no maximo 40 caracteres");
+            .MaximumLength(40).WithMessage("A senha deve ter no maximo 40 caracteres")
+            .Matches(@"^[\p{L}\s]*$");
     }
 }

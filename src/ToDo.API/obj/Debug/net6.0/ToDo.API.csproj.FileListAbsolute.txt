@@ -306,9 +306,9 @@ C:/Users/Gabri/Code/ChallengeIFCE/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/r
 /home/gabrielrichard/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.ToDo.API.props
 /home/gabrielrichard/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/staticwebassets.pack.json
 /home/gabrielrichard/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/scopedcss/bundle/ToDo.API.styles.css
-/home/gabrielrichard/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ToDo.API.csproj.CopyComplete
 /home/gabrielrichard/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ToDo.API.dll
 /home/gabrielrichard/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/refint/ToDo.API.dll
 /home/gabrielrichard/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ToDo.API.pdb
 /home/gabrielrichard/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ToDo.API.genruntimeconfig.cache
 /home/gabrielrichard/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ref/ToDo.API.dll
+/home/gabrielrichard/Challenge-IFCE/src/ToDo.API/obj/Debug/net6.0/ToDo.API.csproj.Up2Date
